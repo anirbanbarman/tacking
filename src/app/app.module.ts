@@ -7,17 +7,25 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
 
+
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     AppRoutingModule,
     NgChartsModule,
+    HttpClientModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
 
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,

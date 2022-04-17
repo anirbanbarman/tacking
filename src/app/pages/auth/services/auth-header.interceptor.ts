@@ -9,6 +9,7 @@ import {
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
 
+
 @Injectable()
 export class AuthHeaderInterceptor implements HttpInterceptor {
 
@@ -16,6 +17,7 @@ export class AuthHeaderInterceptor implements HttpInterceptor {
 
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
 
 
   const authReq = request.clone({
