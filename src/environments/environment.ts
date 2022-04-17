@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiUrls: {
-    baseUrl: "http://duarecouncillor.btvbharat.com/api/index.php/",
+    baseUrl: "http://mkroadlines.btvbharat.com/api/index.php/",
     apis: {
       adminLogIn:'users/adminLogin'
 

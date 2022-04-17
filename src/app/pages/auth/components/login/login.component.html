@@ -1,42 +1,32 @@
-
-  <div class="container" style="width: 100%;">
-    <div class="left">
-      <img src="https://pngimage.net/wp-content/uploads/2018/06/generic-company-logo-png-7.png" class="animation a6" style="margin: 0 auto 10px;width: 150px">
-      <div class="header">
-        <h2 class="animation a1">Form Login with random background</h2>
-        <p class="animation a2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies sit amet erat at finibus. Praesent justo justo, fringilla sed tellus in, pellentesque eleifend tortor.</p>
-      </div>
-      <form class="form" (ngSubmit)="f.form.valid && logIn(f)" #f="ngForm">
-        <input type="email" class="form-field animation a3"
-         name="email"
-         [(ngModel)]="loginForm.email"
-
-         placeholder="Email"
-         #email="ngModel"
-            [ngClass]="{ 'is-invalid': f.submitted && email.invalid }"
-            required >
-            <div *ngIf="f.submitted && email.invalid" class="invalid-feedback" style="font-size: 10px;">
-              <div *ngIf="email.errors?.required"> Email is required</div>
-            </div>
-
-        <input type="password"
-        class="form-field animation a4"
-        [(ngModel)]="loginForm.password"
-  name="password"
-        #password="ngModel"
-        [ngClass]="{ 'is-invalid': f.submitted && password.invalid }"
-        required
-          placeholder="Password">
-          <div *ngIf="f.submitted && password.invalid" class="invalid-feedback" style="font-size: 10px;">
-            <div *ngIf="password.errors?.required"> Password is required</div>
-          </div>
-
-        <div class="animation a5" style="margin: 20px">
-          <input type="checkbox" id="check" class="animation a5" name=""><label for="check" style="padding-left: 10px;color: #afafaf">Remember my password</label>
-        </div>
-        <button type="submit" class="button animation a6">LOGIN </button>
-      </form>
+<div class="container" style="width: 100%;">
+  <div class="left">
+    <img src="https://pngimage.net/wp-content/uploads/2018/06/generic-company-logo-png-7.png" class="animation a6"
+      style="margin: 0 auto 10px;width: 150px">
+    <div class="header">
+      <h2 class="animation a1">Form Login with random background</h2>
+      <p class="animation a2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ultricies sit amet
+        erat at finibus. Praesent justo justo, fringilla sed tellus in, pellentesque eleifend tortor.</p>
     </div>
-    <div id="right"></div>
-  </div>
+    <form class="form" (ngSubmit)="f.form.valid && logIn(f)" #f="ngForm">
+      <input type="email" class="form-field animation a3" name="email" [(ngModel)]="loginForm.email" placeholder="Email"
+        #email="ngModel" [ngClass]="{ 'is-invalid': f.submitted && email.invalid }" required>
+      <div *ngIf="f.submitted && email.invalid" class="invalid-feedback" style="font-size: 10px;">
+        <div *ngIf="email.errors?.required"> Email is required</div>
+      </div>
 
+      <input type="password" class="form-field animation a4" [(ngModel)]="loginForm.password" name="password"
+        #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.invalid }" required
+        placeholder="Password">
+      <div *ngIf="f.submitted && password.invalid" class="invalid-feedback" style="font-size: 10px;">
+        <div *ngIf="password.errors?.required"> Password is required</div>
+      </div>
+
+      <div class="animation a5" style="margin: 20px">
+        <input type="checkbox" id="check" class="animation a5" name=""><label for="check"
+          style="padding-left: 10px;color: #afafaf">Remember my password</label>
+      </div>
+      <button type="submit" class="button animation a6">LOGIN </button>
+    </form>
+  </div>
+  <div id="right"></div>
+</div>
