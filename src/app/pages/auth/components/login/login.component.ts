@@ -44,35 +44,24 @@ export class LoginComponent implements OnInit {
 
   logIn(form: NgForm) {
     this.spinnerService.show();
-
-
     let payload = new FormData();
     for (var key in this.loginForm) {
       payload.append(key,this.loginForm[key]);
-
     }
-
     this.authService.adminLogin(payload).subscribe((response:any) => {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         localStorage.setItem('token', response.data.token);
         successMessage("login successful");
         this.router.navigate(['dashboard'])
-
-
       }
       else{
         failMessage(response?.data?.message)
         this.spinnerService.hide();
       }
-
     },
       error => {
-
       });
-
-
-
   }
 
 
