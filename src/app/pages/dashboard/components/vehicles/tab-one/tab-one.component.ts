@@ -8,13 +8,15 @@ import { Chart } from 'chart.js';
 })
 export class TabOneComponent implements OnInit {
 
+
+
   constructor() { }
 
   ngOnInit(): void {
 
      /** AREA CHART **/
       //@ts-ignore
-     var ctx = document.getElementById('chartArea').getContext('2d');
+     /**--var ctx = document.getElementById('chartArea').getContext('2d');
 
      var gradient = ctx.createLinearGradient(0, 240, 0, 0);
      gradient.addColorStop(0, 'rgba(0,123,255,0)');
@@ -62,9 +64,7 @@ export class TabOneComponent implements OnInit {
            }
          }
        }
-     });
-
-
+     });**/
   }
 
 }

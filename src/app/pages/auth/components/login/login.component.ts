@@ -15,15 +15,12 @@ export class LoginComponent implements OnInit {
   loginForm: any = {
     email: "",
     password: ""
-
   }
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private spinnerService: NgxSpinnerService
-
-
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +33,6 @@ export class LoginComponent implements OnInit {
       "url(/assets/images/3.jpg)",
       "url(/assets/images/4.jpg)",
       "url(/assets/images/5.jpg)",
-
     ];
     (document.getElementById("right") as HTMLElement).style.backgroundImage = bigSize[1];
 
