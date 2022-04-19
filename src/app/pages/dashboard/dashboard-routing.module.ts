@@ -12,14 +12,18 @@ const routes: Routes = [
 
   {
     path: 'home',
-    component:DashboardComponent
+
+    children: [
+      { path: "", component: DashboardComponent, },
+      {
+        path: 'master/vehicles',
+        component: VehiclesComponent
+
+      }
+    ]
 
   },
-  {
-    path: 'vehicles',
-    component:VehiclesComponent
 
-  }
 ];
 
 @NgModule({
