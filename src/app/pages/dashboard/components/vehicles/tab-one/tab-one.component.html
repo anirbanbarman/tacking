@@ -14,19 +14,19 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Vehicle No</label>
-        <input type="text" class="form-control" placeholder="Vehicle No"  >
+        <input name="vehicleNo" [(ngModel)]="overViewForm.vehicleNo" type="text" class="form-control" placeholder="Vehicle No" />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Make</label>
-        <input type="text" class="form-control" placeholder="Make"  >
+        <input name="make" [(ngModel)]="overViewForm.make" type="text" class="form-control" placeholder="Make"  >
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Model</label>
-        <input type="text" class="form-control" placeholder="Model" >
+        <input name="model" [(ngModel)]="overViewForm.model" type="text" class="form-control" placeholder="Model" />
       </div>
     </div>
   </div>
@@ -34,19 +34,19 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Engine Number</label>
-        <input type="text" class="form-control" placeholder="Engine Number"  >
+        <input name="engineNo" [(ngModel)]="overViewForm.engineNo"  type="text" class="form-control" placeholder="Engine Number"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Chasis Number</label>
-        <input type="text" class="form-control" placeholder="Chasis Number"  >
+        <input name="chasisNo" [(ngModel)]="overViewForm.chasisNo"  type="text" class="form-control" placeholder="Chasis Number"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Cost Price(Rs.)</label>
-        <input type="text" class="form-control" placeholder="Cost Price(Rs.)"  >
+        <input name="costPrice" [(ngModel)]="overViewForm.costPrice"  type="text" class="form-control" placeholder="Cost Price(Rs.)"  />
       </div>
     </div>
   </div>
@@ -55,49 +55,49 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Financer</label>
-        <input type="text" class="form-control" placeholder="Financer"  >
+        <input name="financer" [(ngModel)]="overViewForm.financer"  type="text" class="form-control" placeholder="Financer"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Loan Account Number</label>
-        <input type="text" class="form-control" placeholder="Loan Account Number"  >
+        <input name="loanAccountNo" [(ngModel)]="overViewForm.loanAccountNo"  type="text" class="form-control" placeholder="Loan Account Number"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">EMI(Rs.)</label>
-        <input type="text" class="form-control" placeholder="EMI(Rs.)"  >
+        <input name="emi" [(ngModel)]="overViewForm.emi"  type="text" class="form-control" placeholder="EMI(Rs.)"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">EMI Start Date</label>
-        <input type="date" class="form-control" placeholder="EMI Start Date"  >
+        <input name="emiStartDate" [(ngModel)]="overViewForm.emiStartDate"  type="date" class="form-control" placeholder="EMI Start Date"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">EMI End Date</label>
-        <input type="date" class="form-control" placeholder="EMI End Date"  >
+        <input name="emiEndDate" [(ngModel)]="overViewForm.emiEndDate"  type="date" class="form-control" placeholder="EMI End Date"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">EMI Duration(Months)</label>
-        <input type="text" class="form-control" placeholder="EMI Duration(Months)"  >
+        <input name="emiDuration" [(ngModel)]="overViewForm.emiDuration"  type="text" class="form-control" placeholder="EMI Duration(Months)"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Loan Amount(Rs.)</label>
-        <input type="text" class="form-control" placeholder="Loan Amount(Rs.)"  >
+        <input name="loanAmount" [(ngModel)]="overViewForm.loanAmount"  type="text" class="form-control" placeholder="Loan Amount(Rs.)"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Interest Percentage(%)</label>
-        <input type="text" class="form-control" placeholder="Interest Percentage(%)"  >
+        <input name="interestPercentage" [(ngModel)]="overViewForm.interestPercentage"  type="text" class="form-control" placeholder="Interest Percentage(%)"  />
       </div>
     </div>
   </div>
@@ -106,70 +106,70 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Insurance Company</label>
-        <input type="text" class="form-control" placeholder="Insurance Company"  >
+        <input name="insuranceCompany" [(ngModel)]="overViewForm.insuranceCompany"  type="text" class="form-control" placeholder="Insurance Company"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Insurance Number</label>
-        <input type="text" class="form-control" placeholder="Insurance Number"  >
+        <input name="insuranceNumber" [(ngModel)]="overViewForm.insuranceNumber"  type="text" class="form-control" placeholder="Insurance Number"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Validity</label>
-        <input type="date" class="form-control" placeholder="Validity"  >
+        <input name="validity" [(ngModel)]="overViewForm.validity"  type="date" class="form-control" placeholder="Validity"  />
       </div>
-    </div>    
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Pollution Validity</label>
-        <input type="date" class="form-control" placeholder="Pollution Validity"  >
+        <input name="pollutionValidity" [(ngModel)]="overViewForm.pollutionValidity"  type="date" class="form-control" placeholder="Pollution Validity"  />
       </div>
-    </div>     
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Tax Token Number</label>
-        <input type="text" class="form-control" placeholder="Tax Token Number"  >
+        <input name="taxTokenNo" [(ngModel)]="overViewForm.taxTokenNo"  type="text" class="form-control" placeholder="Tax Token Number" />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Issued By RTO</label>
-        <input type="text" class="form-control" placeholder="Issued By RTO"  >
+        <input name="issuedByRTO" [(ngModel)]="overViewForm.issuedByRTO"  type="text" class="form-control" placeholder="Issued By RTO"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Validity</label>
-        <input type="date" class="form-control" placeholder="Validity"  >
+        <input name="taxTokenValidity" [(ngModel)]="overViewForm.taxTokenValidity"  type="date" class="form-control" placeholder="Validity"  />
       </div>
-    </div>    
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit Number</label>
-        <input type="text" class="form-control" placeholder="Permit Number"  >
+        <input name="permitNo" [(ngModel)]="overViewForm.permitNo"  type="text" class="form-control" placeholder="Permit Number"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Issued By RTO</label>
-        <input type="text" class="form-control" placeholder="Issued By RTO"  >
+        <input name="permitIssuedByRTO" [(ngModel)]="overViewForm.permitIssuedByRTO"  type="text" class="form-control" placeholder="Issued By RTO"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Permit State</label>
-        <select class="form-control select2-no-search">
+        <select name="permitState" [(ngModel)]="overViewForm.permitState"  class="form-control select2-no-search">
           <option label="India"></option>
           <option value="Orissa">Orissa</option>
         </select>
@@ -178,34 +178,34 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit Start Date</label>
-        <input type="date" class="form-control" placeholder="Permit Start Date"  >
+        <input name="permitStartDate" [(ngModel)]="overViewForm.permitStartDate"  type="date" class="form-control" placeholder="Permit Start Date"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit End Date</label>
-        <input type="date" class="form-control" placeholder="Permit Start Date"  >
+        <input name="permitEndDate" [(ngModel)]="overViewForm.permitEndDate"  type="date" class="form-control" placeholder="Permit Start Date"  />
       </div>
-    </div>    
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit(Part A) Number</label>
-        <input type="text" class="form-control" placeholder="Permit Number"  >
+        <input name="permitANo" [(ngModel)]="overViewForm.permitANo"  type="text" class="form-control" placeholder="Permit Number"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Issued By RTO</label>
-        <input type="text" class="form-control" placeholder="Issued By RTO"  >
+        <input name="permitAIssuedByRTO" [(ngModel)]="overViewForm.permitAIssuedByRTO"  type="text" class="form-control" placeholder="Issued By RTO"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Permit(Part A)  State</label>
-        <select class="form-control select2-no-search">
+        <select name="permitAState" [(ngModel)]="overViewForm.permitAState"  class="form-control select2-no-search">
           <option label="India"></option>
           <option value="Orissa">Orissa</option>
         </select>
@@ -214,43 +214,43 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit(Part A)  Start Date</label>
-        <input type="date" class="form-control" placeholder="Permit Start Date"  >
+        <input name="permitAStartDate" [(ngModel)]="overViewForm.permitAStartDate"  type="date" class="form-control" placeholder="Permit Start Date"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Permit(Part A)  End Date</label>
-        <input type="date" class="form-control" placeholder="Permit Start Date"  >
+        <input name="permitAEndDate" [(ngModel)]="overViewForm.permitAEndDate"  type="date" class="form-control" placeholder="Permit Start Date"  />
       </div>
-    </div>    
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Fitess Issued By</label>
-        <input type="text" class="form-control" placeholder="Fitess Issued By"  >
+        <input name="fitnessIssuedBy" [(ngModel)]="overViewForm.fitnessIssuedBy"  type="text" class="form-control" placeholder="Fitess Issued By"  />
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Validity</label>
-        <input type="date" class="form-control" placeholder=""  >
+        <input name="fitnessValidity" [(ngModel)]="overViewForm.fitnessValidity"  type="date" class="form-control" placeholder=""  />
       </div>
-    </div>  
-  </div> 
+    </div>
+  </div>
   <hr>
   <div class="row row-sm">
     <div class="col-md-4">
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Save</button>
+        <button class="btn btn-primary btn-block" (click)="save()">Save</button>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <button class="btn btn-primary btn-block">Delete</button>
       </div>
-    </div>  
-  </div>  
+    </div>
+  </div>
 </div>
 

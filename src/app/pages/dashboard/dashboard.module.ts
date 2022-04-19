@@ -18,6 +18,7 @@ import { TabThreeComponent } from './components/vehicles/tab-three/tab-three.com
 import { TabFourComponent } from './components/vehicles/tab-four/tab-four.component';
 import { TabFiveComponent } from './components/vehicles/tab-five/tab-five.component';
 
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { TabFiveComponent } from './components/vehicles/tab-five/tab-five.compon
   ],
 
   imports: [
-    CommonModule,
+  CommonModule,
+    FormsModule,
     DashboardRoutingModule
   ]
 })

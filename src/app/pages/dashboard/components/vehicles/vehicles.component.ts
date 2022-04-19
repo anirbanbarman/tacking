@@ -11,7 +11,7 @@ import { TabTwoComponent } from './tab-two/tab-two.component';
   styleUrls: ['./vehicles.component.scss']
 })
 export class VehiclesComponent implements OnInit {
-  currentComponent = TabOneComponent;
+  currentComponent:any = TabOneComponent;
 
   constructor() { }
 
