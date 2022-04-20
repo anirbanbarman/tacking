@@ -4,12 +4,14 @@
 
 export const environment = {
   production: false,
+  baseUrl: "http://mkroadlines.btvbharat.com/api/index.php/",
+  mediaURL: 'http://mkroadlines.btvbharat.com/api/uploads/',
+  authToken: 'mkroadlines',
   apiUrls: {
-    baseUrl: "http://mkroadlines.btvbharat.com/api/index.php/",
+   
     apis: {
-      adminLogIn:'users/adminLogin'
-
-
+      adminLogIn:'users/adminLogin',
+      vehcileList:'vehicle/getAll'
 
     }
   }

@@ -15,6 +15,7 @@ export class TabOneComponent implements OnInit {
     engineNo:"",
     chasisNo:"",
     costPrice:"",
+    driver:"",
     financer:"",
     loanAccountNo:"",
     emi:"",

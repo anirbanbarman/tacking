@@ -9,7 +9,7 @@ export class AuthService {
 
 adminLogin(payload: any) {
 
-    return this.http.post((environment.apiUrls.baseUrl + environment.apiUrls.apis.adminLogIn), payload);
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.adminLogIn), payload);
 
   }
 }

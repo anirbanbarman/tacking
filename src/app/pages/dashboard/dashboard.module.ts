@@ -17,8 +17,10 @@ import { TabTwoComponent } from './components/vehicles/tab-two/tab-two.component
 import { TabThreeComponent } from './components/vehicles/tab-three/tab-three.component';
 import { TabFourComponent } from './components/vehicles/tab-four/tab-four.component';
 import { TabFiveComponent } from './components/vehicles/tab-five/tab-five.component';
+import { VehiclesAllComponent } from './components/vehicles-all/vehicles-all.component';
 
 import { FormsModule } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @NgModule({
@@ -37,9 +39,10 @@ import { FormsModule } from '@angular/forms';
     TabTwoComponent,
     TabThreeComponent,
     TabFourComponent,
-    TabFiveComponent
+    TabFiveComponent,
+    VehiclesAllComponent
 
-  ],
+  ],providers:[AuthService],
 
   imports: [
   CommonModule,

@@ -6879,11 +6879,14 @@ a.text-dark:hover, a.text-dark:focus {
 
 /* ###### 3.7 Grid ###### */
 .row-sm {
-  margin-left: -10px;
-  margin-right: -10px; }
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  }
   .row-sm > div {
     padding-left: 10px;
-    padding-right: 10px; }
+    padding-right: 10px;
+    width: 100%;  }
 
 .row-xs {
   margin-left: -5px;
@@ -9620,6 +9623,13 @@ textarea.parsley-success:focus {
     color: #6610f2; }
   .az-logo:hover, .az-logo:focus {
     color: #212229; }
+
+    .title {
+      font-size: 22px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: #212229;
+      letter-spacing: -1.8px; }
 
 .az-header-menu-icon {
   margin-right: 10px;
