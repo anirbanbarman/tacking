@@ -1,5 +1,6 @@
 .az-content-profile{
-  background-color: white;
+  background-color: #ecf7ff;
+
 }
 tr{
   font-size: 14px;
@@ -19,4 +20,17 @@ tr{
   font-weight: bold;
   color: rgb(6, 8, 117);
   font-size: 12px;
+}
+._card{
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 3px 5px 0px #c6c6cb;
+  background-color: white;
+  margin: 10px;
+
+}
+._center{
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
