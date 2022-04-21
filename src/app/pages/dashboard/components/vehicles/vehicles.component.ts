@@ -4,6 +4,7 @@ import { TabFourComponent } from './tab-four/tab-four.component';
 import { TabOneComponent } from './tab-one/tab-one.component';
 import { TabThreeComponent } from './tab-three/tab-three.component';
 import { TabTwoComponent } from './tab-two/tab-two.component';
+import { TabSixComponent } from './tab-six/tab-six.component';
 
 
 @Component({
@@ -39,6 +40,10 @@ export class VehiclesComponent implements OnInit {
         break;
       case 5:
         this.currentComponent=TabFiveComponent;
+
+        break;
+      case 6:
+        this.currentComponent=TabSixComponent;
 
         break;
 

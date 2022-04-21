@@ -15,6 +15,10 @@ export const environment = {
       saveVehicle:'vehicle/save',
       updateVehicle:'vehicle/editList',
       getVehicle:'vehicle/getById',
+      customerList:'customer/getAll',
+      saveCustomer:'customer/save',
+      updateCustomer:'customer/editList',
+      getCustomer:'customer/getById',
     }
   }
 };

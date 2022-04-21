@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { VehiclesComponent } from './components/vehicles/vehicles.component';
 import { VehiclesAllComponent } from './components/vehicles-all/vehicles-all.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerAllComponent } from './components/customer-all/customer-all.component';
 
 const routes: Routes = [
   {
@@ -23,6 +25,14 @@ const routes: Routes = [
       {
         path: 'master/vehicles-all',
         component: VehiclesAllComponent
+      },
+	  {
+        path: 'master/customer',
+        component: CustomerComponent
+      },
+      {
+        path: 'master/customer-all',
+        component: CustomerAllComponent
       }
     ]
 

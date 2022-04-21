@@ -9,11 +9,11 @@ import { DashboardService } from '../../../services/dashboard.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-tab-one',
-  templateUrl: './tab-one.component.html',
-  styleUrls: ['./tab-one.component.scss']
+  selector: 'app-customer-tab-one',
+  templateUrl: './customer-tab-one.component.html',
+  styleUrls: ['./customer-tab-one.component.scss']
 })
-export class TabOneComponent implements OnInit {
+export class CustomerTabOneComponent implements OnInit {
 
   variables: any = {
     isNew: true,
@@ -21,41 +21,35 @@ export class TabOneComponent implements OnInit {
 
   overViewForm: any = {
     id: "",
-    status: '',
-    vehicleno: "",
-    make: "",
-    model: "",
-    engineno: "",
-    chasisno: "",
-    costPrice: "",
-    driver: "",
-    financer: "",
-    loanAccountNo: "",
-    emi: "",
-    emiStartDate: "",
-    emiEndDate: "",
-    emiDuration: "",
-    loanAmount: "",
-    interestPercentage: "",
-    insuranceCompany: "",
-    insuranceNumber: "",
-    insurancevalidupto: "",
-    pollutionvalidity: "",
-    taxtokenno: "",
-    issuedByRTO: "",
-    taxTokenValidity: "",
-    permitNo: "",
-    permitIssuedByRTO: "",
-    permitState: "",
-    permitStartDate: "",
-    permitEndDate: "",
-    permitANo: "",
-    permitAIssuedByRTO: "",
-    permitAState: "",
-    permitAStartDate: "",
-    permitAEndDate: "",
-    fitnessIssuedBy: "",
-    fitnessValidity: ""
+    status: '1',
+    name: "",
+    gst: "",
+    acccounttype: "",
+    registeredaddress: "",
+    billingaddress: "",
+    contactnumber: "",
+    email: "",
+    group: "",
+    contactperson: "",
+    contactpersoncontactnumber: "",
+    contactpersonemail: "",
+    accountant: "",
+    accountantcontactnumber: "",
+    accountantemail: "",
+    owner1: "",
+    owner2: "",
+    firmtype: "",
+    tan: "",
+    pan: "",
+    creditduration: "",
+    billingbase: "",
+    controlbranch: "",
+    startdate: "",
+    openingbalance: "",
+    image: "",
+    panimage: "",
+    aadharimage: "",
+    bankaccountimage: "",
   }
 
 
@@ -75,7 +69,7 @@ export class TabOneComponent implements OnInit {
         this.overViewForm.id = data.id;
         this.variables.isNew = false;
         console.log(this.variables.isNew);
-        this.getVehicle(data.id);
+        this.getCustomer(data.id);
       } else {
         this.variables.isNew = true;
       }
@@ -83,7 +77,7 @@ export class TabOneComponent implements OnInit {
     }
 
 
-  getVehicle(id:any) {
+  getCustomer(id:any) {
     const param = {
       id: this.overViewForm.id
     };
@@ -91,17 +85,17 @@ export class TabOneComponent implements OnInit {
     console.log('id--', this.overViewForm.id);
     let payload = new FormData();
     payload.append("id",id);
-    this.dashboardService.getVehicle(payload).subscribe((response: any) => {      
+    this.dashboardService.getCustomer(payload).subscribe((response: any) => {      
       this.spinnerService.hide();
       if (response && response.status === 200 && response.data) {
         const info = response.data;
-        console.log('vehicle yo->', info);
+        console.log('customer->', info);
         this.overViewForm= info;
         
       }
       else {
         const info = response.data;
-        console.log('services ->', info);
+        console.log('customer ->', info);
       }
     }, error => {
       this.spinnerService.hide();
@@ -116,11 +110,11 @@ export class TabOneComponent implements OnInit {
     for (var key in this.overViewForm) {
       payload.append(key, this.overViewForm[key]);
     }
-    this.dashboardService.saveVehicle(payload).subscribe((response: any) => {
+    this.dashboardService.saveCustomer(payload).subscribe((response: any) => {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         localStorage.setItem('token', response.data.token);
-        this.router.navigate(['/dashboard/home//master/vehicles-all']);
+        this.router.navigate(['/dashboard/home//master/customer-all']);
       }
       else {
         failMessage(response?.data?.message)
@@ -140,11 +134,11 @@ export class TabOneComponent implements OnInit {
     for (var key in this.overViewForm) {
       payload.append(key, this.overViewForm[key]);
     }
-    this.dashboardService.updateVehicle(payload).subscribe((response: any) => {
+    this.dashboardService.updateCustomer(payload).subscribe((response: any) => {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         successMessage("Data Updated Successfully");
-        this.router.navigate(['/dashboard/home//master/vehicles-all']);
+        this.router.navigate(['/dashboard/home//master/customer-all']);
       }
       else {
         failMessage(response?.data?.message)

@@ -18,6 +18,15 @@ import { TabThreeComponent } from './components/vehicles/tab-three/tab-three.com
 import { TabFourComponent } from './components/vehicles/tab-four/tab-four.component';
 import { TabFiveComponent } from './components/vehicles/tab-five/tab-five.component';
 import { VehiclesAllComponent } from './components/vehicles-all/vehicles-all.component';
+import { CustomerComponent } from './components/customer/customer.component';
+import { CustomerSideBarComponent } from './components/customer/customer-side-bar/customer-side-bar.component';
+import { CustomerMainContentComponent } from './components/customer/customer-main-content/customer-main-content.component';
+import { CustomerTabOneComponent } from './components/customer/customer-tab-one/customer-tab-one.component';
+import { CustomerTabTwoComponent } from './components/customer/customer-tab-two/customer-tab-two.component';
+import { CustomerTabThreeComponent } from './components/customer/customer-tab-three/customer-tab-three.component';
+import { CustomerTabFourComponent } from './components/customer/customer-tab-four/customer-tab-four.component';
+import { CustomerTabFiveComponent } from './components/customer/customer-tab-five/customer-tab-five.component';
+import { CustomerAllComponent } from './components/customer-all/customer-all.component';
 
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -44,7 +53,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     TabThreeComponent,
     TabFourComponent,
     TabFiveComponent,
-    VehiclesAllComponent
+    VehiclesAllComponent,
+    CustomerComponent,
+    CustomerSideBarComponent,
+    CustomerMainContentComponent,
+    CustomerTabOneComponent,
+    CustomerTabTwoComponent,
+    CustomerTabThreeComponent,
+    CustomerTabFourComponent,
+    CustomerTabFiveComponent,
+    CustomerAllComponent
 
 
   ],providers:[AuthService,DashboardService],
