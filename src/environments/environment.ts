@@ -11,8 +11,10 @@ export const environment = {
    
     apis: {
       adminLogIn:'users/adminLogin',
-      vehcileList:'vehicle/getAll'
-
+      vehicleList:'vehicle/getAll',
+      saveVehicle:'vehicle/save',
+      updateVehicle:'vehicle/editList',
+      getVehicle:'vehicle/getById',
     }
   }
 };

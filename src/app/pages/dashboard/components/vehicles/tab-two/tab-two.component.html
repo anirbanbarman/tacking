@@ -4,12 +4,13 @@
         Smart Card Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_smartcard($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ smartcardimage" target="_blank">
+            <img [src]="api.mediaURL+ smartcardimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a> 
     </div>
 </div>
 <hr>
@@ -18,12 +19,13 @@
         Pollution Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_pollution($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ pollutionimage" target="_blank">
+            <img [src]="api.mediaURL+ pollutionimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -32,12 +34,13 @@
         Insurance Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_insurance($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ insuranceimage" target="_blank">
+            <img [src]="api.mediaURL+ insuranceimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -46,12 +49,13 @@
         Tax Token Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_tax($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ taximage" target="_blank">
+            <img [src]="api.mediaURL+ taximage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -60,12 +64,13 @@
         Permit Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_permit($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ permitimage" target="_blank">
+            <img [src]="api.mediaURL+ permitimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -74,12 +79,13 @@
         Fitness Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_fitness($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ fitnessimage" target="_blank">
+            <img [src]="api.mediaURL+ fitnessimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -88,12 +94,13 @@
         Invoice Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_invoice($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img [src]="" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/icon.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ invoiceimage" target="_blank">
+            <img [src]="api.mediaURL+ invoiceimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>
 <hr>
@@ -102,11 +109,12 @@
         Permit Part(A) Image
     </label>
     <div class="col-sm-4">
-       <input  type="file" class="form-control" accept="image/*">
+        <input (change)="preview_permitA($event.target)" type="file" class="form-control">
     </div>
     <div class="col-sm-4">
-       <a [href]="" target="_blank">
-        <img src="assets/images/upload.png" alt="" style="height: 100px;width: 100px;float: right;" onError="this.src='assets/images/upload.png'">
-       </a>	 
+        <a [href]="api.mediaURL+ permitpartAimage" target="_blank">
+            <img [src]="api.mediaURL+ permitpartAimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
     </div>
 </div>

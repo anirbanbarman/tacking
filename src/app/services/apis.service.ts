@@ -40,10 +40,10 @@ export class ApisService {
     );
   }
 
-  uploadFile(files: File[]) {
+  uploadVehicleFile(files: File[]) {
     const formData = new FormData();
     Array.from(files).forEach(f => formData.append('userfile', f));
-    return this.http.post(this.baseUrl + 'employee/upload_image', formData);
+    return this.http.post(this.baseUrl + 'vehicle/upload_image', formData);
   }
 
 

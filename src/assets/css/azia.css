@@ -41822,3 +41822,9 @@ textarea.parsley-success:focus {
 
 .wd-100v {
   width: 100vw; }
+
+.item-title {
+  font-weight: bold;
+  color: #0062cc;
+  font-size: 12px;
+}

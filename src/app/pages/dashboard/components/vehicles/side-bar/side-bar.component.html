@@ -1,22 +1,24 @@
 <div class="az-content-left az-content-left-profile">
 
   <div class="az-profile-overview">
-    <div class="az-img-user">
-      <img src="https://via.placeholder.com/500x500" alt="">
+    <div class="az-img-user">      
+        <img [src]="api.mediaURL+ image" alt="" style="height: 100px;width: 100px;float: right;"
+         onError="this.src='assets/images/upload.png' " (change)="preview_image($event.target)" >      
+    </div>
+    <div class="col-sm-12">
+      <input (change)="preview_image($event.target)" type="file" class="form-control">
     </div><!-- az-img-user -->
     <div class="d-flex justify-content-between mg-b-20">
       <div>
-        <h5 class="az-profile-name">Vehicle Number</h5>
-        <p class="az-profile-name-text">Make-Model</p>
+        <h5 class="az-profile-name">{{vehicleno}}</h5>
+        <p class="az-profile-name-text">{{make}}-{{model}}</p>
       </div>
       <div class="btn-icon-list">
-        <!--<button class="btn btn-indigo btn-icon"><i class="typcn typcn-plus-outline"></i></button>
-        <button class="btn btn-primary btn-icon"><i class="typcn typcn-message"></i></button>-->
       </div>
     </div>
 
     <div class="az-profile-bio">
-      Driver
+      {{driver}}
     </div><!-- az-profile-bio -->
 
     <hr class="mg-y-30">

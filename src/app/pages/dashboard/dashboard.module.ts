@@ -21,6 +21,10 @@ import { VehiclesAllComponent } from './components/vehicles-all/vehicles-all.com
 
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
+import { DashboardService } from './services/dashboard.service';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { NgxPaginationModule } from 'ngx-pagination'; 
+
 
 
 @NgModule({
@@ -42,12 +46,15 @@ import { AuthService } from 'src/app/services/auth.service';
     TabFiveComponent,
     VehiclesAllComponent
 
-  ],providers:[AuthService],
+
+  ],providers:[AuthService,DashboardService],
 
   imports: [
   CommonModule,
     FormsModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    NgxSkeletonLoaderModule,
+    NgxPaginationModule
   ]
 })
 export class DashboardModule { }

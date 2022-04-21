@@ -1,4 +1,4 @@
-<app-header-secondary></app-header-secondary>
+<app-header></app-header>
 <app-navbar></app-navbar>
 
 <div class="az-content az-content-profile">
@@ -22,32 +22,118 @@
               </div>
             </div>
           </div>
-          <div class="table-responsive">
+
+        
+
+        <p *ngIf="!dummy?.length && !vehiclelist?.length" class="ion-text-center"> 'No Vehicles Found' </p>
+        <div class="card_div" *ngFor="let item of vehiclelist" (click)="OpenVehicle(item)">
+        <div class="form-group row">
+            <div class="col-sm-2 col-form-label">
+              <img [src]="api.mediaURL+ item.image" style="height: 100px;border-radius: 10%;"  onError="this.src='assets/images/upload.png'">
+            </div>
+            <div class="col-sm-8">
+                <div class="form-group row">
+                     <label style="font-weight: bold;color: gray;font-size: 16px;"> Vehicle No: {{item.vehicleno}}</label> 
+                </div>
+                <div class="form-group row">
+                  <div class="col-sm-4">
+                     <div><span><label class="item-title">Make:</label> {{item.make}}</span></div>
+                     <div><span><label class="item-title">Model:</label>{{item.model}}</span></div> 
+                     <div><span><label class="item-title">Driver:</label>{{item.driver}}</span></div>
+                  </div> 
+                  <div class="col-sm-4">
+                    <div><span><label class="item-title">Engine No:</label>{{item.engineno}}</span></div>
+                    <div><span><label class="item-title">Chasis No:</label>{{item.chasisno}}</span></div> 
+                    <div><span><label class="item-title">Pollution Validity:</label>{{item.pollutionvalidity}}</span></div>
+                 </div> 
+                 <div class="col-sm-4">
+                     <div><span><label class="item-title">Tax Token Validity:</label>{{item.taxTokenValidity}}</span></div>
+                     <div><span><label class="item-title">Permit End Date:</label>{{item.permitEndDate}}</span></div> 
+                     <div><span><label class="item-title">Fitness Validity:</label>{{item.fitnessValidity}}</span></div>
+                  </div> 
+                </div>
+              
+            </div>
+            <div class="col-sm-1 col-form-label">
+              <div class="form-group row">
+                  <button type="button" (click)="OpenVehicle(item)" class="btn btn-primary btn-block ">View</button>
+              </div>   
+            </div>
+        </div>  
+        </div>
+
+
+
+          <!--<div class="table-responsive">
             <table id="datatable1" class="mg-b-0 table">
               <thead>
                 <tr>
-                  <th class="wd-15p">Trip Id</th>
+                  <th class="wd-15p">Id</th>
                   <th class="wd-15p">Vehicle No.</th>
-                  <th class="wd-20p">Driver</th>
-                  <th class="wd-15p">From</th>
-                  <th class="wd-10p">To</th>
-                  <th class="wd-25p">Start Date</th>
+                  <th class="wd-20p">Make</th>
+                  <th class="wd-15p">Model</th>
+                  <th class="wd-10p">Driver</th>
+                  <th class="wd-10p">Status</th>
                   <th class="wd-25p">Details</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>001</td>
-                  <td>OR1258569</td>
-                  <td>Laxman</td>
-                  <td>BHU</td>
-                  <td>CCU</td>
-                  <td>12/04/2022</td>
-                  <td><button class="btn btn-primary btn-block">Details</button></td>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>                    
                 </tr>
-              </tbody>
+                <tr
+                    *ngFor="let item of vehiclelist | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.vehicleno}}</td>
+                    <td> {{item.make}}</td>
+                    <td> {{item.model}}</td>
+                    <td> {{item.driver}}</td>
+                    <td>
+                        <button type="button" (click)="update(item,'status')"
+                            [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Deactive'}}</button>
+                    </td>
+                    <td><button type="button" (click)="OpenVehicle(item)"
+                            class="btn btn-success btn-round btn-outline-success">View
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
           </table>
-          </div>
+          </div>-->
           
 
 

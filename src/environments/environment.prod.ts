@@ -12,7 +12,7 @@ export const environment = {
     authToken: 'mkroadlines',
     apis: {
       adminLogIn:'users/adminLogin',
-      vehcileList:'vehicle/getAll'
+      vehicleList:'vehicle/getAll'
 
 
 
