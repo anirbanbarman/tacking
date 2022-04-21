@@ -30,7 +30,7 @@ tr{
   transition: transform .2s;
   cursor: pointer;
   &:hover{
-    transform: scale(1.0);
+    transform: scale(1.01);
     box-shadow: 0px 1px 5px 0px #66bae3;
 
   }
@@ -40,4 +40,9 @@ tr{
   display: flex;
     justify-content: center;
     align-items: center;
+}
+
+._input{
+  border-bottom-left-radius: 5px !important;
+  border-top-left-radius: 5px !important;
 }
