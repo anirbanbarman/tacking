@@ -81,7 +81,7 @@ export class SideBarComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {

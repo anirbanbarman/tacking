@@ -27,6 +27,15 @@ import { CustomerTabThreeComponent } from './components/customer/customer-tab-th
 import { CustomerTabFourComponent } from './components/customer/customer-tab-four/customer-tab-four.component';
 import { CustomerTabFiveComponent } from './components/customer/customer-tab-five/customer-tab-five.component';
 import { CustomerAllComponent } from './components/customer-all/customer-all.component';
+import { SupplierComponent } from './components/supplier/supplier.component';
+import { SupplierSideBarComponent } from './components/supplier/supplier-side-bar/supplier-side-bar.component';
+import { SupplierMainContentComponent } from './components/supplier/supplier-main-content/supplier-main-content.component';
+import { SupplierTabOneComponent } from './components/supplier/supplier-tab-one/supplier-tab-one.component';
+import { SupplierTabTwoComponent } from './components/supplier/supplier-tab-two/supplier-tab-two.component';
+import { SupplierTabThreeComponent } from './components/supplier/supplier-tab-three/supplier-tab-three.component';
+import { SupplierTabFourComponent } from './components/supplier/supplier-tab-four/supplier-tab-four.component';
+import { SupplierTabFiveComponent } from './components/supplier/supplier-tab-five/supplier-tab-five.component';
+import { SupplierAllComponent } from './components/supplier-all/supplier-all.component';
 
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
@@ -62,7 +71,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CustomerTabThreeComponent,
     CustomerTabFourComponent,
     CustomerTabFiveComponent,
-    CustomerAllComponent
+    CustomerAllComponent,
+    SupplierComponent,
+    SupplierSideBarComponent,
+    SupplierMainContentComponent,
+    SupplierTabOneComponent,
+    SupplierTabTwoComponent,
+    SupplierTabThreeComponent,
+    SupplierTabFourComponent,
+    SupplierTabFiveComponent,
+    SupplierAllComponent
 
 
   ],providers:[AuthService,DashboardService],

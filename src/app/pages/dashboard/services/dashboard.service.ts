@@ -44,4 +44,21 @@ export class DashboardService {
   getCustomer(id: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getCustomer), id);
   }
+  getAllSupplier() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.supplierList));
+  }
+
+  updateSupplier(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateSupplier), payload);
+  }
+  saveSupplier(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveSupplier), payload);
+  }
+  getSupplier(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getSupplier), id);
+  }
 }

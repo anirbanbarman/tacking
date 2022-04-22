@@ -5,9 +5,9 @@
         <img [src]="api.mediaURL+ image" alt="" style="height: 100px;width: 100px;float: right;"
          onError="this.src='assets/images/upload.png' " (change)="preview_image($event.target)" >      
     </div>
-    <div class="col-sm-12">
+    <!-- <div class="col-sm-12">
       <input (change)="preview_image($event.target)" type="file" class="form-control">
-    </div><!-- az-img-user -->
+    </div> -->
     <div class="d-flex justify-content-between mg-b-20">
       <div>
         <h5 class="az-profile-name">{{vehicleno}}</h5>

@@ -6,11 +6,11 @@ import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../../services/dashboard.service';
 
 @Component({
-  selector: 'app-customer-side-bar',
-  templateUrl: './customer-side-bar.component.html',
-  styleUrls: ['./customer-side-bar.component.scss']
+  selector: 'app-supplier-side-bar',
+  templateUrl: './supplier-side-bar.component.html',
+  styleUrls: ['./supplier-side-bar.component.scss']
 })
-export class CustomerSideBarComponent implements OnInit {
+export class SupplierSideBarComponent implements OnInit {
   image: any = '';  
   id: any = '';
   name: any = '';
@@ -31,13 +31,13 @@ export class CustomerSideBarComponent implements OnInit {
       if (data && data.id) {
         this.id = data.id;
         console.log('this.id-->',data.id);
-        this.getCustomer(data.id);
+        this.getSupplier(data.id);
       } else {        
         }
       });
   }
 
-  getCustomer(id:any) {
+  getSupplier(id:any) {
     const param = {
       id: this.id
     };
@@ -45,7 +45,7 @@ export class CustomerSideBarComponent implements OnInit {
     console.log('id--', this.id);
     let payload = new FormData();
     payload.append("id",id);
-    this.dashboardService.getCustomer(payload).subscribe((response: any) => {      
+    this.dashboardService.getSupplier(payload).subscribe((response: any) => {      
       this.spinnerService.hide();
       if (response && response.status === 200 && response.data) {
         const info = response.data;
@@ -105,7 +105,7 @@ export class CustomerSideBarComponent implements OnInit {
     payload.append('id', this.id);
     payload.append('image', this.image);
     console.log('payload-->',payload)
-    this.dashboardService.updateCustomer(payload).subscribe((response: any) => {
+    this.dashboardService.updateSupplier(payload).subscribe((response: any) => {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         successMessage("Data Updated Successfully");       

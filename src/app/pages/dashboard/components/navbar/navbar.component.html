@@ -9,7 +9,7 @@
       <li class="nav-label">Main Menu</li>
 
       <li class="nav-item " [ngClass]="{'active': step === 'step1'}" clickOutside (clickOutside)="hide(show1)" #show1 (click)="showDropdown(show1,'step1')" >
-        <a  class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Dashboard</a>
+        <a routerLink="/dashboard/home/" class="nav-link with-sub"><i class="typcn typcn-clipboard"></i>Dashboard</a>
         <!--<nav class="nav-sub">
           <a routerLink="dashboard-one.html" class="nav-sub-link">Web Analytics</a>
           <a routerLink="dashboard-two.html" class="nav-sub-link">Sales Monitoring</a>
@@ -29,7 +29,7 @@
         <nav class="nav-sub">
           <a routerLink="/dashboard/home//master/vehicles-all" class="nav-sub-link">Vehicles</a>
           <a routerLink="/dashboard/home//master/customer-all" class="nav-sub-link">Customer</a>
-          <a  class="nav-sub-link">Supplier</a>
+          <a routerLink="/dashboard/home//master/supplier-all" class="nav-sub-link">Supplier</a>
           <a  class="nav-sub-link">Agent</a>
           <a class="nav-sub-link">Driver</a>
           <a  class="nav-sub-link">Trips</a>

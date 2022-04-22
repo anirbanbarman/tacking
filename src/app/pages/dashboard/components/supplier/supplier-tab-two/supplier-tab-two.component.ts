@@ -6,15 +6,16 @@ import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../../services/dashboard.service';
 
 @Component({
-  selector: 'app-customer-tab-two',
-  templateUrl: './customer-tab-two.component.html',
-  styleUrls: ['./customer-tab-two.component.scss']
+  selector: 'app-supplier-tab-two',
+  templateUrl: './supplier-tab-two.component.html',
+  styleUrls: ['./supplier-tab-two.component.scss']
 })
-export class CustomerTabTwoComponent implements OnInit {
+export class SupplierTabTwoComponent implements OnInit {
   panimage: any = '';
   aadharimage: any = '';
   bankaccountimage: any = '';
   image: any = '';
+  gstcertificateimage: any = '';
 
   
   id: any = '';
@@ -33,13 +34,13 @@ export class CustomerTabTwoComponent implements OnInit {
       if (data && data.id) {
         this.id = data.id;
         console.log('this.id-->',data.id);
-        this.getCustomer(data.id);
+        this.getSupplier(data.id);
       } else {        
         }
       });
   }
 
-  getCustomer(id:any) {
+  getSupplier(id:any) {
     const param = {
       id: this.id
     };
@@ -47,16 +48,16 @@ export class CustomerTabTwoComponent implements OnInit {
     console.log('id--', this.id);
     let payload = new FormData();
     payload.append("id",id);
-    this.dashboardService.getCustomer(payload).subscribe((response: any) => {      
+    this.dashboardService.getSupplier(payload).subscribe((response: any) => {      
       this.spinnerService.hide();
       if (response && response.status === 200 && response.data) {
         const info = response.data;
-        console.log('customer->', info);
+        console.log('supplier->', info);
         this.panimage= info.panimage;
         this.aadharimage= info.aadharimage;
         this.bankaccountimage= info.bankaccountimage;
         this.image= info.image;
-
+        this.gstcertificateimage=info.gstcertificateimage;
       }
       else {
         const info = response.data;
@@ -210,6 +211,35 @@ export class CustomerTabTwoComponent implements OnInit {
     }
   }
 
+  preview_gst(f:any) {
+    let files=f.files;
+    console.log('fle', files);
+    if (files.length === 0) {
+      return;
+    }
+    const mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+    if (files) {
+      console.log('ok');
+      this.spinnerService.show();
+      this.api.uploadImage(files).subscribe((data: any) => {
+        console.log('==>>', data);
+        this.spinnerService.hide();
+        if (data && data.status === 200 && data.data) {
+          this.gstcertificateimage = data.data;
+          this.update();
+        }
+      }, err => {
+        console.log(err);
+        this.spinnerService.hide();
+      });
+    } else {
+      console.log('no');
+    }
+  }
+
   
 
   update() {
@@ -220,9 +250,10 @@ export class CustomerTabTwoComponent implements OnInit {
     payload.append('panimage', this.panimage);
     payload.append('aadharimage', this.aadharimage);
     payload.append('bankaccountimage', this.bankaccountimage);
+    payload.append('gstcertificateimage', this.gstcertificateimage);
 
     console.log('payload-->',payload)
-    this.dashboardService.updateCustomer(payload).subscribe((response: any) => {
+    this.dashboardService.updateSupplier(payload).subscribe((response: any) => {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         successMessage("Data Updated Successfully");       

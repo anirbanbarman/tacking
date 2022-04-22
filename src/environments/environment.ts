@@ -19,6 +19,10 @@ export const environment = {
       saveCustomer:'customer/save',
       updateCustomer:'customer/editList',
       getCustomer:'customer/getById',
+      supplierList:'supplier/getAll',
+      saveSupplier:'supplier/save',
+      updateSupplier:'supplier/editList',
+      getSupplier:'supplier/getById',
     }
   }
 };

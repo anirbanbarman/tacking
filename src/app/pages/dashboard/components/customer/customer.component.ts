@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerTabSixComponent } from './customer-tab-six/customer-tab-six.component';
 import { CustomerTabFiveComponent } from './customer-tab-five/customer-tab-five.component';
 import { CustomerTabFourComponent } from './customer-tab-four/customer-tab-four.component';
 import { CustomerTabOneComponent } from './customer-tab-one/customer-tab-one.component';
@@ -41,6 +42,10 @@ export class CustomerComponent implements OnInit {
         this.currentComponent=CustomerTabFiveComponent;
 
         break;
+      case 6:
+          this.currentComponent=CustomerTabSixComponent;
+  
+          break;
 
       default:
         break;

@@ -89,7 +89,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -104,6 +104,36 @@ export class TabTwoComponent implements OnInit {
     }
   }--*/
 
+  preview_image(f:any) {
+    let files=f.files;
+    console.log('fle', files);
+    if (files.length === 0) {
+      return;
+    }
+    const mimeType = files[0].type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+    if (files) {
+      console.log('ok');
+      this.spinnerService.show();
+      this.api.uploadImage(files).subscribe((data: any) => {
+        console.log('==>>', data);
+        this.spinnerService.hide();
+        if (data && data.status === 200 && data.data) {
+          this.image = data.data;
+          this.update();
+        }
+      }, err => {
+        console.log(err);
+        this.spinnerService.hide();
+      });
+    } else {
+      console.log('no');
+    }
+  }
+
+
   preview_smartcard(f:any) {
     let files=f.files;
     console.log('fle', files);
@@ -117,7 +147,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -146,7 +176,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -175,7 +205,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -204,7 +234,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -233,7 +263,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -262,7 +292,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -291,7 +321,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
@@ -320,7 +350,7 @@ export class TabTwoComponent implements OnInit {
     if (files) {
       console.log('ok');
       this.spinnerService.show();
-      this.api.uploadVehicleFile(files).subscribe((data: any) => {
+      this.api.uploadImage(files).subscribe((data: any) => {
         console.log('==>>', data);
         this.spinnerService.hide();
         if (data && data.status === 200 && data.data) {
