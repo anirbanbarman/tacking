@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://mkroadlines.btvbharat.com/api/index.php/",
-  mediaURL: 'http://mkroadlines.btvbharat.com/api/uploads/',
+  baseUrl: "https://mkroadlines.btvbharat.com/api/index.php/",
+  mediaURL: 'https://mkroadlines.btvbharat.com/api/uploads/',
   authToken: 'mkroadlines',
   apiUrls: {
    
