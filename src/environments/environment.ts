@@ -23,6 +23,10 @@ export const environment = {
       saveSupplier:'supplier/save',
       updateSupplier:'supplier/editList',
       getSupplier:'supplier/getById',
+      brokerList:'broker/getAll',
+      saveBroker:'broker/save',
+      updateBroker:'broker/editList',
+      getBroker:'broker/getById',
     }
   }
 };

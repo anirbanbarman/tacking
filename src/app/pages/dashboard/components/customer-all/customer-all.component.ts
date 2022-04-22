@@ -24,7 +24,7 @@ private router: Router,
 private spinner: NgxSpinnerService,
 public api: ApisService, 
 ) { 
-this.getCustomerList();
+this.getcustomerList();
 }
 
 dummy = [];
@@ -67,7 +67,7 @@ name:any[] = [];
  
 ngOnInit(): void {}
 
-getCustomerList()
+getcustomerList()
 {
 this.dashboardService.getAllCustomer().subscribe((response:any)=>{
 console.log(response.data);
@@ -106,7 +106,7 @@ in_home: item.in_home === '1' ? 0 : 1
 this.spinner.show();
 this.api.post_private('services/editList', param).then((datas) => {
 this.spinner.hide();
-this.getCustomerList();
+this.getcustomerList();
 }, error => {
 this.spinner.hide();
 failMessage('Something went wrong');
@@ -121,7 +121,7 @@ failMessage('Something went wrong');
 
 }
 
-OpenCustomer(item:any)
+Opencustomer(item:any)
 {
 console.log(item);
 const navData: NavigationExtras = {

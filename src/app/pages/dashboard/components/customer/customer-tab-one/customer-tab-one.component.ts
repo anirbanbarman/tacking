@@ -77,7 +77,7 @@ export class CustomerTabOneComponent implements OnInit {
     }
 
 
-  getCustomer(id:any) {
+    getCustomer(id:any) {
     const param = {
       id: this.overViewForm.id
     };

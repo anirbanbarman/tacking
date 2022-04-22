@@ -7,6 +7,8 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { CustomerAllComponent } from './components/customer-all/customer-all.component';
 import { SupplierAllComponent } from './components/supplier-all/supplier-all.component';
 import { SupplierComponent } from './components/supplier/supplier.component';
+import { BrokerAllComponent } from './components/broker-all/broker-all.component';
+import { BrokerComponent } from './components/broker/broker.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,14 @@ const routes: Routes = [
       {
         path: 'master/supplier-all',
         component: SupplierAllComponent
+      },
+      {
+        path: 'master/broker',
+        component: BrokerComponent
+      },
+      {
+        path: 'master/broker-all',
+        component: BrokerAllComponent
       }
     ]
 

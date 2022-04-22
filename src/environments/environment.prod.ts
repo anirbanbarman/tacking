@@ -8,14 +8,25 @@ export const environment = {
   mediaURL: 'http://mkroadlines.btvbharat.com/api/uploads/',
   authToken: 'mkroadlines',
   apiUrls: {
-  
-    authToken: 'mkroadlines',
+   
     apis: {
       adminLogIn:'users/adminLogin',
-      vehicleList:'vehicle/getAll'
-
-
-
+      vehicleList:'vehicle/getAll',
+      saveVehicle:'vehicle/save',
+      updateVehicle:'vehicle/editList',
+      getVehicle:'vehicle/getById',
+      customerList:'customer/getAll',
+      saveCustomer:'customer/save',
+      updateCustomer:'customer/editList',
+      getCustomer:'customer/getById',
+      supplierList:'supplier/getAll',
+      saveSupplier:'supplier/save',
+      updateSupplier:'supplier/editList',
+      getSupplier:'supplier/getById',
+      brokerList:'broker/getAll',
+      saveBroker:'broker/save',
+      updateBroker:'broker/editList',
+      getBroker:'broker/getById',
     }
   }
 };

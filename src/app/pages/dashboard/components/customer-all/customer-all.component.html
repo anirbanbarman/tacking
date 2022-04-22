@@ -14,7 +14,7 @@
 
 
                 <div class="form-group">
-                  <label class="title">All Customer</label>
+                  <label class="title">All customer</label>
 
                 </div>
               </div>
@@ -44,8 +44,8 @@
 
 
 
-            <p *ngIf="!dummy?.length && !customerlist?.length" class="ion-text-center"> 'No Customer Found' </p>
-            <div class="card_div _card" *ngFor="let item of customerlist" (click)="OpenCustomer(item)">
+            <p *ngIf="!dummy?.length && !customerlist?.length" class="ion-text-center"> 'No customer Found' </p>
+            <div class="card_div _card" *ngFor="let item of customerlist" (click)="Opencustomer(item)">
               <div class="form-group row">
                 <div class="col-sm-2 col-form-label">
                   <img [src]="api.mediaURL+ item.image" style="height: 100px;border-radius: 10%;"
@@ -78,7 +78,7 @@
                 </div>
                 <div class="col-sm-1 col-form-label _center">
                   <div class="form-group row">
-                    <button type="button" (click)="OpenCustomer(item)" class="btn btn-primary btn-block "
+                    <button type="button" (click)="Opencustomer(item)" class="btn btn-primary btn-block "
                       style="border-radius: 12px;">View</button>
                   </div>
                 </div>

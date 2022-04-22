@@ -61,4 +61,20 @@ export class DashboardService {
   getSupplier(id: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getSupplier), id);
   }
+  getAllBroker() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.brokerList));
+  }
+  updateBroker(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateBroker), payload);
+  }
+  saveBroker(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveBroker), payload);
+  }
+  getBroker(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getBroker), id);
+  }
 }

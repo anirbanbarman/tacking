@@ -1,0 +1,175 @@
+<!--<div class="az-profile-view-chart">
+  <canvas id="chartArea"></canvas>
+  <div class="az-profile-view-info">
+    <div class="d-flex align-items-baseline">
+      <h6>508</h6>
+      <span>-1.2% since last week</span>
+    </div>
+    <p>Profile viewers past 10 days</p>
+  </div>
+</div>-->
+
+<div class="col-md-12">
+  <div class="row row-sm">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label class="form-label">Company</label>
+        <input name="company" [(ngModel)]="overViewForm.company" type="text" class="form-control" placeholder="Company" required/>
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Code</label>
+        <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code"  >
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Person</label>
+        <input name="contactperson" [(ngModel)]="overViewForm.contactperson"  type="text" class="form-control" placeholder="Contact Person"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Branch</label>
+        <input name="branch" [(ngModel)]="overViewForm.branch"  type="text" class="form-control" placeholder="Branch"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Pan</label>
+        <input name="pan" [(ngModel)]="overViewForm.pan"  type="text" class="form-control" placeholder="Pan"  />
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-md-12 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Address</label>
+        <input name="address" [(ngModel)]="overViewForm.address"  type="text" class="form-control" placeholder="Address"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Pin</label>
+        <input name="pin" [(ngModel)]="overViewForm.pin"  type="text" class="form-control" placeholder="Pin"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">State</label>
+        <input name="state" [(ngModel)]="overViewForm.state"  type="text" class="form-control" placeholder="State"  />
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Number 1</label>
+        <input name="contactnumber1" [(ngModel)]="overViewForm.contactnumber1"  type="text" class="form-control" placeholder="Contact Number"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Number 2</label>
+        <input name="contactnumber2" [(ngModel)]="overViewForm.contactnumber2"  type="text" class="form-control" placeholder="Contact Number"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Number 3</label>
+        <input name="contactnumber3" [(ngModel)]="overViewForm.contactnumber3"  type="text" class="form-control" placeholder="Contact Number"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input name="email" [(ngModel)]="overViewForm.email"  type="text" class="form-control" placeholder="Email Address"  />
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Person 2 </label>
+        <input name="contactperson2" [(ngModel)]="overViewForm.contactperson2"  type="text" class="form-control" placeholder="Contact Person 2"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Number 1</label>
+        <input name="contactperson2contactnumber1" [(ngModel)]="overViewForm.contactperson2contactnumber1"  type="text" class="form-control" placeholder="Contact Number 1"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Contact Number 2</label>
+        <input name="contactperson2contactnumber2" [(ngModel)]="overViewForm.contactperson2contactnumber2"  type="text" class="form-control" placeholder="Contact Number 2"  />
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Zone</label>
+        <input name="zone" [(ngModel)]="overViewForm.zone"  type="text" class="form-control" placeholder="Zone"  />
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <label class="form-label">Remarks</label>
+        <input name="remarks" [(ngModel)]="overViewForm.remarks"  type="text" class="form-control" placeholder="Remarks"  />
+      </div>
+    </div>    
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Bank Account Number</label>
+        <input name="accountno" [(ngModel)]="overViewForm.accountno"  type="text" class="form-control" placeholder="Bank Account Number"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">IFSC Code</label>
+        <input name="ifsc" [(ngModel)]="overViewForm.ifsc"  type="text" class="form-control" placeholder="IFSC Code"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Bank Branch</label>
+        <input name="branch" [(ngModel)]="overViewForm.branch"  type="text" class="form-control" placeholder="Bank Branch"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Bank Name</label>
+        <input name="bank" [(ngModel)]="overViewForm.bank"  type="text" class="form-control" placeholder="Bank Name"  />
+      </div>
+    </div>    
+  </div>
+  
+  
+  
+   
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="submit()">Save</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

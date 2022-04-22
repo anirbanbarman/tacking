@@ -36,7 +36,15 @@ import { SupplierTabThreeComponent } from './components/supplier/supplier-tab-th
 import { SupplierTabFourComponent } from './components/supplier/supplier-tab-four/supplier-tab-four.component';
 import { SupplierTabFiveComponent } from './components/supplier/supplier-tab-five/supplier-tab-five.component';
 import { SupplierAllComponent } from './components/supplier-all/supplier-all.component';
-
+import { BrokerComponent } from './components/broker/broker.component';
+import { BrokerSideBarComponent } from './components/broker/broker-side-bar/broker-side-bar.component';
+import { BrokerMainContentComponent } from './components/broker/broker-main-content/broker-main-content.component';
+import { BrokerTabOneComponent } from './components/broker/broker-tab-one/broker-tab-one.component';
+import { BrokerTabTwoComponent } from './components/broker/broker-tab-two/broker-tab-two.component';
+import { BrokerTabThreeComponent } from './components/broker/broker-tab-three/broker-tab-three.component';
+import { BrokerTabFourComponent } from './components/broker/broker-tab-four/broker-tab-four.component';
+import { BrokerTabFiveComponent } from './components/broker/broker-tab-five/broker-tab-five.component';
+import { BrokerAllComponent } from './components/broker-all/broker-all.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from './services/dashboard.service';
@@ -80,7 +88,16 @@ import { NgxPaginationModule } from 'ngx-pagination';
     SupplierTabThreeComponent,
     SupplierTabFourComponent,
     SupplierTabFiveComponent,
-    SupplierAllComponent
+    SupplierAllComponent,
+    BrokerComponent,
+    BrokerSideBarComponent,
+    BrokerMainContentComponent,
+    BrokerTabOneComponent,
+    BrokerTabTwoComponent,
+    BrokerTabThreeComponent,
+    BrokerTabFourComponent,
+    BrokerTabFiveComponent,
+    BrokerAllComponent
 
 
   ],providers:[AuthService,DashboardService],

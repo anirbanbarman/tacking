@@ -33,13 +33,13 @@ export class CustomerTabTwoComponent implements OnInit {
       if (data && data.id) {
         this.id = data.id;
         console.log('this.id-->',data.id);
-        this.getCustomer(data.id);
+        this.getcustomer(data.id);
       } else {        
         }
       });
   }
 
-  getCustomer(id:any) {
+  getcustomer(id:any) {
     const param = {
       id: this.id
     };
