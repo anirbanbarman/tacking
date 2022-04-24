@@ -55,7 +55,10 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Driver</label>
-        <input name="driver" [(ngModel)]="overViewForm.driver"  type="text" class="form-control" placeholder="Driver"  />
+        <!--<input name="driver" [(ngModel)]="overViewForm.driver"  type="text" class="form-control" placeholder="Driver"  />-->
+        <select class='select-option' [(ngModel)]="overViewForm.driver" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of driverList' [value]="item.id">{{item.name}}</option>
+        </select>
       </div>
     </div>   
   </div>
@@ -178,9 +181,12 @@
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Permit State</label>
-        <select name="permitState" [(ngModel)]="overViewForm.permitState"  class="form-control select2-no-search">
+        <!--<select name="permitState" [(ngModel)]="overViewForm.permitState"  class="form-control select2-no-search">
           <option label="India"></option>
           <option value="Orissa">Orissa</option>
+        </select>-->
+        <select class='select-option' [(ngModel)]="overViewForm.permitState" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of statesList' [value]="item.id">{{item.name}}</option>
         </select>
       </div>
     </div>
@@ -214,9 +220,12 @@
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Permit(Part A)  State</label>
-        <select name="permitAState" [(ngModel)]="overViewForm.permitAState"  class="form-control select2-no-search">
+        <!--<select name="permitAState" [(ngModel)]="overViewForm.permitAState"  class="form-control select2-no-search">
           <option label="India"></option>
           <option value="Orissa">Orissa</option>
+        </select>-->
+        <select class='select-option' [(ngModel)]="overViewForm.permitAState" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of statesList' [value]="item.id">{{item.name}}</option>
         </select>
       </div>
     </div>
@@ -257,7 +266,7 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Delete</button>
+        <p><button type="button" (click)="changeStatus()" [className]="getClass(overViewForm.status)">{{overViewForm.status === '1' ? 'Active' :'Inactive'}}</button></p>
       </div>
     </div>
   </div>

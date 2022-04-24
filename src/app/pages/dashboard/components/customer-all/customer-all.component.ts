@@ -139,7 +139,7 @@ this.router.navigate(['/dashboard/home//master/customer']);
 
 getClass(item:any) {
 if (item === '1') {
-return 'btn btn-primary btn-round';
+return 'btn btn-success btn-round';
 } else if (item === '0') {
 return 'btn btn-danger btn-round';
 }

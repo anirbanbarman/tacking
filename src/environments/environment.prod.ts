@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://mkroadlines.btvbharat.com/api/index.php/",
-  mediaURL: 'https://mkroadlines.btvbharat.com/api/uploads/',
+  baseUrl: "https://apimkroadlines.btvbharat.com/index.php/",
+  mediaURL: 'https://apimkroadlines.btvbharat.com/uploads/',
   authToken: 'mkroadlines',
   apiUrls: {
    
@@ -27,6 +27,19 @@ export const environment = {
       saveBroker:'broker/save',
       updateBroker:'broker/editList',
       getBroker:'broker/getById',
+      driverList:'driver/getAll',
+      saveDriver:'driver/save',
+      updateDriver:'driver/editList',
+      getDriver:'driver/getById',
+      itemList:'item/getAll',
+      saveItem:'item/save',
+      updateItem:'item/editList',
+      getItem:'item/getById',
+      employeeList:'employee/getAll',
+      saveEmployee:'employee/save',
+      updateEmployee:'employee/editList',
+      getEmployee:'employee/getById',
+      getType:'GlobalVariable/getByType',
     }
   }
 };

@@ -1,10 +1,10 @@
 {
-  "name": "duare-councillor",
+  "name": "app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --base-href=/duare-councillor",
+    "build": "ng build --prod --base-href=/app",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

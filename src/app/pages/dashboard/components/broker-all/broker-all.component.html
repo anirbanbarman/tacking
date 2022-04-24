@@ -76,11 +76,11 @@
                   </div>
 
                 </div>
-                <div class="col-sm-1 col-form-label _center">
-                  <div class="form-group row">
-                    <button type="button" (click)="Openbroker(item)" class="btn btn-primary btn-block "
-                      style="border-radius: 12px;">View</button>
-                  </div>
+                <div class="col-sm-1 col-form-label">
+                  
+                  <p><button type="button" (click)="Openbroker(item)" class="btn btn-primary btn-round ">Details-></button></p>                  
+                  <p><button type="button" [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Deactive'}}</button></p>
+                  
                 </div>
               </div>
             </div>

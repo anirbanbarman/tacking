@@ -60,7 +60,10 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">State</label>
-        <input name="state" [(ngModel)]="overViewForm.state"  type="text" class="form-control" placeholder="State"  />
+        <!--<input name="state" [(ngModel)]="overViewForm.state"  type="text" class="form-control" placeholder="State"  />-->
+        <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of statesList' [value]="item.id">{{item.name}}</option>
+        </select>
       </div>
     </div>
   </div>
@@ -167,7 +170,7 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Delete</button>
+        <p><button type="button" (click)="changeStatus()" [className]="getClass(overViewForm.status)">{{overViewForm.status === '1' ? 'Active' :'Inactive'}}</button></p>
       </div>
     </div>
   </div>

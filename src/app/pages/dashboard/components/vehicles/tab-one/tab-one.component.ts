@@ -7,6 +7,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { LoaderService } from 'src/app/services/loader.service';
 import { DashboardService } from '../../../services/dashboard.service';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tab-one',
@@ -21,7 +22,7 @@ export class TabOneComponent implements OnInit {
 
   overViewForm: any = {
     id: "",
-    status: '',
+    status: 1,
     vehicleno: "",
     make: "",
     model: "",
@@ -58,6 +59,12 @@ export class TabOneComponent implements OnInit {
     fitnessValidity: ""
   }
 
+  driverList: any[] = [];
+  dummyDriverList: any[] = [];
+
+  statesList: any[] = [];
+  dummyStatesList: any[] = [];
+
 
 
   constructor(
@@ -76,8 +83,12 @@ export class TabOneComponent implements OnInit {
         this.variables.isNew = false;
         console.log(this.variables.isNew);
         this.getVehicle(data.id);
+        this.getDriverList();
+        this.getStates();
       } else {
         this.variables.isNew = true;
+        this.getDriverList();
+        this.getStates();
       }
       });
     }
@@ -120,6 +131,7 @@ export class TabOneComponent implements OnInit {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         localStorage.setItem('token', response.data.token);
+        this.DriverUpdate();
         this.router.navigate(['/dashboard/home//master/vehicles-all']);
       }
       else {
@@ -144,6 +156,7 @@ export class TabOneComponent implements OnInit {
       if (response && response?.status === 200) {
         this.spinnerService.hide();
         successMessage("Data Updated Successfully");
+        this.DriverUpdate();
         this.router.navigate(['/dashboard/home//master/vehicles-all']);
       }
       else {
@@ -178,6 +191,114 @@ export class TabOneComponent implements OnInit {
       return true;
     }
   }
+
+
+  getDriverList() {
+    this.dashboardService.getAllDriver().subscribe((response:any)=>{
+      console.log(response.data);
+      if (response && response.status === 200) {
+      this.driverList = response.data;
+      this.dummyDriverList = response.data;
+      }
+      }, error => {
+      console.log(error);
+      failMessage('No Driver Found');
+      });
+  }
+
+  DriverUpdate() {
+    this.spinnerService.show();
+    let payload = new FormData();
+    id: this.overViewForm.id;
+    payload.append('id', this.overViewForm.driver);
+    payload.append('vehicle', this.overViewForm.id);
+    this.dashboardService.updateDriver(payload).subscribe((response: any) => {
+      if (response && response?.status === 200) {
+        this.spinnerService.hide();
+        successMessage("Data Updated Successfully");
+        this.router.navigate(['/dashboard/home//master/vehicles-all']);
+      }
+      else {
+        failMessage(response?.data?.message)
+        this.spinnerService.hide();
+      }
+    },
+      error => {
+        this.spinnerService.hide();
+      });
+  }
+
+
+
+  getStates() {
+    this.spinnerService.show();
+    let payload = new FormData();
+    payload.append("type","States");
+    this.dashboardService.getType(payload).subscribe((response: any) => {      
+      this.spinnerService.hide();
+      if (response && response.status === 200 && response.data) {
+        this.statesList = response.data;
+       this.dummyStatesList = response.data;
+        
+      }
+      else {
+        const info = response.data;
+        console.log('services ->', info);
+      }
+    }, error => {
+      this.spinnerService.hide();
+      failMessage('Something went wrong');
+      console.log(error);
+    });
+  }
+
+  changeStatus()
+  {    
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'To change it',
+      icon: 'question',
+      showConfirmButton: true,
+      confirmButtonText: 'Yes',
+      showCancelButton: true,
+      cancelButtonText: 'Cancel',
+      backdrop: false,
+      background: 'white'
+    }).then((data) => {
+      if (data && data.value) {
+      console.log('update it');
+      let payload = new FormData();
+      payload.append('id', this.overViewForm.id);
+      if(this.overViewForm.status==0)
+      {
+        payload.append('status', '1');
+      }
+      else
+      {
+        payload.append('status', '0');
+      }
+      this.spinnerService.show();
+      this.dashboardService.updateVehicle(payload).subscribe((response: any)  => {
+        this.spinnerService.hide();
+        //this.getBrokerList();
+        this.router.navigate(['/dashboard/home//master/vehicles-all']);
+      }, error => {
+        this.spinnerService.hide();
+        failMessage('Something went wrong');
+        console.log(error);
+      });
+    }
+  });
+  }
+
+  getClass(item:any) {
+    if (item === '1') {
+    return 'btn btn-success btn-block';
+    } else if (item === '0') {
+    return 'btn btn-danger btn-block';
+    }
+    return 'btn btn-warning btn-block';
+    }
 
 
 }

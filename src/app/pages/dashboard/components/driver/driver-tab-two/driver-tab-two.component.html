@@ -1,0 +1,75 @@
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        License
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_licensepic($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ licensepic" target="_blank">
+            <img [src]="api.mediaURL+ licensepic" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a> 
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Pan Card
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_pan($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ panpic" target="_blank">
+            <img [src]="api.mediaURL+ panpic" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Picture
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_pic($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ pic" target="_blank">
+            <img [src]="api.mediaURL+ pic" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Aadhar
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_aadhar($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ aadharpic" target="_blank">
+            <img [src]="api.mediaURL+ aadharpic" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Bank Account Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_bankdetailspic($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ bankdetailspic" target="_blank">
+            <img [src]="api.mediaURL+ bankdetailspic" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>

@@ -77,4 +77,56 @@ export class DashboardService {
   getBroker(id: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getBroker), id);
   }
+  getAllDriver() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.driverList));
+  }
+  updateDriver(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateDriver), payload);
+  }
+  saveDriver(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveDriver), payload);
+  }
+  getDriver(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getDriver), id);
+  }
+  getAllItem() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.itemList));
+  }
+  updateItem(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateItem), payload);
+  }
+  saveItem(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveItem), payload);
+  }
+  getItem(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getItem), id);
+  }
+  getAllEmployee() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.employeeList));
+  }
+  updateEmployee(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateEmployee), payload);
+  }
+  saveEmployee(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveEmployee), payload);
+  }
+  getEmployee(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getEmployee), id);
+  }
+  getType(type:any) {
+    //return this.http.get(environment.baseUrl + environment.apiUrls.apis.getState);
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getType), type);
+  }
 }

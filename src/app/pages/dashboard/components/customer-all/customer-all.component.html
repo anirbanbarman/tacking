@@ -14,7 +14,7 @@
 
 
                 <div class="form-group">
-                  <label class="title">All customer</label>
+                  <label class="title">All Customer</label>
 
                 </div>
               </div>
@@ -76,10 +76,10 @@
                   </div>
 
                 </div>
-                <div class="col-sm-1 col-form-label _center">
+                <div class="col-sm-1 col-form-label">
                   <div class="form-group row">
-                    <button type="button" (click)="Opencustomer(item)" class="btn btn-primary btn-block "
-                      style="border-radius: 12px;">View</button>
+                      <p><button type="button" (click)="Opencustomer(item)" class="btn btn-primary btn-round ">Details-></button></p>                  
+                      <p><button type="button" [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Deactive'}}</button></p>
                   </div>
                 </div>
               </div>

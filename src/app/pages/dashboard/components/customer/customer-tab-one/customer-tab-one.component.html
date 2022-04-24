@@ -185,7 +185,7 @@
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Delete</button>
+        <p><button type="button" (click)="changeStatus()" [className]="getClass(overViewForm.status)">{{overViewForm.status === '1' ? 'Active' :'Inactive'}}</button></p>
       </div>
     </div>
   </div>

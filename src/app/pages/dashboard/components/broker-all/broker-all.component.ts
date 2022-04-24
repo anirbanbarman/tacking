@@ -81,43 +81,9 @@ this.dummy = [];
 });
 }
 
-update(item:any, value:any)
-{
-console.log('home', item);
-Swal.fire({
-title: 'Are you sure?',
-text: 'To change it',
-icon: 'question',
-showConfirmButton: true,
-confirmButtonText: 'Yes',
-showCancelButton: true,
-cancelButtonText: 'Cancel',
-backdrop: false,
-background: 'white'
-}).then((data) => {
-if (data && data.value) {
-console.log('update it');
-const param = {
-id: item.id,
-in_home: item.in_home === '1' ? 0 : 1
-};
-this.spinner.show();
-this.api.post_private('services/editList', param).then((datas) => {
-this.spinner.hide();
-this.getBrokerList();
-}, error => {
-this.spinner.hide();
-failMessage('Something went wrong');
-console.log(error);
-}).catch(error => {
-this.spinner.hide();
-console.log(error);
-failMessage('Something went wrong');
-});
-}
-});
 
-}
+
+
 
 Openbroker(item:any)
 {
@@ -137,7 +103,7 @@ this.router.navigate(['/dashboard/home//master/broker']);
 
 getClass(item:any) {
 if (item === '1') {
-return 'btn btn-primary btn-round';
+return 'btn btn-success btn-round';
 } else if (item === '0') {
 return 'btn btn-danger btn-round';
 }

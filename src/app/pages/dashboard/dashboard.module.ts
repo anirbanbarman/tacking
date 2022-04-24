@@ -45,6 +45,30 @@ import { BrokerTabThreeComponent } from './components/broker/broker-tab-three/br
 import { BrokerTabFourComponent } from './components/broker/broker-tab-four/broker-tab-four.component';
 import { BrokerTabFiveComponent } from './components/broker/broker-tab-five/broker-tab-five.component';
 import { BrokerAllComponent } from './components/broker-all/broker-all.component';
+import { DriverComponent } from './components/driver/driver.component';
+import { DriverSideBarComponent } from './components/driver/driver-side-bar/driver-side-bar.component';
+import { DriverMainContentComponent } from './components/driver/driver-main-content/driver-main-content.component';
+import { DriverTabOneComponent } from './components/driver/driver-tab-one/driver-tab-one.component';
+import { DriverTabTwoComponent } from './components/driver/driver-tab-two/driver-tab-two.component';
+import { DriverTabThreeComponent } from './components/driver/driver-tab-three/driver-tab-three.component';
+import { DriverTabFourComponent } from './components/driver/driver-tab-four/driver-tab-four.component';
+import { DriverTabFiveComponent } from './components/driver/driver-tab-five/driver-tab-five.component';
+import { DriverAllComponent } from './components/driver-all/driver-all.component';
+import { ItemComponent } from './components/item/item.component';
+import { ItemSideBarComponent } from './components/item/item-side-bar/item-side-bar.component';
+import { ItemMainContentComponent } from './components/item/item-main-content/item-main-content.component';
+import { ItemTabOneComponent } from './components/item/item-tab-one/item-tab-one.component';
+import { ItemTabTwoComponent } from './components/item/item-tab-two/item-tab-two.component';
+import { ItemTabThreeComponent } from './components/item/item-tab-three/item-tab-three.component';
+import { ItemTabFourComponent } from './components/item/item-tab-four/item-tab-four.component';
+import { ItemTabFiveComponent } from './components/item/item-tab-five/item-tab-five.component';
+import { ItemAllComponent } from './components/item-all/item-all.component';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeeSideBarComponent } from './components/employee/employee-side-bar/employee-side-bar.component';
+import { EmployeeMainContentComponent } from './components/employee/employee-main-content/employee-main-content.component';
+import { EmployeeTabOneComponent } from './components/employee/employee-tab-one/employee-tab-one.component';
+import { EmployeeTabTwoComponent } from './components/employee/employee-tab-two/employee-tab-two.component';
+import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from './services/dashboard.service';
@@ -97,7 +121,31 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BrokerTabThreeComponent,
     BrokerTabFourComponent,
     BrokerTabFiveComponent,
-    BrokerAllComponent
+    BrokerAllComponent,
+    DriverComponent,
+    DriverSideBarComponent,
+    DriverMainContentComponent,
+    DriverTabOneComponent,
+    DriverTabTwoComponent,
+    DriverTabThreeComponent,
+    DriverTabFourComponent,
+    DriverTabFiveComponent,
+    DriverAllComponent,
+    ItemComponent,
+    ItemSideBarComponent,
+    ItemMainContentComponent,
+    ItemTabOneComponent,
+    ItemTabTwoComponent,
+    ItemTabThreeComponent,
+    ItemTabFourComponent,
+    ItemTabFiveComponent,
+    ItemAllComponent,
+    EmployeeComponent,
+    EmployeeSideBarComponent,
+    EmployeeMainContentComponent,
+    EmployeeTabOneComponent,
+    EmployeeTabTwoComponent,
+    EmployeeAllComponent
 
 
   ],providers:[AuthService,DashboardService],

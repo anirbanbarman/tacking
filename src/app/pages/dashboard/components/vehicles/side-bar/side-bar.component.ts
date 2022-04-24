@@ -55,6 +55,7 @@ export class SideBarComponent implements OnInit {
         this.model=info.model;
         this.make=info.make;
         this.driver=info.driver;
+        this.getDriver(this.driver);
 
       }
       else {
@@ -118,6 +119,33 @@ export class SideBarComponent implements OnInit {
       error => {
         this.spinnerService.hide();
       });
+  }
+
+  getDriver(id:any) {
+    const param = {
+      id: this.driver
+    };
+    this.spinnerService.show();
+    console.log('id--', this.id);
+    let payload = new FormData();
+    payload.append("id",id);
+    this.dashboardService.getDriver(payload).subscribe((response: any) => {      
+      this.spinnerService.hide();
+      if (response && response.status === 200 && response.data) {
+        const info = response.data;
+        console.log('driver->', info);
+        this.driver= info.name;
+        
+      }
+      else {
+        const info = response.data;
+        console.log('driver ->', info);
+      }
+    }, error => {
+      this.spinnerService.hide();
+      failMessage('Something went wrong');
+      console.log(error);
+    });
   }
 
 }

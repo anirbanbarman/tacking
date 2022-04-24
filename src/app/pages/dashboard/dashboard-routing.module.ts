@@ -9,6 +9,12 @@ import { SupplierAllComponent } from './components/supplier-all/supplier-all.com
 import { SupplierComponent } from './components/supplier/supplier.component';
 import { BrokerAllComponent } from './components/broker-all/broker-all.component';
 import { BrokerComponent } from './components/broker/broker.component';
+import { DriverAllComponent } from './components/driver-all/driver-all.component';
+import { DriverComponent } from './components/driver/driver.component';
+import { ItemAllComponent } from './components/item-all/item-all.component';
+import { ItemComponent } from './components/item/item.component';
+import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
+import { EmployeeComponent } from './components/employee/employee.component';
 
 const routes: Routes = [
   {
@@ -60,6 +66,30 @@ const routes: Routes = [
       {
         path: 'master/broker-all',
         component: BrokerAllComponent
+      },
+      {
+        path: 'master/driver',
+        component: DriverComponent
+      },
+      {
+        path: 'master/driver-all',
+        component: DriverAllComponent
+      },
+      {
+        path: 'master/item',
+        component: ItemComponent
+      },
+      {
+        path: 'master/item-all',
+        component: ItemAllComponent
+      },
+      {
+        path: 'master/employee',
+        component: EmployeeComponent
+      },
+      {
+        path: 'master/employee-all',
+        component: EmployeeAllComponent
       }
     ]
 

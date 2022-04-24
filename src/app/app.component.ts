@@ -11,5 +11,5 @@ export class AppComponent {
   constructor(){
 
   }
-  title = 'duare-councillor';
+  title = 'saccounts';
 }
