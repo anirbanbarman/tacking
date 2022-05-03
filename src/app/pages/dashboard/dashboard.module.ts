@@ -69,6 +69,8 @@ import { EmployeeMainContentComponent } from './components/employee/employee-mai
 import { EmployeeTabOneComponent } from './components/employee/employee-tab-one/employee-tab-one.component';
 import { EmployeeTabTwoComponent } from './components/employee/employee-tab-two/employee-tab-two.component';
 import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
+import { parametersComponent } from './components/parameters/parameters.component';
+import { statesComponent } from './components/states/states.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from './services/dashboard.service';
@@ -145,7 +147,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EmployeeMainContentComponent,
     EmployeeTabOneComponent,
     EmployeeTabTwoComponent,
-    EmployeeAllComponent
+    EmployeeAllComponent,
+    parametersComponent,
+    statesComponent
 
 
   ],providers:[AuthService,DashboardService],

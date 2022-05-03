@@ -125,6 +125,47 @@ export class DashboardService {
   getEmployee(id: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getEmployee), id);
   }
+
+  getAllparameters() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.parametersList));
+  }
+  updateparameters(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updateparameters), payload);
+  }
+  saveparameters(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.saveparameters), payload);
+  }
+  getparameters(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getparameters), id);
+  }
+
+  getAllstates() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.statesList));
+  }
+  updatestates(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatestates), payload);
+  }
+  deletestates(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletestates), payload);
+  }
+  savestates(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savestates), payload);
+  }
+  getstates(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstates), id);
+  }
+  getstatesbycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstatesbycode), code);
+  }
+  
   getType(type:any) {
     //return this.http.get(environment.baseUrl + environment.apiUrls.apis.getState);
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getType), type);

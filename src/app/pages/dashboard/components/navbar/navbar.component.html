@@ -23,8 +23,23 @@
           <a routerLink="dashboard-ten.html" class="nav-sub-link">Product Management</a>
         </nav>-->
       </li><!-- nav-item -->
+     <li class="nav-item" [ngClass]="{'active': step === 'step2'}"   clickOutside (clickOutside)="hide(show2)" #show2 (click)="showDropdown(show2,'step2')">
+        <a class="nav-link with-sub"><i class="typcn typcn-document"></i>Vehicle Masters</a>
+        <nav class="nav-sub">
+          <a routerLink="/dashboard/home//vehicle-master/parameters" class="nav-sub-link">Parameter Settings</a>
+          <a routerLink="/dashboard/home//vehicle-master/states" class="nav-sub-link">States Master</a>
+          <a class="nav-sub-link">Vehicle Model Master</a>
+          <a  class="nav-sub-link">Vechicle Make Master</a>
+          <a class="nav-sub-link">Policy Type Master</a>
+          <a   class="nav-sub-link">Battery Master</a>
+          <a  class="nav-sub-link">Tyre Master</a>
+          <a  class="nav-sub-link">Vehicle Expense Type Master</a>
+          <a  class="nav-sub-link">Spare Parts Repaires Master</a>
+          <a  class="nav-sub-link">Spare Part Group Master</a>
+        </nav>
+      </li>
 
-      <li class="nav-item" [ngClass]="{'active': step === 'step2'}"   clickOutside (clickOutside)="hide(show2)" #show2 (click)="showDropdown(show2,'step2')">
+      <li class="nav-item" [ngClass]="{'active': step === 'step3'}"   clickOutside (clickOutside)="hide(show3)" #show3 (click)="showDropdown(show3,'step3')">
         <a class="nav-link with-sub"><i class="typcn typcn-document"></i>Masters</a>
         <nav class="nav-sub">
           <a routerLink="/dashboard/home//master/vehicles-all" class="nav-sub-link">Vehicles</a>
@@ -39,8 +54,8 @@
           <a  class="nav-sub-link">Lorry Challan</a>
           <a  class="nav-sub-link">Bill</a>
         </nav>
-      </li><!-- nav-item -->
-      <li class="nav-item" [ngClass]="{'active': step === 'step3'}"  clickOutside (clickOutside)="hide(show3)" #show3 (click)="showDropdown(show3,'step3')">
+      </li>
+      <li class="nav-item" [ngClass]="{'active': step === 'step4'}"  clickOutside (clickOutside)="hide(show4)" #show4 (click)="showDropdown(show4,'step4')">
         <a  class="nav-link with-sub"><i class="typcn typcn-book"></i>Reports</a>
         <nav class="nav-sub">
           <a  class="nav-sub-link">Vehicles</a>
@@ -54,7 +69,7 @@
           <a  class="nav-sub-link">Bill</a>
         </nav>
       </li><!-- nav-item -->
-      <li class="nav-item" [ngClass]="{'active': step === 'step4'}"  clickOutside (clickOutside)="hide(show4)" #show4 (click)="showDropdown(show4,'step4')">
+      <li class="nav-item" [ngClass]="{'active': step === 'step5'}"  clickOutside (clickOutside)="hide(show5)" #show5 (click)="showDropdown(show5,'step5')">
         <a  class="nav-link with-sub"><i class="typcn typcn-edit"></i>Accounts</a>
         <nav class="nav-sub">
           <a  class="nav-sub-link">Cash Register</a>
@@ -66,7 +81,7 @@
           <a class="nav-sub-link">GST </a>
         </nav>
       </li><!-- nav-item -->
-      <li class="nav-item" [ngClass]="{'active': step === 'step5'}"  clickOutside (clickOutside)="hide(show5)" #show5 (click)="showDropdown(show5,'step5')">
+      <li class="nav-item" [ngClass]="{'active': step === 'step6'}"  clickOutside (clickOutside)="hide(show6)" #show6 (click)="showDropdown(show6,'step6')">
         <a  class="nav-link with-sub"><i class="typcn typcn-chart-bar-outline"></i>Analysis</a>
         <nav class="nav-sub">
           <a  class="nav-sub-link">Vehicle Maintainence</a>
@@ -76,7 +91,7 @@
           <a  class="nav-sub-link">Brokers</a>
         </nav>
       </li><!-- nav-item -->
-      <li class="nav-item" [ngClass]="{'active': step === 'step6'}"  clickOutside (clickOutside)="hide(show6)" #show6 (click)="showDropdown(show6,'step6')">
+      <li class="nav-item" [ngClass]="{'active': step === 'step7'}"  clickOutside (clickOutside)="hide(show7)" #show7 (click)="showDropdown(show7,'step7')">
         <a class="nav-link with-sub"><i class="typcn typcn-map"></i>Finance</a>
         <nav class="nav-sub">
           <a  class="nav-sub-link">Money Receipt</a>
@@ -90,7 +105,7 @@
           <a  class="nav-sub-link">Vendor Due</a>
         </nav>
       </li><!-- nav-item -->
-      <li class="nav-item" [ngClass]="{'active': step === 'step7'}"  clickOutside (clickOutside)="hide(show7)" #show7 (click)="showDropdown(show7,'step7')">
+      <li class="nav-item" [ngClass]="{'active': step === 'step8'}"  clickOutside (clickOutside)="hide(show8)" #show8 (click)="showDropdown(show8,'step8')">
         <a  class="nav-link with-sub"><i class="typcn typcn-tabs-outline"></i>Settings</a>
         <nav class="nav-sub">
           <a  class="nav-sub-link">Account Settings</a>

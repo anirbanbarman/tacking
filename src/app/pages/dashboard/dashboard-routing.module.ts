@@ -15,6 +15,8 @@ import { ItemAllComponent } from './components/item-all/item-all.component';
 import { ItemComponent } from './components/item/item.component';
 import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
 import { EmployeeComponent } from './components/employee/employee.component';
+import { parametersComponent } from './components/parameters/parameters.component';
+import { statesComponent } from './components/states/states.component';
 
 const routes: Routes = [
   {
@@ -91,6 +93,22 @@ const routes: Routes = [
         path: 'master/employee-all',
         component: EmployeeAllComponent
       }
+      ,
+      {
+        path: 'master/employee-all',
+        component: EmployeeAllComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/parameters',
+        component: parametersComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/states',
+        component: statesComponent
+      }
+      
     ]
 
   },

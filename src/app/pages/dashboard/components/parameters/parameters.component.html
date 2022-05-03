@@ -1,0 +1,104 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="az-content az-content-profile">
+  <div class="container mn-ht-100p">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+        <div class="row mg-b-20">
+          <div class="col-md-12 col-xl-12">
+            <div class="row row-sm justify-content-center">
+              <div class="col-md-2 m-1">
+                <div class="form-group">
+                  <label class="title">All Parameters</label>
+                </div>
+              </div>                         
+            </div>          
+          </div>
+        </div>
+
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Good Tax</label>
+                <input name="goodtax" [(ngModel)]="overViewForm.goodtax" type="text" class="form-control" placeholder="Good Tax" required/>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Road Tax</label>
+                <input name="roadtax" [(ngModel)]="overViewForm.roadtax" type="text" class="form-control" placeholder="Road Tax"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Fitness Tax</label>
+                <input name="fitnesstax" [(ngModel)]="overViewForm.fitnesstax" type="text" class="form-control" placeholder="Fitness Tax"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Pollution Tax</label>
+                <input name="pollutiontax" [(ngModel)]="overViewForm.pollutiontax" type="text" class="form-control" placeholder="Pollution Tax"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Other Tax</label>
+                <input name="othertax" [(ngModel)]="overViewForm.othertax" type="text" class="form-control" placeholder="Other Tax"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">NP State</label>
+                <input name="npstate" [(ngModel)]="overViewForm.npstate" type="text" class="form-control" placeholder="NP State"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">NP Year(5 Yrs)</label>
+                <input name="npyear" [(ngModel)]="overViewForm.npyear" type="text" class="form-control" placeholder="NP Year"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Insurance</label>
+                <input name="insurance" [(ngModel)]="overViewForm.insurance" type="text" class="form-control" placeholder="Insurance"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Bhatta Per Day Limit</label>
+                <input name="bhata" [(ngModel)]="overViewForm.bhata" type="text" class="form-control" placeholder="Bhatta Per Day Limit"  >
+              </div>
+            </div>
+          </div>
+
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="save()">Save</button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                
+              </div>
+            </div>
+          </div>      
+
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->
+
+<app-footer></app-footer>

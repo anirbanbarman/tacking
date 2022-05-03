@@ -39,6 +39,16 @@ export const environment = {
       saveEmployee:'employee/save',
       updateEmployee:'employee/editList',
       getEmployee:'employee/getById',
+      parametersList:'parameters/getAll',
+      saveparameters:'parameters/save',
+      updateparameters:'parameters/editList',
+      getparameters:'parameters/getById',
+      statesList:'states/getAll',
+      savestates:'states/save',
+      updatestates:'states/editList',
+      deletestates:'states/deleteList',
+      getstatesbycode:'states/getByCode',
+      getstates:'states/getById',
       getType:'GlobalVariable/getByType',
     }
   }

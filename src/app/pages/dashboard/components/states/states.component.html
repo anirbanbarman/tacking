@@ -1,0 +1,174 @@
+<app-header></app-header>
+<app-navbar></app-navbar>
+
+<div class="az-content az-content-profile">
+  <div class="container mn-ht-100p">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+        <div class="row mg-b-20">
+          <div class="col-md-12 col-xl-12">
+            <div class="row row-sm justify-content-center">
+              <div class="col-md-2 m-1">
+                <div class="form-group">
+                  <label class="title">All States</label>
+                </div>
+              </div>                         
+            </div>          
+          </div>
+        </div>
+         <hr>
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Code</label>
+                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">State</label>
+                <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control" placeholder="Select" >
+                  <option class='option'  *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Abbr. State Name</label>
+                <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control" placeholder="Abbr. State Name"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Zone</label>
+                <select class='select-option' [(ngModel)]="overViewForm.zone" class="form-control" placeholder="Select" >
+                  <option class='option'  *ngFor='let item of zonesList' [value]="item.name">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">State Code Used for GST</label>
+                <input name="gststatecode" [(ngModel)]="overViewForm.gststatecode" type="text" class="form-control" placeholder="State Code Used for GST"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Remarks</label>
+                <input name="remarks" [(ngModel)]="overViewForm.remarks" type="text" class="form-control" placeholder="Remarks"  >
+              </div>
+            </div>            
+          </div>
+          <div class="row row-sm">
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group"> 
+                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>               
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group"> 
+                <button class="btn btn-primary btn-block" (click)="next()">Next</button>               
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group"> 
+                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>               
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+          </div>  
+          
+          <hr>
+
+          <div class="table-responsive">
+            <table id="datatable1" class="mg-b-0 table">
+              <thead>
+                <tr>
+                  <th class="wd-15p">Id</th>
+                  <th class="wd-15p">Code</th>
+                  <th class="wd-20p">State</th>
+                  <th class="wd-15p">Abbr. State Name</th>
+                  <th class="wd-15p">Zone</th>
+                  <th class="wd-10p">State Code Used for GST</th>
+                  <th class="wd-25p">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.code}}</td>
+                    <td> {{item.state}}</td>
+                    <td> {{item.abbr}}</td>
+                    <td> {{item.zone}}</td>
+                    <td> {{item.gststatecode}}</td>
+                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->
+
+<app-footer></app-footer>
