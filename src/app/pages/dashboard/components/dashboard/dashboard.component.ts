@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   navData: any = [
     {
       title: "Dashboard",
+      active:true,
 
       icon:"typcn typcn-device-laptop",
       subTitle: "Choose between layouts to experience different look and feel for your projects",
@@ -33,6 +34,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     {
       title: "Master",
+      active:false,
       icon:"typcn typcn-calendar-outline",
       subTitle: "Choose between layouts to experience different look and feel for your projects",
       links: [{ link: "/dashboard/home/master/vehicles-all", name: "Vehicles" },
@@ -1212,7 +1214,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   }
 
   selectData(data:any){
+    this.navData.map((_:any)=>_.active=false)
+    data.active=true;
     this.activeNav=data;
+
   }
   ngAfterViewInit(): void {
 

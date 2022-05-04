@@ -1,7 +1,7 @@
 <div class="az-iconbar">
   <a href="index.html" class="az-iconbar-logo"><i class="typcn typcn-chart-bar-outline"></i></a>
   <nav class="nav">
-    <a *ngFor="let nav of navData" (click)="selectData(nav)"  class="nav-link"><i [class]="nav.icon"></i></a>
+    <a *ngFor="let nav of navData" (click)="selectData(nav)" [ngClass]="{'active': nav.active === true}"   class="nav-link"><i [class]="nav.icon"></i></a>
     <!-- <a  class="nav-link"><i class="typcn typcn-calendar-outline"></i></a> -->
     <!-- <a href="#asideUIElements" class="nav-link"><i class="typcn typcn-book"></i></a>
     <a href="#asideForms" class="nav-link"><i class="typcn typcn-folder-add"></i></a>
