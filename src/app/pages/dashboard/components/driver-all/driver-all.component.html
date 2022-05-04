@@ -1,5 +1,5 @@
-<app-header></app-header>
-<app-navbar></app-navbar>
+<!-- <app-header></app-header>
+<app-navbar></app-navbar> -->
 
 <div class="az-content az-content-profile">
   <div class="container mn-ht-100p">
@@ -64,15 +64,15 @@
                     </div>
                     <div class="col-sm-6">
                       <div><span><label class="item-title">Address:</label>{{item.address}}</span></div>
-                      
+
                     </div>
-                  
+
                   </div>
 
                 </div>
                 <div class="col-sm-1 col-form-label _center">
                   <div class="form-group row">
-                      <p><button type="button" (click)="Opendriver(item)" class="btn btn-primary btn-round ">Details-></button></p>                  
+                      <p><button type="button" (click)="Opendriver(item)" class="btn btn-primary btn-round ">Details-></button></p>
                       <p><button type="button"  [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Inactive'}}</button></p>
                   </div>
                 </div>
@@ -162,4 +162,4 @@
   </div><!-- container -->
 </div><!-- az-content -->
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

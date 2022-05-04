@@ -6,11 +6,11 @@ declare var $: any;
 
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  selector: 'app-dashboard-home',
+  templateUrl: './dashboard-home.component.html',
+  styleUrls: ['./dashboard-home.component.scss']
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardHomeComponent implements OnInit {
   @ViewChild('side1') side1 !: ElementRef<any>;
   @ViewChild('side2') side2 !: ElementRef<any>;
 
@@ -22,31 +22,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   @ViewChild('flotChart3') chartEl3 !: ElementRef<HTMLDivElement>;
   @ViewChild('flotChart4') chartEl4 !: ElementRef<HTMLDivElement>;
-  navData: any = [
-    {
-      title: "Dashboard",
 
-      icon:"typcn typcn-device-laptop",
-      subTitle: "Choose between layouts to experience different look and feel for your projects",
-      links: [{ link: "/dashboard/home", name: "Home" }]
-    },
-
-    {
-      title: "Master",
-      icon:"typcn typcn-calendar-outline",
-      subTitle: "Choose between layouts to experience different look and feel for your projects",
-      links: [{ link: "/dashboard/home/master/vehicles-all", name: "Vehicles" },
-      { link: "/dashboard/home//master/customer-all", name: "Customer" },
-      { link: "/dashboard/home//master/supplier-all", name: "Supplier" },
-      { link: "/dashboard/home//master/broker-all", name: "Broker" },
-      { link: "/dashboard/home//master/driver-all", name: "Driver" },
-      { link: "/dashboard/home//master/item-al", name: "Items" },
-      { link: "/dashboard/home//master/employee-all", name: "Employees" },
-
-      ]
-    }
-
-  ]
 
   flotSampleData1 = [
     [0, 52.0372905861701],
@@ -1201,19 +1177,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     [148, 29.502272077881898],
     [149, 26.1165859635503]
   ];
-  activeNav: any;
+
 
 
 
   constructor(private renderer: Renderer2, private el: ElementRef) { }
 
   ngOnInit(): void {
-    this.activeNav=this.navData[0];
+
   }
 
-  selectData(data:any){
-    this.activeNav=data;
-  }
   ngAfterViewInit(): void {
 
 
@@ -1511,5 +1484,4 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.renderer.addClass(this.side2.nativeElement, 'show');
     this.renderer.addClass(document.body, 'az-iconbar-show');
   }
-
 }

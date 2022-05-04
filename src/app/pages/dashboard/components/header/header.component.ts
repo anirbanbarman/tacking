@@ -20,5 +20,12 @@ export class HeaderComponent implements OnInit {
 
     this.renderer.removeClass(element, 'show');
   }
+  showSideBar() {
+
+    this.renderer.addClass(document.body, 'az-iconbar-show');
+  }
+
+
+
 
 }

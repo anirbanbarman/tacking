@@ -17,25 +17,22 @@ import { EmployeeAllComponent } from './components/employee-all/employee-all.com
 import { EmployeeComponent } from './components/employee/employee.component';
 import { parametersComponent } from './components/parameters/parameters.component';
 import { statesComponent } from './components/states/states.component';
+import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
 
   {
     path: 'home',
+    component:DashboardComponent,
 
     children: [
-      { 
+      {
         path: "",
-        component: DashboardComponent, 
+        component:DashboardHomeComponent
       },
-      { 
+      {
         path: 'dashboard',
-        component: DashboardComponent, 
+        component: DashboardHomeComponent,
       },
       {
         path: 'master/vehicles',
@@ -108,10 +105,16 @@ const routes: Routes = [
         path: 'vehicle-master/states',
         component: statesComponent
       }
-      
+
     ]
 
   },
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+
 
 ];
 

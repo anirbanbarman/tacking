@@ -75,7 +75,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from './services/dashboard.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-import { NgxPaginationModule } from 'ngx-pagination'; 
+import { NgxPaginationModule } from 'ngx-pagination';
+import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component'; 
 
 
 
@@ -149,7 +150,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     EmployeeTabTwoComponent,
     EmployeeAllComponent,
     parametersComponent,
-    statesComponent
+    statesComponent,
+    DashboardHomeComponent
 
 
   ],providers:[AuthService,DashboardService],
