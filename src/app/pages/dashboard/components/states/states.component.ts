@@ -9,13 +9,14 @@ import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 
 
+
 @Component({
 selector: 'app-states',
 templateUrl: './states.component.html',
 styleUrls: ['./states.component.scss']
 })
 export class statesComponent implements OnInit {
-
+   
     variables: any = {
         isNew: true,
         checkcode: true
