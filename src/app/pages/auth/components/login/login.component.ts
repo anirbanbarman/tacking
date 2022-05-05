@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
         this.spinnerService.hide();
         localStorage.setItem('token', response.data.token);
         successMessage("login successful");
-        this.router.navigate(['dashboard'])
+        this.router.navigate(['startup'])
       }
       else{
         failMessage(response?.data?.message)
