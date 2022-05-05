@@ -28,25 +28,115 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       active:true,
 
       icon:"typcn typcn-device-laptop",
-      subTitle: "Choose between layouts to experience different look and feel for your projects",
+      subTitle: "Get all important data at one go!!",
       links: [{ link: "/dashboard/home", name: "Home" }]
     },
-
+    {
+      title: "Vehicle Master",
+      active:false,
+      icon:"typcn typcn-clipboard",
+      subTitle: "All different vehicle master data of your system",
+      links: [
+      { link: "/dashboard/home//vehicle-master/parameters", name: "Parameter Settings" },
+      { link: "/dashboard/home//vehicle-master/states", name: "States Master" },
+      { link: "", name: "Vehicle Model Master" },
+      { link: "", name: "Vehicle Make Master" },
+      { link: "", name: "Policy Type Master" },
+      { link: "", name: "Battery Master" },
+      { link: "", name: "Tyre Master" },
+      { link: "", name: "Vehicle Expense Type Master" },
+      { link: "", name: "Spare Parts Repaires Master" },
+      { link: "", name: "Spare Part Group Master" },
+      ]
+    },
     {
       title: "Master",
       active:false,
       icon:"typcn typcn-calendar-outline",
-      subTitle: "Choose between layouts to experience different look and feel for your projects",
+      subTitle: "All different master data of your system",
       links: [{ link: "/dashboard/home/master/vehicles-all", name: "Vehicles" },
       { link: "/dashboard/home//master/customer-all", name: "Customer" },
       { link: "/dashboard/home//master/supplier-all", name: "Supplier" },
       { link: "/dashboard/home//master/broker-all", name: "Broker" },
       { link: "/dashboard/home//master/driver-all", name: "Driver" },
-      { link: "/dashboard/home//master/item-al", name: "Items" },
+      { link: "/dashboard/home//master/item-all", name: "Items" },
       { link: "/dashboard/home//master/employee-all", name: "Employees" },
-
       ]
-    }
+    },
+    {
+      title: "Reports",
+      active:false,
+      icon:"typcn typcn-chart-area-outline",
+      subTitle: "Get different reports of your Business",
+      links: [
+      { link: "", name: "Vehicles" },
+      { link: "", name: "Brokers" },
+      { link: "", name: "Suppliers" },
+      { link: "", name: "Drivers" },
+      { link: "", name: "Trips" },
+      { link: "", name: "Maintainence" },
+      { link: "", name: "Lorry Challan" },
+      { link: "", name: "Bill" },
+      ]
+    },
+    {
+      title: "Accounts",
+      active:false,
+      icon:"typcn typcn-chart-area",
+      subTitle: "Book Keeping section of the System",
+      links: [
+      { link: "", name: "Cash Register" },
+      { link: "", name: "Journal" },
+      { link: "", name: "Ledger" },
+      { link: "", name: "Profit & Loss" },
+      { link: "", name: "Balance Sheet" },
+      { link: "", name: "Trial Balance" },
+      { link: "", name: "GST" },
+      ]
+    },
+    {
+      title: "Analysis",
+      active:false,
+      icon:"typcn typcn-credit-card",
+      subTitle: "In depth analysis of various components",
+      links: [
+      { link: "", name: "Maintainence" },
+      { link: "", name: "Trips" },
+      { link: "", name: "Brokers" },
+      { link: "", name: "Suppliers" },
+      { link: "", name: "Customers" },
+      { link: "", name: "Vehicles" },
+      ]
+    },
+    {
+      title: "Finance",
+      active:false,
+      icon:"typcn typcn-calculator",
+      subTitle: "Financials of the System",
+      links: [
+      { link: "", name: "Money Receipt" },
+      { link: "", name: "Cheque" },
+      { link: "", name: "Expenses" },
+      { link: "", name: "Incomes" },
+      { link: "", name: "Accounts" },
+      { link: "", name: "Credit History" },
+      { link: "", name: "Total Credit" },
+      { link: "", name: "Vendor Payment" },
+      { link: "", name: "Vendor Due" },
+      ]
+    },
+    {
+      title: "Settings",
+      active:false,
+      icon:"typcn typcn-arrow-minimise-outline",
+      subTitle: "Settings of the System",
+      links: [
+      { link: "", name: "Account Settings" },
+      { link: "", name: "User Settings" },
+      { link: "", name: "Application Settings" },
+      ]
+    },
+
 
   ]
 

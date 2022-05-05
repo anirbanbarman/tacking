@@ -9960,12 +9960,12 @@ textarea.parsley-success:focus {
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  background-color: #fff;
+  background-color: #5ba5f5;
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  background-color: #fff;
+  background-color:#5ba5f5;
   z-index: 500; }
   @media (min-width: 992px) {
     .az-iconbar {
@@ -10065,7 +10065,8 @@ textarea.parsley-success:focus {
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  padding-left: 0; }
+  padding-left: 30px;
+  background-color: aliceblue; }
   .az-iconbar-header .az-logo {
     line-height: 1; }
 
@@ -10098,8 +10099,9 @@ textarea.parsley-success:focus {
 
 .az-iconbar-body {
   padding: 20px;
-  padding-left: 0;
-  height: calc(100vh - 68px); }
+  padding-left: 20px;
+  height: calc(100vh - 68px);
+  background-color: aliceblue; }
   .az-iconbar-body .nav {
     flex-direction: column;
     border-left: 2px solid #e9ecef;
