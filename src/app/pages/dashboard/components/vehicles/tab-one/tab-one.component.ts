@@ -56,7 +56,11 @@ export class TabOneComponent implements OnInit {
     permitAStartDate: "",
     permitAEndDate: "",
     fitnessIssuedBy: "",
-    fitnessValidity: ""
+    fitnessValidity: "",
+    blacklisted: "",
+    owner_name: "",
+    owner_address: "",
+    vehicle_type: "",
   }
 
   driverList: any[] = [];
@@ -64,6 +68,9 @@ export class TabOneComponent implements OnInit {
 
   statesList: any[] = [];
   dummyStatesList: any[] = [];
+
+  yesnoList: any[] = [];
+
 
 
 
@@ -85,10 +92,12 @@ export class TabOneComponent implements OnInit {
         this.getVehicle(data.id);
         this.getDriverList();
         this.getStates();
+        this.getYesNo();
       } else {
         this.variables.isNew = true;
         this.getDriverList();
         this.getStates();
+        this.getYesNo();
       }
       });
     }
@@ -298,6 +307,28 @@ export class TabOneComponent implements OnInit {
     return 'btn btn-danger btn-block';
     }
     return 'btn btn-warning btn-block';
+    }
+
+
+    getYesNo() {
+      this.spinnerService.show();
+      let payload = new FormData();
+      payload.append("type","YesNo");
+      this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.spinnerService.hide();
+        if (response && response.status === 200 && response.data) {
+          this.yesnoList = response.data;
+         
+        }
+        else {
+          const info = response.data;
+          console.log('services ->', info);
+        }
+      }, error => {
+        this.spinnerService.hide();
+        failMessage('Something went wrong');
+        console.log(error);
+      });
     }
 
 

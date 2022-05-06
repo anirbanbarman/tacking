@@ -46,26 +46,25 @@
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Product Type</label>
-        <select name="type" [(ngModel)]="overViewForm.type" class="form-control">
-          <option value='Purchased Good'>Purchased Good </option>
-          <option value='Sales Good'>Sales Good </option>
-          <option value='Both'>Both </option>
-       </select>
+        <select class='select-option' [(ngModel)]="overViewForm.type" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of producttypelist' [value]="item.name">{{item.name}}</option>
+        </select>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
         <label class="form-label">Unit Of Measurement</label>
-        <select name="unit" [(ngModel)]="overViewForm.unit" class="form-control">
-          <option value='Kg'>Kg </option>
-          <option value='g'>g </option>
-          <option value='Pcs'>Pcs </option>
-          <option value='Ltr'>Ltr </option>
-          <option value='Mltr'>Mltr </option>
-          <option value='Km'>Km </option>
-          <option value='Mtr'>Mtr </option>
-          <option value='Ton'>Ton </option>
-       </select>
+        <select class='select-option' [(ngModel)]="overViewForm.unit" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of itemmodelist' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Costing Grade</label>
+        <select class='select-option' [(ngModel)]="overViewForm.costing_grade" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of costing_gradelist' [value]="item.name">{{item.name}}</option>
+        </select>
       </div>
     </div>
    

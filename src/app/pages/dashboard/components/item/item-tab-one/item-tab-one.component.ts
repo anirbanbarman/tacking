@@ -31,8 +31,12 @@ export class ItemTabOneComponent implements OnInit {
     hsn: "",
     gst: "",
     image: "",
+    costing_grade: "",
   }
 
+  itemmodelist: any[] = [];
+  producttypelist: any[] = [];
+  costing_gradelist: any[] = [];
 
 
   constructor(
@@ -51,8 +55,14 @@ export class ItemTabOneComponent implements OnInit {
         this.variables.isNew = false;
         console.log(this.variables.isNew);
         this.getItem(data.id);
+        this.getItemMode();
+        this.getProductType();
+        this.getCostingGrade();
       } else {
         this.variables.isNew = true;
+        this.getItemMode();
+        this.getProductType();
+        this.getCostingGrade();
       }
       });
     }
@@ -200,6 +210,71 @@ export class ItemTabOneComponent implements OnInit {
     return 'btn btn-danger btn-block';
     }
     return 'btn btn-warning btn-block';
+    }
+
+
+    getItemMode() {
+      this.spinnerService.show();
+      let payload = new FormData();
+      payload.append("type","Item Mode");
+      this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.spinnerService.hide();
+        if (response && response.status === 200 && response.data) {
+          this.itemmodelist = response.data;
+         
+        }
+        else {
+          const info = response.data;
+          console.log('services ->', info);
+        }
+      }, error => {
+        this.spinnerService.hide();
+        failMessage('Something went wrong');
+        console.log(error);
+      });
+    }
+
+    getProductType() {
+      this.spinnerService.show();
+      let payload = new FormData();
+      payload.append("type","Product Type");
+      this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.spinnerService.hide();
+        if (response && response.status === 200 && response.data) {
+          this.producttypelist = response.data;
+         
+        }
+        else {
+          const info = response.data;
+          console.log('services ->', info);
+        }
+      }, error => {
+        this.spinnerService.hide();
+        failMessage('Something went wrong');
+        console.log(error);
+      });
+    }
+
+
+    getCostingGrade() {
+      this.spinnerService.show();
+      let payload = new FormData();
+      payload.append("type","Costing Grade");
+      this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.spinnerService.hide();
+        if (response && response.status === 200 && response.data) {
+          this.costing_gradelist = response.data;
+         
+        }
+        else {
+          const info = response.data;
+          console.log('services ->', info);
+        }
+      }, error => {
+        this.spinnerService.hide();
+        failMessage('Something went wrong');
+        console.log(error);
+      });
     }
 
 

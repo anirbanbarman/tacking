@@ -49,6 +49,37 @@
         <input name="costPrice" [(ngModel)]="overViewForm.costPrice"  type="text" class="form-control" placeholder="Cost Price(Rs.)"  />
       </div>
     </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Vehicle Type</label>
+        <input name="vehicle_type" [(ngModel)]="overViewForm.vehicle_type"  type="text" class="form-control" placeholder="Vehicle Type"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Blacklisted</label>
+        <select class='select-option' [(ngModel)]="overViewForm.blacklisted" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of yesnoList' [value]="item.name">{{item.name}}</option>
+         </select>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Owner Name</label>
+        <!--<input name="driver" [(ngModel)]="overViewForm.driver"  type="text" class="form-control" placeholder="Driver"  />-->
+        <input name="owner_name" [(ngModel)]="overViewForm.owner_name"  type="text" class="form-control" placeholder="Owner Name"  />
+      </div>
+    </div> 
+    <div class="col-md-8">
+      <div class="form-group">
+        <label class="form-label">Owner Address</label>
+        <!--<input name="driver" [(ngModel)]="overViewForm.driver"  type="text" class="form-control" placeholder="Driver"  />-->
+        <input name="owner_address" [(ngModel)]="overViewForm.owner_address"  type="text" class="form-control" placeholder="Owner Address"  />
+      </div>
+    </div>  
   </div>
   <hr>
   <div class="row row-sm">
