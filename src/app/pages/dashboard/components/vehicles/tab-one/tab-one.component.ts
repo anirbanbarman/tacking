@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -8,6 +8,10 @@ import { LoaderService } from 'src/app/services/loader.service';
 import { DashboardService } from '../../../services/dashboard.service';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { SimpleModalComponent, SimpleModalService } from "ngx-simple-modal";
+import { ConfirmComponent } from '../../modal/confirmcomponent';
+
 
 @Component({
   selector: 'app-tab-one',
@@ -16,9 +20,47 @@ import Swal from 'sweetalert2';
 })
 export class TabOneComponent implements OnInit {
 
+  @ViewChild('contentVehicleType', { static: false }) contentVehicleType: any;
+
+
+  showConfirm() {
+    let disposable = this.simpleModalService.addModal(ConfirmComponent, {
+          title: 'Confirm title',
+          message: 'Confirm message'
+        })
+        .subscribe((isConfirmed)=>{
+            //We get modal result
+            if(isConfirmed) {
+                alert('accepted');
+            }
+            else {
+                alert('declined');
+            }
+        });
+    //We can close modal calling disposable.unsubscribe();
+    //If modal was not closed manually close it by timeout
+    setTimeout(()=>{
+        disposable.unsubscribe();
+    },10000);
+}
+
   variables: any = {
     isNew: true,
   }
+
+  vehicletype:any={
+    code: "",
+    model: "",
+    detentionchargeperday: "",
+    num_of_types: "",
+    bharat_stage: "",
+    tyre_cost_per_km: "",
+    repairing_cost_per_km: "",
+    earning_per_day: "",
+    loading_capacity: "",
+  }
+
+
 
   overViewForm: any = {
     id: "",
@@ -71,6 +113,10 @@ export class TabOneComponent implements OnInit {
 
   yesnoList: any[] = [];
 
+  vehicletypeList: any[] = [];
+  dummyVehicletypeList: any[] = [];
+  vehicletypeData: any[] = [];
+  vehicletypeString: any = '';
 
 
 
@@ -78,6 +124,8 @@ export class TabOneComponent implements OnInit {
     private spinnerService: NgxSpinnerService,
     private dashboardService: DashboardService,
     public route: ActivatedRoute,
+    private modalService: NgbModal,
+    private simpleModalService:SimpleModalService,
     private router: Router) {
 
   }
@@ -328,6 +376,76 @@ export class TabOneComponent implements OnInit {
         this.spinnerService.hide();
         failMessage('Something went wrong');
         console.log(error);
+      });
+    }
+
+
+    openVehicletype() {
+      console.log(status);
+      try {
+        this.modalService.open(this.contentVehicleType, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+          console.log(result);
+        }, (reason) => {
+          console.log(reason);
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    
+    /*--getVehicletype() {
+      this.api.get('site').then((sites: any) => {
+        console.log(sites);
+        if (sites && sites.status === 200 && sites.data && sites.data.length) {
+          console.log(sites.data);
+          this.site = sites.data;
+          this.dummyVehicletype = sites.data;
+        } else {
+          this.error(this.util.getString('No Vehicletype found'));
+        }
+      }, error => {
+        this.error(this.util.getString('Something went wrong'));
+        console.log(error);
+      });
+    }--*/
+
+    getVehicletype()
+    {
+      this.dashboardService.getAllstates().subscribe((response:any)=>{
+      console.log(response.data);
+      this.dummyVehicletypeList = [];
+      if (response && response.status === 200) {
+          this.vehicletypeList = response.data;
+          this.dummyVehicletypeList = response.data;
+        }
+      }, error => {
+         console.log(error);
+         failMessage('Something went wrong');
+         this.dummyVehicletypeList = [];
+      });
+    }
+    closeVehicletype() {
+      console.log('VehicleType');
+      if (this.vehicletype.code) 
+      {
+        const selectedVehicleType = this.vehicletypeData.filter(x => x.code === this.vehicletype.code);
+        console.log('name', selectedVehicleType[0].locationcode);
+        this.vehicletype.model = selectedVehicleType[0].model;
+        this.vehicletype.detentionchargeperday = selectedVehicleType[0].detentionchargeperday;
+        this.vehicletype.num_of_types = selectedVehicleType[0].num_of_types;
+        this.vehicletype.bharat_stage = selectedVehicleType[0].bharat_stage;
+        this.vehicletype.tyre_cost_per_km = selectedVehicleType[0].tyre_cost_per_km;
+        this.vehicletype.repairing_cost_per_km = selectedVehicleType[0].repairing_cost_per_km;
+        this.vehicletype.earning_per_day = selectedVehicleType[0].earning_per_day;
+        this.vehicletype.loading_capacity = selectedVehicleType[0].loading_capacity;
+      }
+      this.modalService.dismissAll();
+    }
+    
+    searchVehicletype(str:any) {
+      console.log(str);
+      this.vehicletype = this.dummyVehicletypeList.filter((ele: any) => {
+        return ele.locationcode.toLowerCase().includes(str.toLowerCase());
       });
     }
 

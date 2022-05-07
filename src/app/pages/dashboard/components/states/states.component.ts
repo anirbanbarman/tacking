@@ -7,7 +7,8 @@ import { failMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
-
+import * as xlsx from 'xlsx';
+import { ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
@@ -16,7 +17,8 @@ templateUrl: './states.component.html',
 styleUrls: ['./states.component.scss']
 })
 export class statesComponent implements OnInit {
-   
+  
+  
     variables: any = {
         isNew: true,
         checkcode: true

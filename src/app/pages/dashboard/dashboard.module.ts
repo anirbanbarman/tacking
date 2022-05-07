@@ -77,6 +77,8 @@ import { DashboardService } from './services/dashboard.service';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component'; 
+import { SimpleModalModule } from 'ngx-simple-modal';
+import { ConfirmComponent } from './components/modal/confirmcomponent';
 
 
 
@@ -151,7 +153,8 @@ import { DashboardHomeComponent } from './components/dashboard-home/dashboard-ho
     EmployeeAllComponent,
     parametersComponent,
     statesComponent,
-    DashboardHomeComponent
+    DashboardHomeComponent,
+    ConfirmComponent
 
 
   ],providers:[AuthService,DashboardService],
@@ -161,7 +164,9 @@ import { DashboardHomeComponent } from './components/dashboard-home/dashboard-ho
     FormsModule,
     DashboardRoutingModule,
     NgxSkeletonLoaderModule,
-    NgxPaginationModule
-  ]
+    NgxPaginationModule,
+    SimpleModalModule
+  ],
+  entryComponents:[ConfirmComponent]
 })
 export class DashboardModule { }

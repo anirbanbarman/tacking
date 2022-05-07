@@ -9,6 +9,42 @@
   </div>
 </div>-->
 
+
+
+
+
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Select Vehicle Type Code </h4>
+    <button type="button" class="close" aria-label="Close" 
+    >
+       <span aria-hidden="true">&times;</span>
+    </button>
+ </div>
+ <div class="modal-body">
+    <div class="form-group row">
+       <div class="col-sm-12">
+          <label>Select Vehicle Type Code</label>
+          <input style="background: transparent !important;" [(ngModel)]="vehicletypeString"
+             (ngModelChange)="searchVehicletype($event)" type="text" class="form-control" placeholder="Select Vehicle Type Code">
+       </div>
+    </div>
+    <div class="form-group row">
+       <div class="col-sm-12">
+          <div *ngFor="let item of vehicletypeList" (click)="overViewForm.vehicle_type = item.code"
+             style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;margin-bottom: 5px; border-bottom: 1px solid lightgray; padding-bottom: 5px;">
+             <p style="margin: 0px;"> {{item.code}}</p>
+             <i class="ti-check-box" *ngIf="item.code === overViewForm.vehicle_type"></i>
+          </div>
+       </div>
+    </div>
+ </div>
+ <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeVehicletype()">Save </button>
+ </div>
+</div>
+
+
 <div class="col-md-12">
   <div class="row row-sm">
     <div class="col-md-4">
@@ -48,13 +84,7 @@
         <label class="form-label">Cost Price(Rs.)</label>
         <input name="costPrice" [(ngModel)]="overViewForm.costPrice"  type="text" class="form-control" placeholder="Cost Price(Rs.)"  />
       </div>
-    </div>
-    <div class="col-md-4 mg-t-20 mg-md-t-0">
-      <div class="form-group">
-        <label class="form-label">Vehicle Type</label>
-        <input name="vehicle_type" [(ngModel)]="overViewForm.vehicle_type"  type="text" class="form-control" placeholder="Vehicle Type"  />
-      </div>
-    </div>
+    </div>    
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Blacklisted</label>
@@ -63,6 +93,64 @@
          </select>
       </div>
     </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4 mg-t-20 mg-md-t-0" (click)="showConfirm()">
+      <div class="form-group">
+        <label class="form-label">Vehicle Type</label>
+        <input name="vehicle_type" [(ngModel)]="overViewForm.vehicle_type"  type="text" class="form-control" placeholder="Vehicle Type"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Model</label>
+        <input name="model" [(ngModel)]="vehicletype.model"  type="text" class="form-control" placeholder="Model"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Detention Charge Per Day</label>
+        <input name="detentionchargeperday" [(ngModel)]="vehicletype.detentionchargeperday"  type="text" class="form-control" placeholder="Detention Charge Per Day"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Number Of Tyres</label>
+        <input name="num_of_types" [(ngModel)]="vehicletype.num_of_types"  type="text" class="form-control" placeholder="Number Of Tyres"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Bharat Stage</label>
+        <input name="bharat_stage" [(ngModel)]="vehicletype.bharat_stage"  type="text" class="form-control" placeholder="Bharat Stage"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Tyre Cost Per Km</label>
+        <input name="tyre_cost_per_km" [(ngModel)]="vehicletype.tyre_cost_per_km"  type="text" class="form-control" placeholder="Tyre Cost Per Km"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Repairing Cost Per Km</label>
+        <input name="repairing_cost_per_km" [(ngModel)]="vehicletype.repairing_cost_per_km"  type="text" class="form-control" placeholder="Repairing Cost Per Km"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Earning Per Day</label>
+        <input name="earning_per_day" [(ngModel)]="vehicletype.earning_per_day"  type="text" class="form-control" placeholder="Earning Per Day"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Loading Capacity</label>
+        <input name="loading_capacity" [(ngModel)]="vehicletype.loading_capacity"  type="text" class="form-control" placeholder="Loading Capacity"  />
+      </div>
+    </div>
+
   </div>
   <hr>
   <div class="row row-sm">
