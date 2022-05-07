@@ -6,36 +6,53 @@ export interface ConfirmModel {
 }
 @Component({
     selector: 'confirm',
-    template: `
-    <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Select Vehicle Type Code </h4>
-    <button type="button" class="close" aria-label="Close" 
-    >
-       <span aria-hidden="true">&times;</span>
-    </button>
- </div>
- <div class="modal-body">
-    <div class="form-group row">
-       <div class="col-sm-12">
-          <label>Select Vehicle Type Code</label>
-          <input style="background: transparent !important;" [(ngModel)]="vehicletypeString"
-             (ngModelChange)="searchVehicletype($event)" type="text" class="form-control" placeholder="Select Vehicle Type Code">
-       </div>
-    </div>
-    <div class="form-group row">
-       <div class="col-sm-12">
-         
-       </div>
-    </div>
- </div>
- <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="closeVehicletype()">Save </button>
- </div>
-    `
+    templateUrl:'./confirm.component.html'
 })
 export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean> implements ConfirmModel {
   title !: string;
   message !: string;
+  overViewForm: any = {
+    id: "",
+    status: 1,
+    vehicleno: "",
+    make: "",
+    model: "",
+    engineno: "",
+    chasisno: "",
+    costPrice: "",
+    driver: "",
+    financer: "",
+    loanAccountNo: "",
+    emi: "",
+    emiStartDate: "",
+    emiEndDate: "",
+    emiDuration: "",
+    loanAmount: "",
+    interestPercentage: "",
+    insuranceCompany: "",
+    insuranceNumber: "",
+    insurancevalidupto: "",
+    pollutionvalidity: "",
+    taxtokenno: "",
+    issuedByRTO: "",
+    taxTokenValidity: "",
+    permitNo: "",
+    permitIssuedByRTO: "",
+    permitState: "",
+    permitStartDate: "",
+    permitEndDate: "",
+    permitANo: "",
+    permitAIssuedByRTO: "",
+    permitAState: "",
+    permitAStartDate: "",
+    permitAEndDate: "",
+    fitnessIssuedBy: "",
+    fitnessValidity: "",
+    blacklisted: "",
+    owner_name: "",
+    owner_address: "",
+    vehicle_type: "",
+  }
 
   vehicletype:any={
     code: "",
@@ -60,12 +77,15 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     super();
   }
   confirm() {
-    // we set modal result as true on click on confirm button,
-    // then we can get modal result from caller code
+    // on click on confirm button we set dialog result as true,
+    // ten we can get dialog result from caller code
     this.result = true;
     this.close();
   }
-
+  cancel() {
+    this.result = false;
+    this.close();
+  }
   openVehicletype() {
     console.log(status);
     /*--try {

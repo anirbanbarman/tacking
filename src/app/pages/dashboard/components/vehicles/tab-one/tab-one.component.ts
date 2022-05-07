@@ -31,17 +31,17 @@ export class TabOneComponent implements OnInit {
         .subscribe((isConfirmed)=>{
             //We get modal result
             if(isConfirmed) {
-                alert('accepted');
+                alert('cancel');
             }
             else {
-                alert('declined');
+                alert('ok');
             }
         });
     //We can close modal calling disposable.unsubscribe();
     //If modal was not closed manually close it by timeout
-    setTimeout(()=>{
-        disposable.unsubscribe();
-    },10000);
+    // setTimeout(()=>{
+    //     disposable.unsubscribe();
+    // },10000);
 }
 
   variables: any = {
