@@ -7,30 +7,27 @@ import { failMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
-import * as xlsx from 'xlsx';
-import { ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
-selector: 'app-states',
-templateUrl: './states.component.html',
-styleUrls: ['./states.component.scss']
+selector: 'app-vehiclemodel',
+templateUrl: './vehiclemodel.component.html',
+styleUrls: ['./vehiclemodel.component.scss']
 })
-export class StatesComponent implements OnInit {
-  
-  
+export class VehiclemodelComponent implements OnInit {
+
     variables: any = {
         isNew: true,
         checkcode: true
       }
 
-    statesList: any[] = [];
-    dummyStatesList: any[] = [];
+    vehiclemodelList: any[] = [];
+    dummyvehiclemodelList: any[] = [];
     dataList: any[] = [];
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
-    
+
 
 
     zonesList: any[] = [];
@@ -39,11 +36,8 @@ export class StatesComponent implements OnInit {
     overViewForm: any = {
         id:  "",
         code:  "",
-        state:  "Select",
-        abbr:  "",
-        zone:  "Select",
-        gststatecode:  "",
-        remarks:  ""
+        type:  "",
+        model:  "",
       }
 
     constructor(
@@ -51,10 +45,10 @@ export class StatesComponent implements OnInit {
         private router: Router,
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
-        public api: ApisService, 
-    ) 
-    { 
-      this.getStates();
+        public api: ApisService,
+    )
+    {
+      this.getvehiclemodel();
       this.getZones();
       this.getDataList();
     }
@@ -62,7 +56,7 @@ export class StatesComponent implements OnInit {
 
   getDataList()
   {
-    this.dashboardService.getAllstates().subscribe((response:any)=>{
+    this.dashboardService.getAllvehiclemodel().subscribe((response:any)=>{
     console.log(response.data);
     this.dummy = [];
     if (response && response.status === 200) {
@@ -82,15 +76,16 @@ export class StatesComponent implements OnInit {
         {
           console.log('save');
           let payload = new FormData();
-          id: "";
+          this.overViewForm.id= "";
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
-          this.dashboardService.savestates(payload).subscribe((response: any) => {
+
+          this.dashboardService.savevehiclemodel(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
-              this.spinner.hide(); 
-              this.getDataList();    
-                   
+              this.spinner.hide();
+              this.getDataList();
+
             }
             else {
               failMessage(response?.data?.message)
@@ -111,11 +106,11 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.updatestates(payload).subscribe((response: any) => {
+        this.dashboardService.updatevehiclemodel(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide();  
+            this.spinner.hide();
             this.getDataList();
-                   
+
           }
           else {
             failMessage(response?.data?.message)
@@ -135,11 +130,11 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.deletestates(payload).subscribe((response: any) => {
+        this.dashboardService.deletevehiclemodel(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide();  
+            this.spinner.hide();
             this.getDataList();
-                   
+
           }
           else {
             failMessage(response?.data?.message)
@@ -165,8 +160,8 @@ export class StatesComponent implements OnInit {
           return true;
         }
       }
-    
-    getStateData(id:any) {
+
+    getvehiclemodelData(id:any) {
         const param = {
           id: this.overViewForm.id
         };
@@ -174,13 +169,13 @@ export class StatesComponent implements OnInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getstates(payload).subscribe((response: any) => {      
+        this.dashboardService.getvehiclemodel(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
             console.log('employee->', info);
-            this.overViewForm= info;  
-            this.variables.isNew=false;         
+            this.overViewForm= info;
+            this.variables.isNew=false;
           }
           else {
             const info = response.data;
@@ -194,20 +189,20 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getStates() {
+      getvehiclemodel() {
         this.spinner.show();
         let payload = new FormData();
-        payload.append("type","States");
-        this.dashboardService.getType(payload).subscribe((response: any) => {      
+        payload.append("type","vehiclemodel");
+        this.dashboardService.getType(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
-            this.statesList = response.data;
-           this.dummyStatesList = response.data;
-            
+            this.vehiclemodelList = response.data;
+            this.dummyvehiclemodelList = response.data;
+
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('vehiclemodel ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -221,16 +216,16 @@ export class StatesComponent implements OnInit {
         this.spinner.show();
         let payload = new FormData();
         payload.append("type","zone");
-        this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.dashboardService.getType(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             this.zonesList = response.data;
            this.dummyZonesList = response.data;
-            
+
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('vehiclemodel ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -241,7 +236,7 @@ export class StatesComponent implements OnInit {
 
       openItem(item:any)
       {
-        this.getStateData(item.id);
+        this.getvehiclemodelData(item.id);
       }
 
       next()
@@ -249,7 +244,7 @@ export class StatesComponent implements OnInit {
         console.log('this.overViewForm.id',this.overViewForm.id);
         this.overViewForm.id=parseInt(this.overViewForm.id)+1;
         console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+        this.getvehiclemodelData(this.overViewForm.id);
       }
 
       previous()
@@ -257,7 +252,7 @@ export class StatesComponent implements OnInit {
         console.log('this.overViewForm.id',this.overViewForm.id);
         this.overViewForm.id=parseInt(this.overViewForm.id)-1;
         console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+        this.getvehiclemodelData(this.overViewForm.id);
       }
 
 
@@ -270,19 +265,19 @@ export class StatesComponent implements OnInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {      
+        this.dashboardService.getvehiclemodelbycode(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
             console.log('data->', info);
-            failMessage('Code Already Exists In The System'); 
+            failMessage('Code Already Exists In The System');
             this.variables.checkCode=true;
-            console.log('this.variables.checkCode->',this.variables.checkCode);     
+            console.log('this.variables.checkCode->',this.variables.checkCode);
           }
           else {
-            this.variables.checkCode=false;  
-            console.log('this.variables.checkCode->',this.variables.checkCode); 
-            this.save();    
+            this.variables.checkCode=false;
+            console.log('this.variables.checkCode->',this.variables.checkCode);
+            this.save();
           }
         }, error => {
           this.spinner.hide();
@@ -297,7 +292,7 @@ export class StatesComponent implements OnInit {
 
 
 
- 
+
       ngOnInit()
       {
       }

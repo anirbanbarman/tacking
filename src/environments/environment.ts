@@ -11,44 +11,103 @@ export const environment = {
    
     apis: {
       adminLogIn:'users/adminLogin',
+      
       vehicleList:'vehicle/getAll',
       saveVehicle:'vehicle/save',
       updateVehicle:'vehicle/editList',
       getVehicle:'vehicle/getById',
+
       customerList:'customer/getAll',
       saveCustomer:'customer/save',
       updateCustomer:'customer/editList',
       getCustomer:'customer/getById',
+
       supplierList:'supplier/getAll',
       saveSupplier:'supplier/save',
       updateSupplier:'supplier/editList',
       getSupplier:'supplier/getById',
+
       brokerList:'broker/getAll',
       saveBroker:'broker/save',
       updateBroker:'broker/editList',
       getBroker:'broker/getById',
+
       driverList:'driver/getAll',
       saveDriver:'driver/save',
       updateDriver:'driver/editList',
       getDriver:'driver/getById',
+
       itemList:'item/getAll',
       saveItem:'item/save',
       updateItem:'item/editList',
       getItem:'item/getById',
+
       employeeList:'employee/getAll',
       saveEmployee:'employee/save',
       updateEmployee:'employee/editList',
       getEmployee:'employee/getById',
+
       parametersList:'parameters/getAll',
       saveparameters:'parameters/save',
       updateparameters:'parameters/editList',
       getparameters:'parameters/getById',
+
       statesList:'states/getAll',
       savestates:'states/save',
       updatestates:'states/editList',
       deletestates:'states/deleteList',
       getstatesbycode:'states/getByCode',
       getstates:'states/getById',
+
+      vehiclemakeList:'vehiclemake/getAll',
+      savevehiclemake:'vehiclemake/save',
+      updatevehiclemake:'vehiclemake/editList',
+      deletevehiclemake:'vehiclemake/deleteList',
+      getvehiclemakebycode:'vehiclemake/getByCode',
+      getvehiclemake:'vehiclemake/getById',
+
+      vehicletypeList:'Vehicletype/getAll',
+      savevehicletype:'Vehicletype/save',
+      updatevehicletype:'Vehicletype/editList',
+      deletevehicletype:'Vehicletype/deleteList',
+      getvehicletypebycode:'Vehicletype/getByCode',
+      getvehicletype:'Vehicletype/getById',
+
+      policytypeList:'Policytype/getAll',
+      savepolicytype:'Policytype/save',
+      updatepolicytype:'Policytype/editList',
+      deletepolicytype:'Policytype/deleteList',
+      getpolicytypebycode:'Policytype/getByCode',
+      getpolicytype:'Policytype/getById',
+
+      batterytypeList:'batterytype/getAll',
+      savebatterytype:'batterytype/save',
+      updatebatterytype:'batterytype/editList',
+      deletebatterytype:'batterytype/deleteList',
+      getbatterytypebycode:'batterytype/getByCode',
+      getbatterytype:'batterytype/getById',
+
+      tyretypeList:'tyretype/getAll',
+      savetyretype:'tyretype/save',
+      updatetyretype:'tyretype/editList',
+      deletetyretype:'tyretype/deleteList',
+      gettyretypebycode:'tyretype/getByCode',
+      gettyretype:'tyretype/getById',
+
+      vehicleexpensetypeList:'vehicleexpensetype/getAll',
+      savevehicleexpensetype:'vehicleexpensetype/save',
+      updatevehicleexpensetype:'vehicleexpensetype/editList',
+      deletevehicleexpensetype:'vehicleexpensetype/deleteList',
+      getvehicleexpensetypebycode:'vehicleexpensetype/getByCode',
+      getvehicleexpensetype:'vehicleexpensetype/getById',
+
+      vehiclemodelList:'vehiclemodel/getAll',
+      savevehiclemodel:'vehiclemodel/save',
+      updatevehiclemodel:'vehiclemodel/editList',
+      deletevehiclemodel:'vehiclemodel/deleteList',
+      getvehiclemodelbycode:'vehiclemodel/getByCode',
+      getvehiclemodel:'vehiclemodel/getById',
+
       getType:'GlobalVariable/getByType',
     }
   }

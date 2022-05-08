@@ -15,9 +15,16 @@ import { ItemAllComponent } from './components/item-all/item-all.component';
 import { ItemComponent } from './components/item/item.component';
 import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
 import { EmployeeComponent } from './components/employee/employee.component';
-import { parametersComponent } from './components/parameters/parameters.component';
-import { statesComponent } from './components/states/states.component';
+import { ParametersComponent } from './components/parameters/parameters.component';
+import { StatesComponent } from './components/states/states.component';
 import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component';
+import { VehicletypeComponent } from './components/vehicletype/vehicletype.component';
+import { VehiclemakeComponent } from './components/vehiclemake/vehiclemake.component';
+import { VehicleexpensetypeComponent } from './components/vehicleexpensetype/vehicleexpensetype.component';
+import { TyretypeComponent } from './components/tyretype/tyretype.component';
+import { PolicytypeComponent } from './components/policytype/policytype.component';
+import { BatterytypeComponent } from './components/batterytype/batterytype.component';
+import { VehiclemodelComponent } from './components/vehiclemodel/vehiclemodel.component';
 
 const routes: Routes = [
 
@@ -98,12 +105,47 @@ const routes: Routes = [
       ,
       {
         path: 'vehicle-master/parameters',
-        component: parametersComponent
+        component: ParametersComponent
       }
       ,
       {
         path: 'vehicle-master/states',
-        component: statesComponent
+        component: StatesComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehicletype',
+        component: VehicletypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehiclemake',
+        component: VehiclemakeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehicleexpensetype',
+        component: VehicleexpensetypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/tyretype',
+        component: TyretypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/policytype',
+        component: PolicytypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/batterytype',
+        component: BatterytypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehiclemodel',
+        component: VehiclemodelComponent
       }
 
     ]

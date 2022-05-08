@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StatesComponent } from './states.component';
+import { VehiclemakeComponent } from './vehiclemake.component';
 
-describe('statesComponent', () => {
-  let component: StatesComponent;
-  let fixture: ComponentFixture<StatesComponent>;
+describe('vehiclemakeComponent', () => {
+  let component: VehiclemakeComponent;
+  let fixture: ComponentFixture<VehiclemakeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatesComponent ]
+      declarations: [ VehiclemakeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatesComponent);
+    fixture = TestBed.createComponent(VehiclemakeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

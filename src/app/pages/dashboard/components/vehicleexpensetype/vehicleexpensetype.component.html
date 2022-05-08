@@ -1,0 +1,153 @@
+
+
+<div class="az-content az-content-profile">
+  <div class="mn-ht-200vx">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+
+        <label class="title">All Vehicle Expense Types</label>
+        </div>
+         <hr>
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Code</label>
+                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Part</label>
+                <input name="part" [(ngModel)]="overViewForm.part" type="text" class="form-control" placeholder="Part" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Preventive Code</label>
+                <input name="preventivecode" [(ngModel)]="overViewForm.preventivecode" type="text" class="form-control" placeholder="Preventive code" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Group</label>
+                <input name="group" [(ngModel)]="overViewForm.group" type="text" class="form-control" placeholder="Group" required/>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">HSN</label>
+                <input name="hsn" [(ngModel)]="overViewForm.hsn" type="text" class="form-control" placeholder="HSN"  >
+              </div>
+            </div>
+          </div>
+          <div class="row row-sm">
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="table-responsive" #datatable>
+            <table id="datatable1" class="mg-b-0 table" >
+              <thead>
+                <tr>
+                  <th class="wd-15p">Id</th>
+                  <th class="wd-15p">Code</th>
+                  <th class="wd-20p">Part</th>
+                  <th class="wd-15p">Preventive Code</th>
+                  <th class="wd-15p">Group</th>
+                  <th class="wd-10p">HSN</th>
+                  <th class="wd-10p">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.code}}</td>
+                    <td> {{item.part}}</td>
+                    <td> {{item.preventivecode}}</td>
+                    <td> {{item.group}}</td>
+                    <td> {{item.hsn}}</td>
+                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->

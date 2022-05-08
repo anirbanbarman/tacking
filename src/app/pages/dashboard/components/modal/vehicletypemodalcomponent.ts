@@ -1,16 +1,33 @@
 import { Component } from '@angular/core';
 import { SimpleModalComponent } from "ngx-simple-modal";
-export interface ConfirmModel {
+import { AuthService } from 'src/app/services/auth.service';
+import { Router,NavigationExtras } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { DashboardService } from '../../services/dashboard.service';
+import { failMessage } from 'src/app/toaster/toaster';
+import Swal from 'sweetalert2';
+import { ApisService } from 'src/app/services/apis.service';
+import { ActivatedRoute } from '@angular/router';
+import * as xlsx from 'xlsx';
+import { ViewChild, ElementRef } from '@angular/core';
+
+
+export interface VehicletypeModal {
   title:string;
   message:string;
 }
 @Component({
-    selector: 'confirm',
-    templateUrl:'./confirm.component.html'
+    selector: 'vehicletypemodal',
+    templateUrl:'./vehicletypemodal.component.html'
 })
-export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean> implements ConfirmModel {
+export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeModal, boolean> implements VehicletypeModal {
   title !: string;
   message !: string;
+  page: number = 1;
+  dataList: any[] = [];
+  dummyDataList: any[] = [];
+  dummy = [];
+
   overViewForm: any = {
     id: "",
     status: 1,
@@ -58,7 +75,7 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     code: "",
     model: "",
     detentionchargeperday: "",
-    num_of_types: "",
+    num_of_tyres: "",
     bharat_stage: "",
     tyre_cost_per_km: "",
     repairing_cost_per_km: "",
@@ -73,8 +90,9 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
 
 
 
-  constructor() {
+  constructor(private dashboardService: DashboardService) {
     super();
+    this.getVehicletype();
   }
   confirm() {
     // on click on confirm button we set dialog result as true,
@@ -83,7 +101,7 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
     this.close();
   }
   cancel() {
-    this.result = false;
+
     this.close();
   }
   openVehicletype() {
@@ -101,7 +119,7 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
 
   getVehicletype()
   {
-    /*--this.dashboardService.getAllstates().subscribe((response:any)=>{
+    this.dashboardService.getAllvehicletype().subscribe((response:any)=>{
     console.log(response.data);
     this.dummyVehicletypeList = [];
     if (response && response.status === 200) {
@@ -112,10 +130,10 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
        console.log(error);
        failMessage('Something went wrong');
        this.dummyVehicletypeList = [];
-    });--*/
+    });
   }
   closeVehicletype() {
-    /*--console.log('VehicleType');
+   console.log('VehicleType');
     if (this.vehicletype.code) 
     {
       const selectedVehicleType = this.vehicletypeData.filter(x => x.code === this.vehicletype.code);
@@ -129,13 +147,35 @@ export class ConfirmComponent extends SimpleModalComponent<ConfirmModel, boolean
       this.vehicletype.earning_per_day = selectedVehicleType[0].earning_per_day;
       this.vehicletype.loading_capacity = selectedVehicleType[0].loading_capacity;
     }
-    this.modalService.dismissAll();--*/
+    
+  }
+
+  search(string:any) {
+    this.resetChanges();
+    console.log('string', string);
+    this.vehicletypeList = this.filterItems(string);
+  }
+
+  protected resetChanges = () => {
+    this.vehicletypeList = this.dummyVehicletypeList;
+  }
+
+  filterItems(searchTerm:any) {
+    return this.vehicletypeList.filter((item) => {
+      return item.model.toString().toLowerCase().indexOf(searchTerm.toString().toLowerCase()) > -1;
+    });
+
+  }
+
+  selectItem(item:any)
+  {
+  
   }
   
   searchVehicletype(str:any) {
     console.log(str);
     this.vehicletype = this.dummyVehicletypeList.filter((ele: any) => {
-      return ele.locationcode.toLowerCase().includes(str.toLowerCase());
+      return ele.model.toString().toLowerCase().includes(str.toString().toLowerCase());
     });
   }
 

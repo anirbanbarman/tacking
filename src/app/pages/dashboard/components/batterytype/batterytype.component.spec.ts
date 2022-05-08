@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
-import { StatesComponent } from './states.component';
+import { BatterytypeComponent } from './batterytype.component';
 
-describe('statesComponent', () => {
-  let component: StatesComponent;
-  let fixture: ComponentFixture<StatesComponent>;
+describe('batterytypeComponent', () => {
+  let component: BatterytypeComponent;
+  let fixture: ComponentFixture<BatterytypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatesComponent ]
+      declarations: [ BatterytypeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatesComponent);
+    fixture = TestBed.createComponent(BatterytypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

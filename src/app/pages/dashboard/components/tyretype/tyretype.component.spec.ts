@@ -1,20 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Routes, RouterModule } from '@angular/router';
 
-import { MainDashboardComponent } from './main-dashboard.component';
+import { TyretypeComponent } from './tyretype.component';
 
-describe('MainDashboardComponent', () => {
-  let component: MainDashboardComponent;
-  let fixture: ComponentFixture<MainDashboardComponent>;
+describe('tyretypeComponent', () => {
+  let component: TyretypeComponent;
+  let fixture: ComponentFixture<TyretypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainDashboardComponent ]
+      declarations: [ TyretypeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MainDashboardComponent);
+    fixture = TestBed.createComponent(TyretypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

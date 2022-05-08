@@ -38,7 +38,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color:#ffffff;
     border-radius: 4px;
     margin: 16px auto;
-    max-width: 680px;
+    max-width: 80%;
     position: relative;
     transition: opacity 400ms ease-in-out;
     width: 100%;
@@ -65,10 +65,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     display: flex;
     height: 56px;
     padding: 0 16px;
+    color:white;
+   
   }
   
   .modal-header {
     border-bottom:1px solid #cecece;
+    background-color: #3cb0fd;
   }
   
   .modal-body {
@@ -86,13 +89,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     -webkit-border-radius: 7;
     -moz-border-radius: 7;
     border-radius: 7px;
-    font-family: Arial;
+    font-family: Calibri;
     color: #ffffff;
     font-size: 14px;
     background: #3498db;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-    margin: 5px 5px;
     border: none;
   }
   

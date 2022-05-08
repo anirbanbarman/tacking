@@ -1347,7 +1347,7 @@ pre {
   width: 100%;
   height: calc(1.96875rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.8125rem;
+  font-size: 0.7525rem;
   line-height: 1.5;
   color: #494c57;
   background-color: #fff;
@@ -6875,7 +6875,8 @@ a.text-dark:hover, a.text-dark:focus {
 .form-label {
   display: block;
   margin-bottom: 5px;
-  color: #494c57; }
+  color: #494c57; 
+  font-size: 0.7525rem}
 
 /* ###### 3.7 Grid ###### */
 .row-sm {
@@ -7287,7 +7288,16 @@ a.text-dark:hover, a.text-dark:focus {
   .table th,
   .table td {
     padding: 9px 15px;
-    line-height: 1.462; }
+    line-height: 1.462;
+    color: #041f6e;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    border-bottom-width: 1px;
+    border-top-width: 0;
+    padding: 0 15px 5px;
+  }
 
 .table-striped tbody tr:nth-of-type(2n+1) {
   background-color: rgba(150, 157, 171, 0.1); }
@@ -41825,8 +41835,9 @@ textarea.parsley-success:focus {
 .wd-100v {
   width: 100vw; }
 
-.item-title {
+.modal-title {
   font-weight: bold;
-  color: #0062cc;
-  font-size: 12px;
+  color: #ffffff;
+  font-size: 14px;
 }
+

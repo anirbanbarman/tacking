@@ -12,11 +12,11 @@ import { ViewChild, ElementRef } from '@angular/core';
 
 
 @Component({
-selector: 'app-states',
-templateUrl: './states.component.html',
-styleUrls: ['./states.component.scss']
+selector: 'app-tyretype',
+templateUrl: './tyretype.component.html',
+styleUrls: ['./tyretype.component.scss']
 })
-export class StatesComponent implements OnInit {
+export class TyretypeComponent implements OnInit {
   
   
     variables: any = {
@@ -24,8 +24,8 @@ export class StatesComponent implements OnInit {
         checkcode: true
       }
 
-    statesList: any[] = [];
-    dummyStatesList: any[] = [];
+    tyretypeList: any[] = [];
+    dummytyretypeList: any[] = [];
     dataList: any[] = [];
     dummyDataList: any[] = [];
     page: number = 1;
@@ -39,10 +39,8 @@ export class StatesComponent implements OnInit {
     overViewForm: any = {
         id:  "",
         code:  "",
-        state:  "Select",
-        abbr:  "",
-        zone:  "Select",
-        gststatecode:  "",
+        make:  "",
+        type:  "",
         remarks:  ""
       }
 
@@ -54,7 +52,7 @@ export class StatesComponent implements OnInit {
         public api: ApisService, 
     ) 
     { 
-      this.getStates();
+      this.gettyretype();
       this.getZones();
       this.getDataList();
     }
@@ -62,7 +60,7 @@ export class StatesComponent implements OnInit {
 
   getDataList()
   {
-    this.dashboardService.getAllstates().subscribe((response:any)=>{
+    this.dashboardService.getAlltyretype().subscribe((response:any)=>{
     console.log(response.data);
     this.dummy = [];
     if (response && response.status === 200) {
@@ -86,7 +84,7 @@ export class StatesComponent implements OnInit {
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
-          this.dashboardService.savestates(payload).subscribe((response: any) => {
+          this.dashboardService.savetyretype(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
               this.getDataList();    
@@ -111,7 +109,7 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.updatestates(payload).subscribe((response: any) => {
+        this.dashboardService.updatetyretype(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
             this.getDataList();
@@ -135,7 +133,7 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.deletestates(payload).subscribe((response: any) => {
+        this.dashboardService.deletetyretype(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
             this.getDataList();
@@ -174,7 +172,7 @@ export class StatesComponent implements OnInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getstates(payload).subscribe((response: any) => {      
+        this.dashboardService.gettyretype(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
@@ -194,20 +192,20 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getStates() {
+      gettyretype() {
         this.spinner.show();
         let payload = new FormData();
-        payload.append("type","States");
+        payload.append("type","tyretype");
         this.dashboardService.getType(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
-            this.statesList = response.data;
-           this.dummyStatesList = response.data;
+            this.tyretypeList = response.data;
+           this.dummytyretypeList = response.data;
             
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('tyretype ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -230,7 +228,7 @@ export class StatesComponent implements OnInit {
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('tyretype ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -270,7 +268,7 @@ export class StatesComponent implements OnInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {      
+        this.dashboardService.gettyretypebycode(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;

@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
-import { parametersComponent } from './parameters.component';
+import { ParametersComponent } from './parameters.component';
 
 describe('parametersComponent', () => {
-  let component: parametersComponent;
-  let fixture: ComponentFixture<parametersComponent>;
+  let component: ParametersComponent;
+  let fixture: ComponentFixture<ParametersComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ parametersComponent ]
+      declarations: [ ParametersComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(parametersComponent);
+    fixture = TestBed.createComponent(ParametersComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SimpleModalComponent, SimpleModalService } from "ngx-simple-modal";
-import { ConfirmComponent } from '../../modal/confirmcomponent';
+import { VehicletypeModalComponent } from '../../modal/vehicletypemodalcomponent';
 
 
 @Component({
@@ -24,7 +24,7 @@ export class TabOneComponent implements OnInit {
 
 
   showConfirm() {
-    let disposable = this.simpleModalService.addModal(ConfirmComponent, {
+    let disposable = this.simpleModalService.addModal(VehicletypeModalComponent, {
           title: 'Confirm title',
           message: 'Confirm message'
         })

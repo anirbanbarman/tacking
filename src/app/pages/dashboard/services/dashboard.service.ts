@@ -165,6 +165,178 @@ export class DashboardService {
   getstatesbycode(code: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstatesbycode), code);
   }
+
+  //vehicle make
+  getAllvehiclemake() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclemakeList));
+    }
+    updatevehiclemake(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclemake), payload);
+    }
+    deletevehiclemake(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclemake), payload);
+    }
+    savevehiclemake(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclemake), payload);
+    }
+    getvehiclemake(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclemake), id);
+    }
+    getvehiclemakebycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclemakebycode), code);
+    }
+  
+  
+    //Vehicle Type
+    getAllvehicletype() {
+      const param = {
+        id: localStorage.getItem('uid'),
+        limit: 5000,
+      };
+      return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehicletypeList));
+    }
+    updatevehicletype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehicletype), payload);
+    }
+    deletevehicletype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehicletype), payload);
+    }
+    savevehicletype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehicletype), payload);
+    }
+    getvehicletype(id: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicletype), id);
+    }
+    getvehicletypebycode(code: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicletypebycode), code);
+    }
+  
+    //Policy type
+    getAllpolicytype() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.policytypeList));
+    }
+    updatepolicytype(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatepolicytype), payload);
+    }
+    deletepolicytype(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletepolicytype), payload);
+    }
+    savepolicytype(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savepolicytype), payload);
+    }
+    getpolicytype(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getpolicytype), id);
+    }
+    getpolicytypebycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getpolicytypebycode), code);
+    }
+  
+    //Battery Type
+    getAllbatterytype() {
+  const param = {
+    id: localStorage.getItem('uid'),
+    limit: 5000,
+  };
+  return this.http.get((environment.baseUrl + environment.apiUrls.apis.batterytypeList));
+  }
+  updatebatterytype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatebatterytype), payload);
+  }
+  deletebatterytype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletebatterytype), payload);
+  }
+  savebatterytype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.savebatterytype), payload);
+  }
+  getbatterytype(id: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbatterytype), id);
+  }
+  getbatterytypebycode(code: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbatterytypebycode), code);
+  }
+  
+  
+  //Tyre Type
+  getAlltyretype() {
+  const param = {
+    id: localStorage.getItem('uid'),
+    limit: 5000,
+  };
+  return this.http.get((environment.baseUrl + environment.apiUrls.apis.tyretypeList));
+  }
+  updatetyretype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatetyretype), payload);
+  }
+  deletetyretype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletetyretype), payload);
+  }
+  savetyretype(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.savetyretype), payload);
+  }
+  gettyretype(id: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.gettyretype), id);
+  }
+  gettyretypebycode(code: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.gettyretypebycode), code);
+  }
+  
+  //Vehicle expense Type
+  getAllvehicleexpensetype() {
+      const param = {
+        id: localStorage.getItem('uid'),
+        limit: 5000,
+      };
+      return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehicleexpensetypeList));
+    }
+    updatevehicleexpensetype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehicleexpensetype), payload);
+    }
+    deletevehicleexpensetype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehicleexpensetype), payload);
+    }
+    savevehicleexpensetype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehicleexpensetype), payload);
+    }
+    getvehicleexpensetype(id: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicleexpensetype), id);
+    }
+    getvehicleexpensetypebycode(code: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicleexpensetypebycode), code);
+    }
+  
+    //Vehicle Model Type
+  getAllvehiclemodel() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclemodelList));
+  }
+  updatevehiclemodel(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclemodel), payload);
+  }
+  deletevehiclemodel(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclemodel), payload);
+  }
+  savevehiclemodel(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclemodel), payload);
+  }
+  getvehiclemodel(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclemodel), id);
+  }
+  getvehiclemodelbycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclemodelbycode), code);
+  }
+
+  
   
   getType(type:any) {
     //return this.http.get(environment.baseUrl + environment.apiUrls.apis.getState);

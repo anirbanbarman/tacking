@@ -14,7 +14,7 @@ selector: 'app-parameters',
 templateUrl: './parameters.component.html',
 styleUrls: ['./parameters.component.scss']
 })
-export class parametersComponent implements OnInit {
+export class ParametersComponent implements OnInit {
 
     variables: any = {
         isNew: true,

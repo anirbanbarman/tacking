@@ -69,8 +69,8 @@ import { EmployeeMainContentComponent } from './components/employee/employee-mai
 import { EmployeeTabOneComponent } from './components/employee/employee-tab-one/employee-tab-one.component';
 import { EmployeeTabTwoComponent } from './components/employee/employee-tab-two/employee-tab-two.component';
 import { EmployeeAllComponent } from './components/employee-all/employee-all.component';
-import { parametersComponent } from './components/parameters/parameters.component';
-import { statesComponent } from './components/states/states.component';
+import { ParametersComponent } from './components/parameters/parameters.component';
+import { StatesComponent } from './components/states/states.component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { DashboardService } from './services/dashboard.service';
@@ -78,7 +78,14 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { DashboardHomeComponent } from './components/dashboard-home/dashboard-home.component'; 
 import { SimpleModalModule } from 'ngx-simple-modal';
-import { ConfirmComponent } from './components/modal/confirmcomponent';
+import { VehicletypeModal, VehicletypeModalComponent } from './components/modal/vehicletypemodalcomponent';
+import { VehicletypeComponent } from './components/vehicletype/vehicletype.component';
+import { VehiclemakeComponent } from './components/vehiclemake/vehiclemake.component';
+import { VehicleexpensetypeComponent } from './components/vehicleexpensetype/vehicleexpensetype.component';
+import { TyretypeComponent } from './components/tyretype/tyretype.component';
+import { PolicytypeComponent } from './components/policytype/policytype.component';
+import { BatterytypeComponent } from './components/batterytype/batterytype.component';
+import { VehiclemodelComponent } from './components/vehiclemodel/vehiclemodel.component';
 
 
 
@@ -151,10 +158,18 @@ import { ConfirmComponent } from './components/modal/confirmcomponent';
     EmployeeTabOneComponent,
     EmployeeTabTwoComponent,
     EmployeeAllComponent,
-    parametersComponent,
-    statesComponent,
+    ParametersComponent,
+    StatesComponent,
     DashboardHomeComponent,
-    ConfirmComponent
+    VehicletypeComponent,
+    VehicletypeModalComponent,
+    VehiclemakeComponent,
+    VehicleexpensetypeComponent,
+    TyretypeComponent,
+    PolicytypeComponent,
+    BatterytypeComponent,
+    VehiclemodelComponent
+    
 
 
   ],providers:[AuthService,DashboardService],
@@ -167,6 +182,6 @@ import { ConfirmComponent } from './components/modal/confirmcomponent';
     NgxPaginationModule,
     SimpleModalModule
   ],
-  entryComponents:[ConfirmComponent]
+  entryComponents:[VehicletypeModalComponent]
 })
 export class DashboardModule { }

@@ -1,20 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Routes, RouterModule } from '@angular/router';
 
-import { FooterComponent } from './footer.component';
+import { PolicytypeComponent } from './policytype.component';
 
-describe('FooterComponent', () => {
-  let component: FooterComponent;
-  let fixture: ComponentFixture<FooterComponent>;
+describe('policytypeComponent', () => {
+  let component: PolicytypeComponent;
+  let fixture: ComponentFixture<PolicytypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
+      declarations: [ PolicytypeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FooterComponent);
+    fixture = TestBed.createComponent(PolicytypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
