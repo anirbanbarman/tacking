@@ -31,7 +31,7 @@ export class TabOneComponent implements OnInit {
         })
         .subscribe((result)=>{
             //We get modal result
-            alert(result)
+            alert(JSON.stringify(result))
             
            
         });

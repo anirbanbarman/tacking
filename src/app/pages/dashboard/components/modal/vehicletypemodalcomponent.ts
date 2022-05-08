@@ -96,10 +96,10 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
     super();
     this.getVehicletype();
   }
-  confirm() {
+  confirm(data:any) {
     // on click on confirm button we set dialog result as true,
     // ten we can get dialog result from caller code
-    this.result = "hello from modal component";
+    this.result = data;
     this.close();
   }
   cancel() {
@@ -171,7 +171,7 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
 
   selectItem(item:any)
   {
-  this.confirm();
+  this.confirm(item);
   }
   
   searchVehicletype(str:any) {
