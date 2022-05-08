@@ -25,17 +25,15 @@ export class TabOneComponent implements OnInit {
 
   showConfirm() {
     let disposable = this.simpleModalService.addModal(VehicletypeModalComponent, {
-          title: 'Confirm title',
-          message: 'Confirm message'
+          title: '',
+          message: 'Confirm message',
+          data: 'data from tab one'
         })
-        .subscribe((isConfirmed)=>{
+        .subscribe((result)=>{
             //We get modal result
-            if(isConfirmed) {
-                alert('cancel');
-            }
-            else {
-                alert('ok');
-            }
+            alert(result)
+            
+           
         });
     //We can close modal calling disposable.unsubscribe();
     //If modal was not closed manually close it by timeout

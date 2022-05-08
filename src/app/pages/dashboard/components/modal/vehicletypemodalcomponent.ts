@@ -15,14 +15,16 @@ import { ViewChild, ElementRef } from '@angular/core';
 export interface VehicletypeModal {
   title:string;
   message:string;
+  data:any;
 }
 @Component({
     selector: 'vehicletypemodal',
     templateUrl:'./vehicletypemodal.component.html'
 })
-export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeModal, boolean> implements VehicletypeModal {
+export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeModal, any> implements VehicletypeModal {
   title !: string;
   message !: string;
+  data !:any;
   page: number = 1;
   dataList: any[] = [];
   dummyDataList: any[] = [];
@@ -97,7 +99,7 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
   confirm() {
     // on click on confirm button we set dialog result as true,
     // ten we can get dialog result from caller code
-    this.result = true;
+    this.result = "hello from modal component";
     this.close();
   }
   cancel() {
@@ -169,7 +171,7 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
 
   selectItem(item:any)
   {
-  
+  this.confirm();
   }
   
   searchVehicletype(str:any) {
