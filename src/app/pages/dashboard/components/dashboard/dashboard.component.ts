@@ -1308,6 +1308,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.navData.map((_:any)=>_.active=false)
     data.active=true;
     this.activeNav=data;
+    this.showSideBar();
 
   }
   ngAfterViewInit(): void {
