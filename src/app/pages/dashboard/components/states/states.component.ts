@@ -9,6 +9,7 @@ import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from 'src/app/services/export.service';
 
 
 @Component({
@@ -52,6 +53,7 @@ export class StatesComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService, 
+        private exportService: ExportService
     ) 
     { 
       this.getStates();
@@ -301,7 +303,15 @@ export class StatesComponent implements OnInit {
       ngOnInit()
       {
       }
-
+      exportAsXLSX(): void {
+        this.exportService.exportAsExcelFile(
+          this.dataList,
+          `customer-list ${new Date().getMinutes()}`
+        );
+      }
+      exportAsPDF() {
+       this.exportService.exportPDF(this.dataList,"states.pdf")
+      }
 
 
 

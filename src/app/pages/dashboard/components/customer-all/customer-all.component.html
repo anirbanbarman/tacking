@@ -32,10 +32,13 @@
 
 
               <div class="col-md-2 m-1 ml-md-5">
-                <div class="form-group">
+                <div class="form-group d-flex" >
                   <a (click)="createNew()" class="nav-sub-link">
                     <button class="btn btn-primary btn-block">Create New</button>
                   </a>
+                  <i  (click)="exportAsXLSX()" class="ml-4  far fa-file-excel" style="font-size:38px;color:blue"></i>
+                  <i  (click)="exportAsPDF()" class="ml-4  far fa-file-pdf" style="font-size:38px;color:rgb(255, 153, 0)"></i>
+                
                 </div>
 
 
