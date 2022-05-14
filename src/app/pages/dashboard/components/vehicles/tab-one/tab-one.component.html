@@ -84,7 +84,13 @@
         <label class="form-label">Cost Price(Rs.)</label>
         <input name="costPrice" [(ngModel)]="overViewForm.costPrice"  type="text" class="form-control" placeholder="Cost Price(Rs.)"  />
       </div>
-    </div>    
+    </div> 
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Registration Date</label>
+        <input name="registrationdate" [(ngModel)]="vehicletype.registrationdate"  type="date" class="form-control" placeholder="Registration Date"  />
+      </div>
+    </div>   
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Blacklisted</label>
@@ -93,6 +99,48 @@
          </select>
       </div>
     </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Branch</label>
+        <input name="branch" [(ngModel)]="vehicletype.branch"  type="text" class="form-control" placeholder="Branch"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Account Code</label>
+        <input name="ac_code" [(ngModel)]="vehicletype.ac_code"  type="text" class="form-control" placeholder="Account Code"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Manufactured Year</label>
+        <input name="mfg_year" [(ngModel)]="vehicletype.mfg_year"  type="text" class="form-control" placeholder="Manufactured Year"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">AMC Start Date</label>
+        <input name="amc_startdate" [(ngModel)]="vehicletype.amc_startdate"  type="date" class="form-control" placeholder="AMC Start Date"  />
+      </div>
+    </div> 
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">AMC End Date</label>
+        <input name="amc_enddate" [(ngModel)]="vehicletype.amc_enddate"  type="date" class="form-control" placeholder="AMC End Date"  />
+      </div>
+    </div> 
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Group Code</label>
+        <input name="group_code" [(ngModel)]="vehicletype.group_code"  type="text" class="form-control" placeholder="Group Code"  />
+      </div>
+    </div> 
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Body Builder</label>
+        <input name="body_builder" [(ngModel)]="vehicletype.body_builder"  type="text" class="form-control" placeholder="Body Builder"  />
+      </div>
+    </div> 
   </div>
   <hr>
   <div class="row row-sm">
@@ -117,7 +165,7 @@
     <div class="col-md-4 mg-t-20 mg-md-t-0">
       <div class="form-group">
         <label class="form-label">Number Of Tyres</label>
-        <input name="num_of_types" [(ngModel)]="vehicletype.num_of_types"  type="text" class="form-control" placeholder="Number Of Tyres"  />
+        <input name="num_of_tyres" [(ngModel)]="vehicletype.num_of_tyres"  type="text" class="form-control" placeholder="Number Of Tyres"  />
       </div>
     </div>
     <div class="col-md-4 mg-t-20 mg-md-t-0">
@@ -150,7 +198,130 @@
         <input name="loading_capacity" [(ngModel)]="vehicletype.loading_capacity"  type="text" class="form-control" placeholder="Loading Capacity"  />
       </div>
     </div>
-
+  </div>
+  <hr> 
+  <div class="row row-sm">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Length</label>
+        <input name="length" [(ngModel)]="overViewForm.length"  type="text" class="form-control" placeholder="Length" (change)="calculatevolume()" />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Width</label>
+        <input name="width" [(ngModel)]="overViewForm.width"  type="text" class="form-control" placeholder="Width"  (change)="calculatevolume()" />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Height</label>
+        <input name="height" [(ngModel)]="overViewForm.height"  type="text" class="form-control" placeholder="Height"  (change)="calculatevolume()" />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Volume</label>
+        <input name="volume" [(ngModel)]="volume"  type="text" class="form-control" placeholder="Volume" readonly />        
+      </div>
+    </div>   
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Bottom Type</label>
+        <input name="bottomtype" [(ngModel)]="overViewForm.bottomtype"  type="text" class="form-control" placeholder="Bottom Type"  />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Channel</label>
+        <input name="channel" [(ngModel)]="overViewForm.channel"  type="text" class="form-control" placeholder="Channel"  />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Axis</label>
+        <input name="axis" [(ngModel)]="overViewForm.axis"  type="text" class="form-control" placeholder="Axis"   />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Sheet Size</label>
+        <input name="sheetsize" [(ngModel)]="overViewForm.sheetsize"  type="text" class="form-control" placeholder="Sheet Size" />        
+      </div>
+    </div>  
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Tank Capacity</label>
+        <input name="tank_capacity" [(ngModel)]="overViewForm.tank_capacity"  type="text" class="form-control" placeholder="Tank Capacity"  />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Tyre Capacity</label>
+        <input name="tyre_capacity" [(ngModel)]="overViewForm.tyre_capacity"  type="text" class="form-control" placeholder="Tyre Capacity"  />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Angle Lane</label>
+        <input name="angle_lane" [(ngModel)]="overViewForm.angle_lane"  type="text" class="form-control" placeholder="Angle Lane"   />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Wheel Base</label>
+        <input name="wheel_base" [(ngModel)]="overViewForm.wheel_base"  type="text" class="form-control" placeholder="Wheel Base" />        
+      </div>
+    </div>  
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Danda Tax Applicable</label>
+        <select class='select-option' [(ngModel)]="overViewForm.danda_tax_applicable" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of yesnoList' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Laden Weight</label>
+        <input name="laden_wt" [(ngModel)]="overViewForm.laden_wt"  type="text" class="form-control" placeholder="Tyre Capacity"  />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Gprs Attached</label>
+        <select class='select-option' [(ngModel)]="overViewForm.gprs_attached" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of yesnoList' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Body Colour</label>
+        <input name="body_colour" [(ngModel)]="overViewForm.body_colour"  type="text" class="form-control" placeholder="Body Colour" />        
+      </div>
+    </div>  
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Number Of Batteries</label>
+        <input name="no_of_battery" [(ngModel)]="overViewForm.no_of_battery"  type="text" class="form-control" placeholder="Number Of Batteries"  />
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">ECU</label>
+        <input name="ecu" [(ngModel)]="overViewForm.ecu"  type="text" class="form-control" placeholder="ECU"  />
+      </div>
+    </div> 
+    <div class="col-md-3">
+      <div class="form-group">
+        <label class="form-label">Controlling Zone</label>
+        <input name="controlling_zone" [(ngModel)]="overViewForm.controlling_zone"  type="text" class="form-control" placeholder="Controlling Zone" />        
+      </div>
+    </div>
   </div>
   <hr>
   <div class="row row-sm">
@@ -176,10 +347,18 @@
         <label class="form-label">Driver</label>
         <!--<input name="driver" [(ngModel)]="overViewForm.driver"  type="text" class="form-control" placeholder="Driver"  />-->
         <select class='select-option' [(ngModel)]="overViewForm.driver" class="form-control" placeholder="Select" >
-          <option class='option'  *ngFor='let item of driverList' [value]="item.id">{{item.name}}</option>
+          <option class='option'  *ngFor='let item of driverList' [value]="item.name">{{item.name}}</option>
         </select>
       </div>
-    </div>   
+    </div> 
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Controlling Staff</label>
+        <select class='select-option' [(ngModel)]="overViewForm.staff" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of employeeList' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div>  
   </div>
   <hr>
   <div class="row row-sm">

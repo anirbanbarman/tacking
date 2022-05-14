@@ -139,7 +139,7 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
     if (this.vehicletype.code) 
     {
       const selectedVehicleType = this.vehicletypeData.filter(x => x.code === this.vehicletype.code);
-      console.log('name', selectedVehicleType[0].locationcode);
+      console.log('code', selectedVehicleType[0].code);
       this.vehicletype.model = selectedVehicleType[0].model;
       this.vehicletype.detentionchargeperday = selectedVehicleType[0].detentionchargeperday;
       this.vehicletype.num_of_types = selectedVehicleType[0].num_of_types;
@@ -155,7 +155,8 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
   search(string:any) {
     this.resetChanges();
     console.log('string', string);
-    this.vehicletypeList = this.filterItems(string);
+    console.log('value', string.target.value);
+    this.vehicletypeList = this.filterItems(string.target.value);
   }
 
   protected resetChanges = () => {
@@ -163,7 +164,9 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
   }
 
   filterItems(searchTerm:any) {
+    
     return this.vehicletypeList.filter((item) => {
+      console.log('value', item.model.toString().toLowerCase().indexOf(searchTerm.toString().toLowerCase()));
       return item.model.toString().toLowerCase().indexOf(searchTerm.toString().toLowerCase()) > -1;
     });
 
@@ -175,10 +178,12 @@ export class VehicletypeModalComponent extends SimpleModalComponent<VehicletypeM
   }
   
   searchVehicletype(str:any) {
+    console.log('this.vehicletype=>',this.vehicletype);
     console.log(str);
     this.vehicletype = this.dummyVehicletypeList.filter((ele: any) => {
-      return ele.model.toString().toLowerCase().includes(str.toString().toLowerCase());
+      return ele.locationcode.toLowerCase().includes(str.toLowerCase());
     });
+    console.log('this.vehicletype=>',this.vehicletype);
   }
 
   

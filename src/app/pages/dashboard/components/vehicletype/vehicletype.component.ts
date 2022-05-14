@@ -178,13 +178,13 @@ export class VehicletypeComponent implements OnInit {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
-            console.log('employee->', info);
+            console.log('vehicletype->', info);
             this.overViewForm= info;
             this.variables.isNew=false;
           }
           else {
             const info = response.data;
-            console.log('employee ->', info);
+            console.log('vehicletype ->', info);
           }
         }, error => {
           this.spinner.hide();

@@ -31,8 +31,9 @@ export class TabOneComponent implements OnInit {
         })
         .subscribe((result)=>{
             //We get modal result
-            alert(JSON.stringify(result))
-            
+            //alert(JSON.stringify(result))
+            this.overViewForm.vehicle_type=result.code;
+            this.vehicletype=result;
            
         });
     //We can close modal calling disposable.unsubscribe();
@@ -46,11 +47,13 @@ export class TabOneComponent implements OnInit {
     isNew: true,
   }
 
+
+
   vehicletype:any={
     code: "",
     model: "",
     detentionchargeperday: "",
-    num_of_types: "",
+    num_of_tyres: "",
     bharat_stage: "",
     tyre_cost_per_km: "",
     repairing_cost_per_km: "",
@@ -101,10 +104,47 @@ export class TabOneComponent implements OnInit {
     owner_name: "",
     owner_address: "",
     vehicle_type: "",
+
+    registrationdate: "",
+    ac_code: "",
+    branch: "",
+    length: "0",
+    width: "0",
+    height: "0",
+    bottomtype: "",
+    mfg_year: "",
+    channel: "",
+    axis: "",
+    sheetsize: "",
+    tank_capacity: "",
+    tyre_capacity: "",
+    angle_lane: "",
+    wheel_base: "",
+    danda_tax_applicable: "",
+    laden_wt: "",
+    gprs_attached: "",
+    body_colour: "",
+    no_of_battery: "",
+    ecu: "",
+    controlling_zone: "",
+    amc_startdate: "",
+    amc_enddate: "",
+    group_code: "",
+    staff: "",
+    body_builder: "",
   }
 
+
+  
   driverList: any[] = [];
   dummyDriverList: any[] = [];
+
+
+  employeeList: any[] = [];
+  dummyEmployeeList: any[] = [];
+
+  branchList: any[] = [];
+  dummyBranchList: any[] = [];
 
   statesList: any[] = [];
   dummyStatesList: any[] = [];
@@ -116,7 +156,7 @@ export class TabOneComponent implements OnInit {
   vehicletypeData: any[] = [];
   vehicletypeString: any = '';
 
-
+  volume: any = 0;
 
   constructor(
     private spinnerService: NgxSpinnerService,
@@ -137,11 +177,13 @@ export class TabOneComponent implements OnInit {
         console.log(this.variables.isNew);
         this.getVehicle(data.id);
         this.getDriverList();
+        this.getEmployeeList();
         this.getStates();
         this.getYesNo();
       } else {
         this.variables.isNew = true;
         this.getDriverList();
+        this.getEmployeeList();
         this.getStates();
         this.getYesNo();
       }
@@ -161,13 +203,42 @@ export class TabOneComponent implements OnInit {
       this.spinnerService.hide();
       if (response && response.status === 200 && response.data) {
         const info = response.data;
-        console.log('vehicle yo->', info);
-        this.overViewForm= info;
+        console.log('vehicle ->', info);
+        this.overViewForm= info;      
+        this.getVehicletypeData(this.overViewForm.vehicle_type);
         
       }
       else {
         const info = response.data;
         console.log('services ->', info);
+      }
+    }, error => {
+      this.spinnerService.hide();
+      failMessage('Something went wrong');
+      console.log(error);
+    });
+  }
+
+
+  getVehicletypeData(code:any) {
+    const param = {
+      code: this.overViewForm.vehicle_type
+    };
+    this.spinnerService.show();
+    console.log('code--', this.overViewForm.vehicle_type);
+    let payload = new FormData();
+    payload.append("code",code);
+    this.dashboardService.getvehicletypebycode(payload).subscribe((response: any) => {
+      this.spinnerService.hide();
+      if (response && response.status === 200 && response.data) {
+        const info = response.data;
+        console.log('vehicletype->', info);
+        this.vehicletype= info;
+        this.variables.isNew=false;
+      }
+      else {
+        const info = response.data;
+        console.log('vehicletype ->', info);
       }
     }, error => {
       this.spinnerService.hide();
@@ -260,6 +331,24 @@ export class TabOneComponent implements OnInit {
       failMessage('No Driver Found');
       });
   }
+
+
+  
+  getEmployeeList() {
+    this.dashboardService.getAllEmployee().subscribe((response:any)=>{
+      console.log(response.data);
+      if (response && response.status === 200) {
+      this.employeeList = response.data;
+      this.dummyEmployeeList = response.data;
+      }
+      }, error => {
+      console.log(error);
+      failMessage('No Driver Found');
+      });
+  }
+
+
+  
 
   DriverUpdate() {
     this.spinnerService.show();
@@ -441,10 +530,17 @@ export class TabOneComponent implements OnInit {
     }
     
     searchVehicletype(str:any) {
+      console.log('this.vehicletype=>',this.vehicletype);
       console.log(str);
       this.vehicletype = this.dummyVehicletypeList.filter((ele: any) => {
         return ele.locationcode.toLowerCase().includes(str.toLowerCase());
       });
+      console.log('this.vehicletype=>',this.vehicletype);
+    }
+
+    calculatevolume()
+    {
+      this.volume=(parseFloat(this.overViewForm.height)*parseFloat(this.overViewForm.width)*parseFloat(this.overViewForm.height)).toFixed(2);  
     }
 
 
