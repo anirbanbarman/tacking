@@ -1315,7 +1315,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     console.log(this.chartEl);
     console.log($.plot)
-    $.plot(this.chartEl.nativeElement, [{
+    $.plot(this.chartEl?.nativeElement, [{
 
 
       data: this.flotSampleData10,

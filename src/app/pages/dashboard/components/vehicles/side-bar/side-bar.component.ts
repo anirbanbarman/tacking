@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {  Component, OnInit, AfterViewInit } from '@angular/core';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ApisService } from 'src/app/services/apis.service';
 import { failMessage,successMessage } from 'src/app/toaster/toaster';
 import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../../services/dashboard.service';
+declare var $: any;
 
 @Component({
   selector: 'app-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.scss']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent implements OnInit,AfterViewInit {
   image: any = '';  
   id: any = '';
   vehicleno: any = '';
@@ -35,6 +36,11 @@ export class SideBarComponent implements OnInit {
       } else {        
         }
       });
+  }
+  ngAfterViewInit(): void {
+     $(".peity-bar").peity("bar");
+     console.log("aa")
+
   }
 
   getVehicle(id:any) {
@@ -147,5 +153,6 @@ export class SideBarComponent implements OnInit {
       console.log(error);
     });
   }
+
 
 }
