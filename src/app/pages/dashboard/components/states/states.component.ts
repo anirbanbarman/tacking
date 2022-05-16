@@ -63,6 +63,7 @@ export class StatesComponent implements OnInit {
       this.getDataList();
       this.getstatesmaxid();
       this.getstatesminid();
+     
     }
 
 
@@ -88,21 +89,25 @@ export class StatesComponent implements OnInit {
         {
           console.log('save');
           let payload = new FormData();
-          id: "";
+          this.overViewForm.id= "";
+         
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
           this.dashboardService.savestates(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
-              this.getDataList();    
+              this.getDataList();   
+              this.getstatesmaxid();
+              this.getstatesminid(); 
+              
                    
             }
             else {
               failMessage(response?.data?.message)
               this.spinner.hide();
             }
-          12},
+          },
           error => {
             this.spinner.hide();
           });
@@ -122,6 +127,8 @@ export class StatesComponent implements OnInit {
             this.spinner.hide();  
             successMessage(response?.data?.message)
             this.getDataList();
+            this.getstatesmaxid();
+              this.getstatesminid(); 
                    
           }
           else if(response && response?.data?.message == "")
@@ -129,6 +136,8 @@ export class StatesComponent implements OnInit {
             this.spinner.hide();  
             successMessage(response?.data?.message)
             this.getDataList();
+            this.getstatesmaxid();
+              this.getstatesminid(); 
           
           }
           else {
@@ -264,11 +273,7 @@ export class StatesComponent implements OnInit {
 
       next()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-
         
-
 
         console.log("this.maxid->",this.maxid);
         console.log("this.minid->",this.minid);
@@ -276,10 +281,6 @@ export class StatesComponent implements OnInit {
         if(this.overViewForm.id==this.maxid)
         {
           failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
-        {
-          failMessage("This is the first data");
         }
         else
         {
@@ -292,13 +293,8 @@ export class StatesComponent implements OnInit {
 
       previous()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-        if(this.overViewForm.id==this.maxid)
-        {
-          failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
+
+       if(this.overViewForm.id==this.minid)
         {
           failMessage("This is the first data");
         }
@@ -373,8 +369,8 @@ export class StatesComponent implements OnInit {
           console.log("getstatesminid response->",response);
           if (response && response.status === 200 && response.data) {
             console.log(response);
-            this.maxid = response.data.id;
-            console.log("this.minid->",this.maxid);
+            this.minid = response.data.id;
+            console.log("this.minid->",this.minid);
           }
           else {
             const info = response.data;
