@@ -4,6 +4,7 @@ import { ApisService } from 'src/app/services/apis.service';
 import { failMessage,successMessage } from 'src/app/toaster/toaster';
 import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../../services/dashboard.service';
+declare var $: any;
 
 @Component({
   selector: 'app-driver-side-bar',
@@ -35,6 +36,12 @@ export class DriverSideBarComponent implements OnInit {
       } else {        
         }
       });
+  }
+
+
+  ngAfterViewInit(): void {
+    $(".peity-bar").peity("bar");
+    console.log("aa")
   }
 
   getDriver(id:any) {

@@ -4,6 +4,7 @@ import { ApisService } from 'src/app/services/apis.service';
 import { failMessage,successMessage } from 'src/app/toaster/toaster';
 import { ActivatedRoute } from '@angular/router';
 import { DashboardService } from '../../../services/dashboard.service';
+declare var $: any;
 
 @Component({
   selector: 'app-broker-side-bar',
@@ -36,6 +37,13 @@ export class BrokerSideBarComponent implements OnInit {
         }
       });
   }
+
+  ngAfterViewInit(): void {
+    $(".peity-bar").peity("bar");
+    console.log("aa")
+  }
+
+  
 
   getBroker(id:any) {
     const param = {

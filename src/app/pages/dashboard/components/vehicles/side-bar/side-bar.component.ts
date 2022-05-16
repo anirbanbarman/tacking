@@ -37,10 +37,10 @@ export class SideBarComponent implements OnInit,AfterViewInit {
         }
       });
   }
+  
   ngAfterViewInit(): void {
      $(".peity-bar").peity("bar");
      console.log("aa")
-
   }
 
   getVehicle(id:any) {
