@@ -3,36 +3,30 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage, successMessage } from 'src/app/toaster/toaster';
+import { failMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
-import * as xlsx from 'xlsx';
-import { ViewChild, ElementRef } from '@angular/core';
-import { ExportService } from 'src/app/services/export.service';
 
 
 @Component({
-selector: 'app-states',
-templateUrl: './states.component.html',
-styleUrls: ['./states.component.scss']
+selector: 'app-vehiclebody',
+templateUrl: './vehiclebody.component.html',
+styleUrls: ['./vehiclebody.component.scss']
 })
-export class StatesComponent implements OnInit {
-  
-  
+export class vehiclebodyComponent implements OnInit {
+
     variables: any = {
         isNew: true,
         checkcode: true
       }
 
-    statesList: any[] = [];
-    dummyStatesList: any[] = [];
+    vehiclebodyList: any[] = [];
+    dummyvehiclebodyList: any[] = [];
     dataList: any[] = [];
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
-    maxid:number=0;
-    minid:number=0;
     
 
 
@@ -41,12 +35,21 @@ export class StatesComponent implements OnInit {
 
     overViewForm: any = {
         id:  "",
-        code:  "",
-        state:  "Select",
-        abbr:  "",
-        zone:  "Select",
-        gststatecode:  "",
-        remarks:  ""
+        branch:  "",
+        reference:  "",
+        start_date:  "",
+		end_date:  "",
+		muhurat_date:  "",
+		date:  "",
+		officer:  "",
+		vehicle_no:  "",
+		length:  "",
+		width:  "",
+		height:  "",
+		bodytype:  "",
+		builder:  "",
+		remarks:  "",
+		purchaseid:  ""
       }
 
     constructor(
@@ -55,20 +58,17 @@ export class StatesComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService, 
-        private exportService: ExportService
     ) 
     { 
-      this.getStates();
+      this.getvehiclebody();
       this.getZones();
       this.getDataList();
-      this.getstatesmaxid();
-      this.getstatesminid();
     }
 
 
   getDataList()
   {
-    this.dashboardService.getAllstates().subscribe((response:any)=>{
+    this.dashboardService.getAllvehiclebody().subscribe((response:any)=>{
     console.log(response.data);
     this.dummy = [];
     if (response && response.status === 200) {
@@ -84,15 +84,14 @@ export class StatesComponent implements OnInit {
 
     save() {
         this.spinner.show();
-        if(this.variables.checkCode==false)
-        {
+        
           console.log('save');
           let payload = new FormData();
           id: "";
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
-          this.dashboardService.savestates(payload).subscribe((response: any) => {
+          this.dashboardService.savevehiclebody(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
               this.getDataList();    
@@ -106,7 +105,7 @@ export class StatesComponent implements OnInit {
           error => {
             this.spinner.hide();
           });
-        }
+        
       }
 
       update() {
@@ -117,24 +116,15 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.updatestates(payload).subscribe((response: any) => {
+        this.dashboardService.updatevehiclebody(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
-            successMessage(response?.data?.message)
             this.getDataList();
                    
-          }
-          else if(response && response?.data?.message == "")
-          {
-            this.spinner.hide();  
-            successMessage(response?.data?.message)
-            this.getDataList();
-          
           }
           else {
             failMessage(response?.data?.message)
             this.spinner.hide();
-            this.getDataList();
           }
         },
           error => {
@@ -144,19 +134,16 @@ export class StatesComponent implements OnInit {
 
       delete() {
         this.spinner.show();
-        console.log('delete');
+        console.log('update');
         let payload = new FormData();
         id: this.overViewForm.id;
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.deletestates(payload).subscribe((response: any) => {
-          console.log(response);
+        this.dashboardService.deletevehiclebody(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide(); 
-            successMessage(response?.data?.message) 
+            this.spinner.hide();  
             this.getDataList();
-            this.next();
                    
           }
           else {
@@ -192,17 +179,17 @@ export class StatesComponent implements OnInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getstates(payload).subscribe((response: any) => {      
+        this.dashboardService.getvehiclebody(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
-            console.log('response->', info);
+            console.log('employee->', info);
             this.overViewForm= info;  
             this.variables.isNew=false;         
           }
           else {
             const info = response.data;
-            console.log('response ->', info);
+            console.log('employee ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -212,20 +199,20 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getStates() {
+      getvehiclebody() {
         this.spinner.show();
         let payload = new FormData();
-        payload.append("type","States");
+        payload.append("type","vehiclebody");
         this.dashboardService.getType(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
-            this.statesList = response.data;
-           this.dummyStatesList = response.data;
+            this.vehiclebodyList = response.data;
+           this.dummyvehiclebodyList = response.data;
             
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('vehiclebody ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -248,7 +235,7 @@ export class StatesComponent implements OnInit {
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('vehiclebody ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -264,51 +251,18 @@ export class StatesComponent implements OnInit {
 
       next()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-
-        
-
-
-        console.log("this.maxid->",this.maxid);
-        console.log("this.minid->",this.minid);
-        console.log("this.overViewForm.id->",this.overViewForm.id);
-        if(this.overViewForm.id==this.maxid)
-        {
-          failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
-        {
-          failMessage("This is the first data");
-        }
-        else
-        {
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.overViewForm.id=parseInt(this.overViewForm.id)+1;
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.getStateData(this.overViewForm.id);
-        }
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.getStateData(this.overViewForm.id);
       }
 
       previous()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-        if(this.overViewForm.id==this.maxid)
-        {
-          failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
-        {
-          failMessage("This is the first data");
-        }
-        else
-        {
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.overViewForm.id=parseInt(this.overViewForm.id)-1;
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.getStateData(this.overViewForm.id);
-        }
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.getStateData(this.overViewForm.id);
       }
 
 
@@ -321,7 +275,7 @@ export class StatesComponent implements OnInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {      
+        this.dashboardService.getvehiclebodybycode(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
@@ -343,52 +297,6 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getstatesmaxid() {
-        this.spinner.show();
-        console.log("getstatesmaxid");
-        this.dashboardService.getstatesmaxid().subscribe((response: any) => {      
-          this.spinner.hide();
-          console.log("getstatesmaxid response->",response);
-          if (response && response.status === 200 && response.data) {
-            console.log(response);
-            this.maxid = response.data.id;
-            console.log("this.maxid->",this.maxid);
-          }
-          else {
-            const info = response.data;
-            console.log('states ->', info);
-          }
-        }, error => {
-          this.spinner.hide();
-          failMessage('Something went wrong');
-          console.log(error);
-        });
-      }
-
-      getstatesminid() {
-        this.spinner.show();
-        console.log("getstatesminid");
-        this.dashboardService.getstatesminid().subscribe((response: any) => {      
-          this.spinner.hide();
-          console.log("getstatesminid response->",response);
-          if (response && response.status === 200 && response.data) {
-            console.log(response);
-            this.maxid = response.data.id;
-            console.log("this.minid->",this.maxid);
-          }
-          else {
-            const info = response.data;
-            console.log('states ->', info);
-          }
-        }, error => {
-          this.spinner.hide();
-          failMessage('Something went wrong');
-          console.log(error);
-        });
-      }
-
-
-
 
 
 
@@ -398,15 +306,7 @@ export class StatesComponent implements OnInit {
       ngOnInit()
       {
       }
-      exportAsXLSX(): void {
-        this.exportService.exportAsExcelFile(
-          this.dataList,
-          `customer-list ${new Date().getMinutes()}`
-        );
-      }
-      exportAsPDF() {
-       this.exportService.exportPDF(this.dataList,"states.pdf")
-      }
+
 
 
 

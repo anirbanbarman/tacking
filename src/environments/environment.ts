@@ -58,6 +58,8 @@ export const environment = {
       deletestates:'states/deleteList',
       getstatesbycode:'states/getByCode',
       getstates:'states/getById',
+      getstatesmaxid:'states/getMaxId',
+      getstatesminid:'states/getMinId',
 
       vehiclemakeList:'vehiclemake/getAll',
       savevehiclemake:'vehiclemake/save',
@@ -107,6 +109,76 @@ export const environment = {
       deletevehiclemodel:'vehiclemodel/deleteList',
       getvehiclemodelbycode:'vehiclemodel/getByCode',
       getvehiclemodel:'vehiclemodel/getById',
+
+
+      vehicletyperateList:'vehicletyperate/getAll',
+      savevehicletyperate:'vehicletyperate/save',
+      updatevehicletyperate:'vehicletyperate/editList',
+      deletevehicletyperate:'vehicletyperate/deleteList',
+      getvehicletyperatebycode:'vehicletyperate/getByCode',
+      getvehicletyperate:'vehicletyperate/getById',
+
+      transittypeList:'transittype/getAll',
+      savetransittype:'transittype/save',
+      updatetransittype:'transittype/editList',
+      deletetransittype:'transittype/deleteList',
+      gettransittypebycode:'transittype/getByCode',
+      gettransittype:'transittype/getById',
+
+      billchargeList:'billcharge/getAll',
+      savebillcharge:'billcharge/save',
+      updatebillcharge:'billcharge/editList',
+      deletebillcharge:'billcharge/deleteList',
+      getbillchargebycode:'billcharge/getByCode',
+      getbillcharge:'billcharge/getById',
+
+      stationList:'station/getAll',
+      savestation:'station/save',
+      updatestation:'station/editList',
+      deletestation:'station/deleteList',
+      getstationbycode:'station/getByCode',
+      getstation:'station/getById',
+
+      vehicleinitialexpensesList:'vehicleinitialexpenses/getAll',
+      savevehicleinitialexpenses:'vehicleinitialexpenses/save',
+      updatevehicleinitialexpenses:'vehicleinitialexpenses/editList',
+      deletevehicleinitialexpenses:'vehicleinitialexpenses/deleteList',
+      getvehicleinitialexpenses:'vehicleinitialexpenses/getById',
+
+      vehiclesaleList:'vehiclesale/getAll',
+      savevehiclesale:'vehiclesale/save',
+      updatevehiclesale:'vehiclesale/editList',
+      deletevehiclesale:'vehiclesale/deleteList',
+      getvehiclesale:'vehiclesale/getById',
+
+      vehiclepermitList:'vehiclepermit/getAll',
+      savevehiclepermit:'vehiclepermit/save',
+      updatevehiclepermit:'vehiclepermit/editList',
+      deletevehiclepermit:'vehiclepermit/deleteList',
+      getvehiclepermit:'vehiclepermit/getById',
+
+
+      branchList:'branch/getAll',
+      savebranch:'branch/save',
+      updatebranch:'branch/editList',
+      deletebranch:'branch/deleteList',
+      getbranchbycode:'branch/getByCode',
+      getbranch:'branch/getById',
+	  
+	    vehiclebodyList:'vehiclebody/getAll',
+      savevehiclebody:'vehiclebody/save',
+      updatevehiclebody:'vehiclebody/editList',
+      deletevehiclebody:'vehiclebody/deleteList',
+      getvehiclebodybycode:'vehiclebody/getByCode',
+      getvehiclebody:'vehiclebody/getById',
+	  
+	    vehiclertoseizeList:'vehiclertoseize/getAll',
+      savevehiclertoseize:'vehiclertoseize/save',
+      updatevehiclertoseize:'vehiclertoseize/editList',
+      deletevehiclertoseize:'vehiclertoseize/deleteList',
+      getvehiclertoseizebycode:'vehiclertoseize/getByCode',
+      getvehiclertoseize:'vehiclertoseize/getById',
+
 
       getType:'GlobalVariable/getByType',
     }

@@ -3,21 +3,20 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage, successMessage } from 'src/app/toaster/toaster';
+import { failMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
-import { ExportService } from 'src/app/services/export.service';
 
 
 @Component({
-selector: 'app-states',
-templateUrl: './states.component.html',
-styleUrls: ['./states.component.scss']
+selector: 'app-branch',
+templateUrl: './branch.component.html',
+styleUrls: ['./branch.component.scss']
 })
-export class StatesComponent implements OnInit {
+export class branchComponent implements OnInit {
   
   
     variables: any = {
@@ -25,14 +24,12 @@ export class StatesComponent implements OnInit {
         checkcode: true
       }
 
-    statesList: any[] = [];
-    dummyStatesList: any[] = [];
+    branchList: any[] = [];
+    dummybranchList: any[] = [];
     dataList: any[] = [];
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
-    maxid:number=0;
-    minid:number=0;
     
 
 
@@ -42,11 +39,24 @@ export class StatesComponent implements OnInit {
     overViewForm: any = {
         id:  "",
         code:  "",
-        state:  "Select",
-        abbr:  "",
-        zone:  "Select",
-        gststatecode:  "",
-        remarks:  ""
+        type:  "",
+        zone:  "",
+        manager:  "",
+        mobileno:  "",
+        registration_branch:  "",
+		email:  "",
+		department:  "",
+		cash_limit:  "",
+		opening_bank_limit:  "",
+		closing_bank_limit:  "",
+		esi_deduct:  "",
+		salary_quit:  "",
+		sorting:  "",
+		show_online:  "",
+		valid_ac_code:  "",
+		bank_ifsc:  "",
+		bank_account_no:  "",
+		gst_number:  "",
       }
 
     constructor(
@@ -55,20 +65,17 @@ export class StatesComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService, 
-        private exportService: ExportService
     ) 
     { 
-      this.getStates();
+      this.getbranch();
       this.getZones();
       this.getDataList();
-      this.getstatesmaxid();
-      this.getstatesminid();
     }
 
 
   getDataList()
   {
-    this.dashboardService.getAllstates().subscribe((response:any)=>{
+    this.dashboardService.getAllbranch().subscribe((response:any)=>{
     console.log(response.data);
     this.dummy = [];
     if (response && response.status === 200) {
@@ -92,7 +99,7 @@ export class StatesComponent implements OnInit {
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
-          this.dashboardService.savestates(payload).subscribe((response: any) => {
+          this.dashboardService.savebranch(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
               this.getDataList();    
@@ -117,24 +124,15 @@ export class StatesComponent implements OnInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.updatestates(payload).subscribe((response: any) => {
+        this.dashboardService.updatebranch(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
-            successMessage(response?.data?.message)
             this.getDataList();
                    
-          }
-          else if(response && response?.data?.message == "")
-          {
-            this.spinner.hide();  
-            successMessage(response?.data?.message)
-            this.getDataList();
-          
           }
           else {
             failMessage(response?.data?.message)
             this.spinner.hide();
-            this.getDataList();
           }
         },
           error => {
@@ -144,19 +142,16 @@ export class StatesComponent implements OnInit {
 
       delete() {
         this.spinner.show();
-        console.log('delete');
+        console.log('update');
         let payload = new FormData();
         id: this.overViewForm.id;
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.deletestates(payload).subscribe((response: any) => {
-          console.log(response);
+        this.dashboardService.deletebranch(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide(); 
-            successMessage(response?.data?.message) 
+            this.spinner.hide();  
             this.getDataList();
-            this.next();
                    
           }
           else {
@@ -184,7 +179,7 @@ export class StatesComponent implements OnInit {
         }
       }
     
-    getStateData(id:any) {
+    getBranchData(id:any) {
         const param = {
           id: this.overViewForm.id
         };
@@ -192,17 +187,17 @@ export class StatesComponent implements OnInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getstates(payload).subscribe((response: any) => {      
+        this.dashboardService.getbranch(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
-            console.log('response->', info);
+            console.log('employee->', info);
             this.overViewForm= info;  
             this.variables.isNew=false;         
           }
           else {
             const info = response.data;
-            console.log('response ->', info);
+            console.log('employee ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -212,20 +207,20 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getStates() {
+      getbranch() {
         this.spinner.show();
         let payload = new FormData();
-        payload.append("type","States");
+        payload.append("type","branch");
         this.dashboardService.getType(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
-            this.statesList = response.data;
-           this.dummyStatesList = response.data;
+            this.branchList = response.data;
+           this.dummybranchList = response.data;
             
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('branch ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -248,7 +243,7 @@ export class StatesComponent implements OnInit {
           }
           else {
             const info = response.data;
-            console.log('states ->', info);
+            console.log('branch ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -259,56 +254,23 @@ export class StatesComponent implements OnInit {
 
       openItem(item:any)
       {
-        this.getStateData(item.id);
+        this.getBranchData(item.id);
       }
 
       next()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-
-        
-
-
-        console.log("this.maxid->",this.maxid);
-        console.log("this.minid->",this.minid);
-        console.log("this.overViewForm.id->",this.overViewForm.id);
-        if(this.overViewForm.id==this.maxid)
-        {
-          failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
-        {
-          failMessage("This is the first data");
-        }
-        else
-        {
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.overViewForm.id=parseInt(this.overViewForm.id)+1;
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.getStateData(this.overViewForm.id);
-        }
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.getBranchData(this.overViewForm.id);
       }
 
       previous()
       {
-        this.getstatesmaxid();
-        this.getstatesminid();
-        if(this.overViewForm.id==this.maxid)
-        {
-          failMessage("This is the last data");
-        }
-        else if(this.overViewForm.id==this.minid)
-        {
-          failMessage("This is the first data");
-        }
-        else
-        {
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.overViewForm.id=parseInt(this.overViewForm.id)-1;
-          console.log('this.overViewForm.id',this.overViewForm.id);
-          this.getStateData(this.overViewForm.id);
-        }
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+        console.log('this.overViewForm.id',this.overViewForm.id);
+        this.getBranchData(this.overViewForm.id);
       }
 
 
@@ -321,7 +283,7 @@ export class StatesComponent implements OnInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {      
+        this.dashboardService.getbranchbycode(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
@@ -343,52 +305,6 @@ export class StatesComponent implements OnInit {
       }
 
 
-      getstatesmaxid() {
-        this.spinner.show();
-        console.log("getstatesmaxid");
-        this.dashboardService.getstatesmaxid().subscribe((response: any) => {      
-          this.spinner.hide();
-          console.log("getstatesmaxid response->",response);
-          if (response && response.status === 200 && response.data) {
-            console.log(response);
-            this.maxid = response.data.id;
-            console.log("this.maxid->",this.maxid);
-          }
-          else {
-            const info = response.data;
-            console.log('states ->', info);
-          }
-        }, error => {
-          this.spinner.hide();
-          failMessage('Something went wrong');
-          console.log(error);
-        });
-      }
-
-      getstatesminid() {
-        this.spinner.show();
-        console.log("getstatesminid");
-        this.dashboardService.getstatesminid().subscribe((response: any) => {      
-          this.spinner.hide();
-          console.log("getstatesminid response->",response);
-          if (response && response.status === 200 && response.data) {
-            console.log(response);
-            this.maxid = response.data.id;
-            console.log("this.minid->",this.maxid);
-          }
-          else {
-            const info = response.data;
-            console.log('states ->', info);
-          }
-        }, error => {
-          this.spinner.hide();
-          failMessage('Something went wrong');
-          console.log(error);
-        });
-      }
-
-
-
 
 
 
@@ -398,15 +314,7 @@ export class StatesComponent implements OnInit {
       ngOnInit()
       {
       }
-      exportAsXLSX(): void {
-        this.exportService.exportAsExcelFile(
-          this.dataList,
-          `customer-list ${new Date().getMinutes()}`
-        );
-      }
-      exportAsPDF() {
-       this.exportService.exportPDF(this.dataList,"states.pdf")
-      }
+
 
 
 

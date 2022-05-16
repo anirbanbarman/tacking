@@ -165,6 +165,12 @@ export class DashboardService {
   getstatesbycode(code: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstatesbycode), code);
   }
+  getstatesmaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getstatesmaxid);
+  }
+  getstatesminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getstatesminid);
+  }
 
   //vehicle make
   getAllvehiclemake() {
@@ -335,6 +341,241 @@ export class DashboardService {
   getvehiclemodelbycode(code: any) {
     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclemodelbycode), code);
   }
+
+
+  getAllvehicletyperate() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehicletyperateList));
+  }
+  updatevehicletyperate(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehicletyperate), payload);
+  }
+  deletevehicletyperate(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehicletyperate), payload);
+  }
+  savevehicletyperate(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehicletyperate), payload);
+  }
+  getvehicletyperate(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicletyperate), id);
+  }
+  getvehicletyperatebycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicletyperatebycode), code);
+  }
+
+  //transit Type
+  getAlltransittype() {
+      const param = {
+        id: localStorage.getItem('uid'),
+        limit: 5000,
+      };
+      return this.http.get((environment.baseUrl + environment.apiUrls.apis.transittypeList));
+    }
+    updatetransittype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatetransittype), payload);
+    }
+    deletetransittype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletetransittype), payload);
+    }
+    savetransittype(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.savetransittype), payload);
+    }
+    gettransittype(id: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.gettransittype), id);
+    }
+    gettransittypebycode(code: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.gettransittypebycode), code);
+    }
+
+    //Bill Charge
+    getAllbillcharge() {
+      const param = {
+        id: localStorage.getItem('uid'),
+        limit: 5000,
+      };
+      return this.http.get((environment.baseUrl + environment.apiUrls.apis.billchargeList));
+    }
+    updatebillcharge(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatebillcharge), payload);
+    }
+    deletebillcharge(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletebillcharge), payload);
+    }
+    savebillcharge(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.savebillcharge), payload);
+    }
+    getbillcharge(id: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbillcharge), id);
+    }
+    getbillchargebycode(code: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbillchargebycode), code);
+    }
+
+    //Station
+    getAllstation() {
+      const param = {
+        id: localStorage.getItem('uid'),
+        limit: 5000,
+      };
+      return this.http.get((environment.baseUrl + environment.apiUrls.apis.stationList));
+    }
+    updatestation(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatestation), payload);
+    }
+    deletestation(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletestation), payload);
+    }
+    savestation(payload: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.savestation), payload);
+    }
+    getstation(id: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstation), id);
+    }
+    getstationbycode(code: any) {
+      return this.http.post((environment.baseUrl + environment.apiUrls.apis.getstationbycode), code);
+    }
+
+    //Vehicle Initial Expenses
+    getAllvehicleinitialexpenses() {
+  const param = {
+    id: localStorage.getItem('uid'),
+    limit: 5000,
+  };
+  return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehicleinitialexpensesList));
+  }
+  updatevehicleinitialexpenses(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehicleinitialexpenses), payload);
+  }
+  deletevehicleinitialexpenses(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehicleinitialexpenses), payload);
+  }
+  savevehicleinitialexpenses(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehicleinitialexpenses), payload);
+  }
+  getvehicleinitialexpenses(id: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicleinitialexpenses), id);
+  }
+  // getvehicleinitialexpensesbycode(code: any) {
+  // return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicleinitialexpensesbycode), code);
+  // }
+
+  //Vehicle sale
+  getAllvehiclesale() {
+  const param = {
+    id: localStorage.getItem('uid'),
+    limit: 5000,
+  };
+  return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclesaleList));
+  }
+  updatevehiclesale(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclesale), payload);
+  }
+  deletevehiclesale(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclesale), payload);
+  }
+  savevehiclesale(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclesale), payload);
+  }
+  getvehiclesale(id: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclesale), id);
+  }
+
+  //Vehicle Permit
+  getAllvehiclepermit() {
+  const param = {
+    id: localStorage.getItem('uid'),
+    limit: 5000,
+  };
+  return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclepermitList));
+  }
+  updatevehiclepermit(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclepermit), payload);
+  }
+  deletevehiclepermit(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclepermit), payload);
+  }
+  savevehiclepermit(payload: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclepermit), payload);
+  }
+  getvehiclepermit(id: any) {
+  return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclepermit), id);
+  }
+
+
+
+  getAllbranch() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.branchList));
+  }
+  updatebranch(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatebranch), payload);
+  }
+  deletebranch(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletebranch), payload);
+  }
+  savebranch(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savebranch), payload);
+  }
+  getbranch(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbranch), id);
+  }
+  getbranchbycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getbranchbycode), code);
+  }
+  
+  getAllvehiclebody() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclebodyList));
+  }
+  updatevehiclebody(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclebody), payload);
+  }
+  deletevehiclebody(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclebody), payload);
+  }
+  savevehiclebody(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclebody), payload);
+  }
+  getvehiclebody(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclebody), id);
+  }
+  getvehiclebodybycode(code: any) {
+   return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclebodybycode), code);
+  }
+ 
+ getAllvehiclertoseize() {
+    const param = {
+      id: localStorage.getItem('uid'),
+      limit: 5000,
+    };
+    return this.http.get((environment.baseUrl + environment.apiUrls.apis.vehiclertoseizeList));
+  }
+  updatevehiclertoseize(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatevehiclertoseize), payload);
+  }
+  deletevehiclertoseize(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletevehiclertoseize), payload);
+  }
+  savevehiclertoseize(payload: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.savevehiclertoseize), payload);
+  }
+  getvehiclertoseize(id: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclertoseize), id);
+  }
+  getvehiclertoseizebycode(code: any) {
+    return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehiclertoseizebycode), code);
+  }
+
+
 
   
   

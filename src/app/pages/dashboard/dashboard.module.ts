@@ -87,6 +87,18 @@ import { PolicytypeComponent } from './components/policytype/policytype.componen
 import { BatterytypeComponent } from './components/batterytype/batterytype.component';
 import { VehiclemodelComponent } from './components/vehiclemodel/vehiclemodel.component';
 
+import { vehicletyperateComponent } from './components/vehicletyperate/vehicletyperate.component';
+import { transittypeComponent } from './components/transittype/transittype.component';
+import { billchargeComponent } from './components/billcharge/billcharge.component';
+import { stationComponent } from './components/station/station.component';
+import { vehiclesaleComponent } from './components/vehiclesale/vehiclesale.component';
+import { vehicleinitialexpensesComponent } from "./components/vehicleinitialexpenses/vehicleinitialexpenses.component";
+import { vehiclepermitComponent } from "./components/vehiclepermit/vehiclepermit.component";
+
+import { branchComponent } from './components/branch/branch.component';
+import { vehiclebodyComponent } from './components/vehiclebody/vehiclebody.component';
+import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclertoseize.component';
+
 
 
 @NgModule({
@@ -168,7 +180,17 @@ import { VehiclemodelComponent } from './components/vehiclemodel/vehiclemodel.co
     TyretypeComponent,
     PolicytypeComponent,
     BatterytypeComponent,
-    VehiclemodelComponent
+    VehiclemodelComponent,
+    vehicletyperateComponent,
+    transittypeComponent,
+    billchargeComponent,
+    stationComponent,
+    vehicleinitialexpensesComponent,
+    vehiclesaleComponent,
+    vehiclepermitComponent,
+    branchComponent,
+    vehiclebodyComponent,
+    vehiclertoseizeComponent,
     
 
 

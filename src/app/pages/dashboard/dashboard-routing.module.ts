@@ -25,6 +25,16 @@ import { TyretypeComponent } from './components/tyretype/tyretype.component';
 import { PolicytypeComponent } from './components/policytype/policytype.component';
 import { BatterytypeComponent } from './components/batterytype/batterytype.component';
 import { VehiclemodelComponent } from './components/vehiclemodel/vehiclemodel.component';
+import { vehicletyperateComponent } from './components/vehicletyperate/vehicletyperate.component';
+import { transittypeComponent } from './components/transittype/transittype.component';
+import { billchargeComponent } from './components/billcharge/billcharge.component';
+import { stationComponent } from './components/station/station.component';
+import { vehicleinitialexpensesComponent } from './components/vehicleinitialexpenses/vehicleinitialexpenses.component';
+import { vehiclesaleComponent } from './components/vehiclesale/vehiclesale.component';
+import { vehiclepermitComponent } from "./components/vehiclepermit/vehiclepermit.component";
+import { branchComponent } from './components/branch/branch.component';
+import { vehiclebodyComponent } from './components/vehiclebody/vehiclebody.component';
+import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclertoseize.component';
 
 const routes: Routes = [
 
@@ -146,6 +156,54 @@ const routes: Routes = [
       {
         path: 'vehicle-master/vehiclemodel',
         component: VehiclemodelComponent
+      },
+      {
+        path: 'vehicle-master/vehicletyperate',
+        component: vehicletyperateComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/transittype',
+        component: transittypeComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/billcharge',
+        component: billchargeComponent
+      }
+      ,
+      {
+        path: 'master/station',
+        component: stationComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehicleinitialexpenses',
+        component: vehicleinitialexpensesComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehiclesale',
+        component: vehiclesaleComponent
+      }
+      ,
+      {
+        path: 'vehicle-master/vehiclepermit',
+        component: vehiclepermitComponent
+      },
+      {
+        path: 'master/branch',
+        component: branchComponent
+      }
+	    ,
+	    {
+        path: 'vehicle-master/vehiclebody',
+        component: vehiclebodyComponent
+      }
+	    ,
+	    {
+        path: 'vehicle-master/vehiclertoseize',
+        component: vehiclertoseizeComponent
       }
 
     ]
@@ -156,6 +214,7 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  
 
 
 ];
