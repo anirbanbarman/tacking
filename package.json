@@ -37,6 +37,8 @@
     "jspdf-autotable": "^3.5.23",
     "loadash": "^1.0.0",
     "ng2-charts": "^3.0.9",
+    "ng2-completer": "^9.0.1",
+    "ng2-smart-table": "^1.7.2",
     "ngx-pagination": "^5.1.1",
     "ngx-simple-modal": "^1.4.17",
     "ngx-skeleton-loader": "^5.0.0",

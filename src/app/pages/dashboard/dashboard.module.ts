@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { HeaderComponent } from './components/header/header.component';
@@ -98,7 +101,11 @@ import { vehiclepermitComponent } from "./components/vehiclepermit/vehiclepermit
 import { branchComponent } from './components/branch/branch.component';
 import { vehiclebodyComponent } from './components/vehiclebody/vehiclebody.component';
 import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclertoseize.component';
-
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { MatTableComponent } from './components/mat-table/mat-table.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -191,18 +198,27 @@ import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclert
     branchComponent,
     vehiclebodyComponent,
     vehiclertoseizeComponent,
+
+    MatTableComponent,
     
 
 
   ],providers:[AuthService,DashboardService],
-
   imports: [
   CommonModule,
     FormsModule,
+    MatIconModule,
     DashboardRoutingModule,
     NgxSkeletonLoaderModule,
     NgxPaginationModule,
-    SimpleModalModule
+    SimpleModalModule,
+    Ng2SmartTableModule,
+
+    MatSortModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   entryComponents:[VehicletypeModalComponent]
 })

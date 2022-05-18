@@ -10,6 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
 import { ExportService } from 'src/app/services/export.service';
+import {  Input, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 @Component({
@@ -17,8 +22,9 @@ selector: 'app-states',
 templateUrl: './states.component.html',
 styleUrls: ['./states.component.scss']
 })
-export class StatesComponent implements OnInit {
-  
+export class StatesComponent implements OnInit,AfterViewInit {
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+@ViewChild(MatSort) sort !: MatSort;
   
     variables: any = {
         isNew: true,
@@ -27,13 +33,15 @@ export class StatesComponent implements OnInit {
 
     statesList: any[] = [];
     dummyStatesList: any[] = [];
-    dataList: any[] = [];
+    dataList: any= [];
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
     maxid:number=0;
     minid:number=0;
+    displayedColumns:any;
     
+    dataSource:any;
 
 
     zonesList: any[] = [];
@@ -69,8 +77,14 @@ export class StatesComponent implements OnInit {
 
   getDataList()
   {
+
     this.dashboardService.getAllstates().subscribe((response:any)=>{
     console.log(response.data);
+    this.displayedColumns=Object.keys(response.data[0])
+    this.dataSource = new MatTableDataSource(response.data);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    console.log(this.displayedColumns,response.data)
     this.dummy = [];
     if (response && response.status === 200) {
         this.dataList = response.data;
@@ -403,6 +417,22 @@ export class StatesComponent implements OnInit {
       exportAsPDF() {
        this.exportService.exportPDF(this.dataList,"states.pdf")
       }
+
+      
+/**
+ * Set the paginator and sort after the view init since this component will
+ * be able to query its view for the initialized paginator and sort.
+ */
+ngAfterViewInit() {
+console.log(this.dataSource)
+ 
+}
+
+applyFilter(filterValue: any) {
+  filterValue.value = filterValue?.value.trim(); // Remove whitespace
+  filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+  this.dataSource.filter = filterValue.value;
+}
 
 
 
