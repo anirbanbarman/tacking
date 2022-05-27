@@ -1,84 +1,87 @@
-
-
 <div class="az-content az-content-profile">
   <div class="mn-ht-100vx">
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
 
         <label class="title">All Vehicle Type Rate</label>
-        </div>
-         <hr>
+      </div>
+      <hr>
+      <div class="justify-content-center">
+
+
+        <div class="row row-sm justify-content-center" style="padding-left:7em;">
+
           <div class="row row-sm">
-            <div class="col-md-4">
-              <div class="form-group">
+            <div class="col-md-2 form-group">
+              <!-- <div class="form-group"> -->
                 <label class="form-label">Code</label>
-                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
-              </div>
+                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required />
+              <!-- </div> -->
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Vehicle Type</label>
-                <input name="vehicle_type" [(ngModel)]="overViewForm.vehicle_type" type="text" class="form-control" placeholder="Vehicle Type" required/>
+                <input name="vehicle_type" [(ngModel)]="overViewForm.vehicle_type" type="text" class="form-control" placeholder="Vehicle Type" required />
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">From Load Limit</label>
-                <input name="from_load_limit" [(ngModel)]="overViewForm.from_load_limit" type="text" class="form-control" placeholder="From Load Limit"  >
+                <input name="from_load_limit" [(ngModel)]="overViewForm.from_load_limit" type="text" class="form-control" placeholder="From Load Limit">
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">To Load Limit</label>
-                <input name="to_load_limit" [(ngModel)]="overViewForm.to_load_limit" type="text" class="form-control" placeholder="To Load Limit"  >
+                <input name="to_load_limit" [(ngModel)]="overViewForm.to_load_limit" type="text" class="form-control" placeholder="To Load Limit">
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-3 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Rate Base</label>
-                <input name="rate_base" [(ngModel)]="overViewForm.rate_base" type="text" class="form-control" placeholder="Rate Base"  >
+                <input name="rate_base" [(ngModel)]="overViewForm.rate_base" type="text" class="form-control" placeholder="Rate Base">
               </div>
             </div>
           </div>
-          <div class="row row-sm">
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="next()">Next</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
-              </div>
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
+        </div>
+        <div class="row row-sm justify-content-center">
+          <div class="col-md-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
             </div>
           </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+            </div>
+          </div>
+          <!-- <div class="col-md-1">
+              <div class="form-group d-flex">
+                <i  (click)="exportAsXLSX()" class="ml-4  far fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i  (click)="exportAsPDF()" class="ml-4  far fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+              </div>
+            </div> -->
+        </div>
+      </div>
 
-          <hr>
+      <hr>
 
-          <div class="table-responsive" #datatable>
+      <!-- <div class="table-responsive" #datatable>
             <table id="datatable1" class="mg-b-0 table" >
               <thead>
                 <tr>
@@ -141,13 +144,83 @@
                     </td>
                 </tr>
             </tbody>
-          </table>
+          </table> -->
+      <div class="p-3">
+        <div class="example-header" style="padding-bottom:3rem;">
+          <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+            <mat-icon matPrefix>
+            </mat-icon>
+          </mat-form-field>
+
+          <div class="form-group d-flex side-icon-search">
+            <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24);display:inline-block;"></i>
+            <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+            <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                  <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+
+          </div>
+        </div>
+
+        <div class="example-container mat-elevation-z8">
+
+          <mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="code">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> CODE </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="vehicle_type">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Type </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.vehicle_type}} </mat-cell>
+            </ng-container>
+
+
+
+            <ng-container matColumnDef="from_load_limit">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> From Load Limit </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.from_load_limit}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="to_load_limit">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> To Load Limit </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.to_load_limit}} </mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="rate_base">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> Rate Base </mat-header-cell>
+              <mat-cell *matCellDef="let row"> {{row.rate_base}} </mat-cell>
+            </ng-container>
+
+
+            <ng-container matColumnDef="actions">
+              <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+              <mat-cell *matCellDef="let row">
+                <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+              </mat-cell>
+            </ng-container>
+
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;">
+            </mat-row>
+          </mat-table>
+
+          <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+        </div>
+      </div>
 
 
 
 
 
-      </div><!-- az-profile-body -->
-    </div><!-- az-content-body -->
-  </div><!-- container -->
-</div><!-- az-content -->
+    </div><!-- az-profile-body -->
+  </div><!-- az-content-body -->
+</div><!-- container -->

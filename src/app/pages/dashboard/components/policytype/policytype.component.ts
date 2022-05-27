@@ -3,12 +3,18 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage } from 'src/app/toaster/toaster';
+import { failMessage, successMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from 'src/app/services/export.service';
+import {  Input, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
 
 
 @Component({
@@ -16,8 +22,9 @@ selector: 'app-policytype',
 templateUrl: './policytype.component.html',
 styleUrls: ['./policytype.component.scss']
 })
-export class PolicytypeComponent implements OnInit {
-  
+export class PolicytypeComponent implements OnInit,AfterViewInit {
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
   
     variables: any = {
         isNew: true,
@@ -26,11 +33,15 @@ export class PolicytypeComponent implements OnInit {
 
     policytypeList: any[] = [];
     dummypolicytypeList: any[] = [];
-    dataList: any[] = [];
+    dataList: any= [];
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
+    maxid:number=0;
+    minid:number=0;
+    displayedColumns:any;
     
+    dataSource:any;
 
 
     zonesList: any[] = [];
@@ -40,7 +51,7 @@ export class PolicytypeComponent implements OnInit {
         id:  "",
         code:  "",
         type:  "",
-        remarks:  ""
+        remarks:  "",
       }
 
     constructor(
@@ -49,18 +60,31 @@ export class PolicytypeComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService, 
+        private exportService: ExportService
     ) 
     { 
       this.getpolicytype();
       this.getZones();
       this.getDataList();
+      this.getpolicytypemaxid();
+      this.getpolicytypeminid();
+     
     }
 
 
   getDataList()
   {
+
     this.dashboardService.getAllpolicytype().subscribe((response:any)=>{
     console.log(response.data);
+    //this.displayedColumns=Object.keys(response.data[0])
+    //console.log(this.displayedColumns);
+    this.displayedColumns = ['id', 'code', 'type', 'remarks','actions'];
+    this.dataSource = new MatTableDataSource(response.data);
+    console.log(this.dataSource);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    console.log(this.displayedColumns,response.data)
     this.dummy = [];
     if (response && response.status === 200) {
         this.dataList = response.data;
@@ -79,21 +103,25 @@ export class PolicytypeComponent implements OnInit {
         {
           console.log('save');
           let payload = new FormData();
-          id: "";
+          this.overViewForm.id= "";
+         
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
           this.dashboardService.savepolicytype(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
-              this.getDataList();    
+              this.getDataList();   
+              this.getpolicytypemaxid();
+              this.getpolicytypeminid(); 
+              
                    
             }
             else {
               failMessage(response?.data?.message)
               this.spinner.hide();
             }
-          12},
+          },
           error => {
             this.spinner.hide();
           });
@@ -111,12 +139,25 @@ export class PolicytypeComponent implements OnInit {
         this.dashboardService.updatepolicytype(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
+            successMessage(response?.data?.message)
             this.getDataList();
+            this.getpolicytypemaxid();
+              this.getpolicytypeminid(); 
                    
+          }
+          else if(response && response?.data?.message == "")
+          {
+            this.spinner.hide();  
+            successMessage(response?.data?.message)
+            this.getDataList();
+            this.getpolicytypemaxid();
+              this.getpolicytypeminid(); 
+          
           }
           else {
             failMessage(response?.data?.message)
             this.spinner.hide();
+            this.getDataList();
           }
         },
           error => {
@@ -126,16 +167,19 @@ export class PolicytypeComponent implements OnInit {
 
       delete() {
         this.spinner.show();
-        console.log('update');
+        console.log('delete');
         let payload = new FormData();
         id: this.overViewForm.id;
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
         this.dashboardService.deletepolicytype(payload).subscribe((response: any) => {
+          console.log(response);
           if (response && response?.status === 200) {
-            this.spinner.hide();  
+            this.spinner.hide(); 
+            successMessage(response?.data?.message) 
             this.getDataList();
+            this.next();
                    
           }
           else {
@@ -175,13 +219,13 @@ export class PolicytypeComponent implements OnInit {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
-            console.log('employee->', info);
+            console.log('response->', info);
             this.overViewForm= info;  
             this.variables.isNew=false;         
           }
           else {
             const info = response.data;
-            console.log('employee ->', info);
+            console.log('response ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -243,18 +287,38 @@ export class PolicytypeComponent implements OnInit {
 
       next()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)+1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+        
+
+        console.log("this.maxid->",this.maxid);
+        console.log("this.minid->",this.minid);
+        console.log("this.overViewForm.id->",this.overViewForm.id);
+        if(this.overViewForm.id==this.maxid)
+        {
+          failMessage("This is the last data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getStateData(this.overViewForm.id);
+        }
       }
 
       previous()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)-1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+
+       if(this.overViewForm.id==this.minid)
+        {
+          failMessage("This is the first data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getStateData(this.overViewForm.id);
+        }
       }
 
 
@@ -289,6 +353,52 @@ export class PolicytypeComponent implements OnInit {
       }
 
 
+      getpolicytypemaxid() {
+        this.spinner.show();
+        console.log("getpolicytypemaxid");
+        this.dashboardService.getpolicytypemaxid().subscribe((response: any) => {      
+          this.spinner.hide();
+          console.log("getpolicytypemaxid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.maxid = response.data.id;
+            console.log("this.maxid->",this.maxid);
+          }
+          else {
+            const info = response.data;
+            console.log('policytype ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
+
+      getpolicytypeminid() {
+        this.spinner.show();
+        console.log("getpolicytypeminid");
+        this.dashboardService.getpolicytypeminid().subscribe((response: any) => {      
+          this.spinner.hide();
+          console.log("getpolicytypeminid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.minid = response.data.id;
+            console.log("this.minid->",this.minid);
+          }
+          else {
+            const info = response.data;
+            console.log('policytype ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
+
+
+
 
 
 
@@ -299,6 +409,30 @@ export class PolicytypeComponent implements OnInit {
       {
       }
 
+      exportAsXLSX(): void {
+        this.exportService.exportAsExcelFile(
+          this.dataList,
+          `data ${new Date().getMinutes()}`
+        );
+      }
+      exportAsPDF() {
+       this.exportService.exportPDF(this.dataList,"data.pdf")
+      }
+
+      
+/**
+ * Set the paginator and sort after the view init since this component will
+ * be able to query its view for the initialized paginator and sort.
+ */
+    ngAfterViewInit() {
+      console.log(this.dataSource)
+     }
+
+     applyFilter(filterValue: any) {
+      filterValue.value = filterValue?.value.trim(); // Remove whitespace
+      filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+      this.dataSource.filter = filterValue.value;
+    }
 
 
 

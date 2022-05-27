@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
-import { tyretypeComponent } from './tyretype.component';
+import { sparepartgroupComponent } from './sparepartgroup.component';
 
-describe('tyretypeComponent', () => {
-  let component: tyretypeComponent;
-  let fixture: ComponentFixture<tyretypeComponent>;
+describe('sparepartgroupComponent', () => {
+  let component: sparepartgroupComponent;
+  let fixture: ComponentFixture<sparepartgroupComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ tyretypeComponent ]
+      declarations: [ sparepartgroupComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(tyretypeComponent);
+    fixture = TestBed.createComponent(sparepartgroupComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

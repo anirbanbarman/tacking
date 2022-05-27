@@ -3,18 +3,27 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage } from 'src/app/toaster/toaster';
+import { failMessage, successMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
-
+import * as xlsx from 'xlsx';
+import { ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from 'src/app/services/export.service';
+import {  Input, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
 selector: 'app-vehiclemake',
 templateUrl: './vehiclemake.component.html',
 styleUrls: ['./vehiclemake.component.scss']
 })
-export class VehiclemakeComponent implements OnInit {
+
+export class VehiclemakeComponent implements OnInit,AfterViewInit {
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+   @ViewChild(MatSort) sort !: MatSort;
 
     variables: any = {
         isNew: true,
@@ -27,6 +36,11 @@ export class VehiclemakeComponent implements OnInit {
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
+    maxid:number=0;
+    minid:number=0;
+    displayedColumns:any;
+
+    dataSource:any;
 
 
 
@@ -46,11 +60,14 @@ export class VehiclemakeComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService,
+        private exportService: ExportService
     )
     {
       this.getvehiclemake();
       this.getZones();
       this.getDataList();
+      this.getvehiclemakemaxid();
+      this.getvehiclemakeminid();
     }
 
 
@@ -58,6 +75,14 @@ export class VehiclemakeComponent implements OnInit {
   {
     this.dashboardService.getAllvehiclemake().subscribe((response:any)=>{
     console.log(response.data);
+    //this.displayedColumns=Object.keys(response.data[0])
+    //console.log(this.displayedColumns);
+    this.displayedColumns = ['id', 'code', 'make','remarks','actions'];
+    this.dataSource = new MatTableDataSource(response.data);
+    console.log(this.dataSource);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+    console.log(this.displayedColumns,response.data)
     this.dummy = [];
     if (response && response.status === 200) {
         this.dataList = response.data;
@@ -85,13 +110,15 @@ export class VehiclemakeComponent implements OnInit {
             if (response && response?.status === 200) {
               this.spinner.hide();
               this.getDataList();
+              this.getvehiclemakemaxid();
+              this.getvehiclemakeminid();
 
             }
             else {
               failMessage(response?.data?.message)
               this.spinner.hide();
             }
-          12},
+          },
           error => {
             this.spinner.hide();
           });
@@ -109,7 +136,19 @@ export class VehiclemakeComponent implements OnInit {
         this.dashboardService.updatevehiclemake(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();
+            successMessage(response?.data?.message)
             this.getDataList();
+            this.getvehiclemakemaxid();
+              this.getvehiclemakeminid();
+
+          }
+          else if(response && response?.data?.message == "")
+          {
+            this.spinner.hide();
+            successMessage(response?.data?.message)
+            this.getDataList();
+            this.getvehiclemakemaxid();
+              this.getvehiclemakeminid();
 
           }
           else {
@@ -133,7 +172,9 @@ export class VehiclemakeComponent implements OnInit {
         this.dashboardService.deletevehiclemake(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();
+            successMessage(response?.data?.message)
             this.getDataList();
+            this.next();
 
           }
           else {
@@ -161,7 +202,7 @@ export class VehiclemakeComponent implements OnInit {
         }
       }
 
-    getStateData(id:any) {
+    getvehiclemakeData(id:any) {
         const param = {
           id: this.overViewForm.id
         };
@@ -236,24 +277,45 @@ export class VehiclemakeComponent implements OnInit {
 
       openItem(item:any)
       {
-        this.getStateData(item.id);
+        this.getvehiclemakeData(item.id);
       }
 
       next()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)+1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+
+
+        console.log("this.maxid->",this.maxid);
+        console.log("this.minid->",this.minid);
+        console.log("this.overViewForm.id->",this.overViewForm.id);
+        if(this.overViewForm.id==this.maxid)
+        {
+          failMessage("This is the last data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getvehiclemakeData(this.overViewForm.id);
+        }
       }
 
       previous()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)-1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getStateData(this.overViewForm.id);
+
+       if(this.overViewForm.id==this.minid)
+        {
+          failMessage("This is the first data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getvehiclemakeData(this.overViewForm.id);
+        }
       }
+
 
 
 
@@ -285,6 +347,49 @@ export class VehiclemakeComponent implements OnInit {
           console.log(error);
         });
       }
+      getvehiclemakemaxid() {
+        this.spinner.show();
+        console.log("getvehiclemakemaxid");
+        this.dashboardService.getvehiclemakemaxid().subscribe((response: any) => {
+          this.spinner.hide();
+          console.log("getvehiclemakemaxid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.maxid = response.data.id;
+            console.log("this.maxid->",this.maxid);
+          }
+          else {
+            const info = response.data;
+            console.log('vehiclemake ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
+
+      getvehiclemakeminid() {
+        this.spinner.show();
+        console.log("getvehiclemakeminid");
+        this.dashboardService.getvehiclemakeminid().subscribe((response: any) => {
+          this.spinner.hide();
+          console.log("getvehiclemakeminid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.minid = response.data.id;
+            console.log("this.minid->",this.minid);
+          }
+          else {
+            const info = response.data;
+            console.log('vehiclemake ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
 
 
 
@@ -296,6 +401,31 @@ export class VehiclemakeComponent implements OnInit {
       ngOnInit()
       {
       }
+
+      exportAsXLSX(): void {
+        this.exportService.exportAsExcelFile(
+          this.dataList,
+          `data ${new Date().getMinutes()}`
+        );
+      }
+      exportAsPDF() {
+       this.exportService.exportPDF(this.dataList,"data.pdf")
+      }
+
+
+/**
+ * Set the paginator and sort after the view init since this component will
+ * be able to query its view for the initialized paginator and sort.
+ */
+    ngAfterViewInit() {
+      console.log(this.dataSource)
+     }
+
+     applyFilter(filterValue: any) {
+      filterValue.value = filterValue?.value.trim(); // Remove whitespace
+      filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+      this.dataSource.filter = filterValue.value;
+    }
 
 
 

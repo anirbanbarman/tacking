@@ -27,7 +27,7 @@ export class TabOneComponent implements OnInit {
     let disposable = this.simpleModalService.addModal(VehicletypeModalComponent, {
           title: '',
           message: 'Confirm message',
-          data: 'data from tab one'
+          data: ''
         })
         .subscribe((result)=>{
             //We get modal result
@@ -41,7 +41,7 @@ export class TabOneComponent implements OnInit {
     // setTimeout(()=>{
     //     disposable.unsubscribe();
     // },10000);
-}
+  }
 
   variables: any = {
     isNew: true,
@@ -467,7 +467,7 @@ export class TabOneComponent implements OnInit {
     }
 
 
-    openVehicletype() {
+    /*--openVehicletype() {
       console.log(status);
       try {
         this.modalService.open(this.contentVehicleType, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
@@ -480,7 +480,7 @@ export class TabOneComponent implements OnInit {
       }
     }
     
-    /*--getVehicletype() {
+    getVehicletype() {
       this.api.get('site').then((sites: any) => {
         console.log(sites);
         if (sites && sites.status === 200 && sites.data && sites.data.length) {
@@ -494,7 +494,7 @@ export class TabOneComponent implements OnInit {
         this.error(this.util.getString('Something went wrong'));
         console.log(error);
       });
-    }--*/
+    }
 
     getVehicletype()
     {
@@ -536,7 +536,7 @@ export class TabOneComponent implements OnInit {
         return ele.locationcode.toLowerCase().includes(str.toLowerCase());
       });
       console.log('this.vehicletype=>',this.vehicletype);
-    }
+    }--*/
 
     calculatevolume()
     {

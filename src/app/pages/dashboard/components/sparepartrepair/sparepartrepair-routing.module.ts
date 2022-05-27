@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { policytypeComponent } from '../policytype/policytype.component';
+import { sparepartrepairComponent } from '../sparepartrepair/sparepartrepair.component';
 
 const routes: Routes = [
   {
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class policytypeAllRoutingModule { }
+export class sparepartrepairAllRoutingModule { }

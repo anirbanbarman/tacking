@@ -180,6 +180,90 @@ export const environment = {
       getvehiclertoseize:'vehiclertoseize/getById',
 
 
+
+
+
+      getvehiclemakemaxid:'vehiclemake/getMaxId',
+      getvehiclemakeminid:'vehiclemake/getMinId',
+
+
+
+      getvehicletypemaxid:'Vehicletype/getMaxId',
+      getvehicletypeminid:'Vehicletype/getMinId',
+
+
+	    getpolicytypemaxid:'policytype/getMaxId',
+	    getpolicytypeminid:'policytype/getMinId',
+
+
+	    getbatterytypemaxid:'batterytype/getMaxId',
+      getbatterytypeminid:'batterytype/getMinId',
+
+
+	    gettyretypemaxid:'tyretype/getMaxId',
+      gettyretypeminid:'tyretype/getMinId',
+
+
+
+      getvehicleexpensetypemaxid:'vehicleexpensetype/getMaxId',
+      getvehicleexpensetypeminid:'vehicleexpensetype/getMinId',
+
+      getvehiclemodelmaxid:'vehiclemodel/getMaxId',
+      getvehiclemodelminid:'vehiclemodel/getMinId',
+
+
+	    getvehicletyperatemaxid:'vehicletyperate/getMaxId',
+      getvehicletyperateminid:'vehicletyperate/getMinId',
+
+
+	    gettransittypemaxid:'transittype/getMaxId',
+      gettransittypeminid:'transittype/getMinId',
+
+	    getbillchargemaxid:'billcharge/getMaxId',
+      getbillchargeminid:'billcharge/getMinId',
+
+
+
+      getvehicleinitialexpensesmaxid:'Vehicleinitialexpenses/getMaxId',
+      getvehicleinitialexpensesminid:'Vehicleinitialexpenses/getMinId',
+
+
+      getvehiclesalemaxid:'Vehiclesales/getMaxId',
+      getvehiclesaleminid:'Vehiclesales/getMinId',
+
+
+
+      getvehiclepermitmaxid:'vehiclepermit/getMaxId',
+      getvehiclepermitminid:'vehiclepermit/getMinId',
+
+
+
+ 	     getvehiclertoseizemaxid:'vehiclertoseize/getMaxId',
+       getvehiclertoseizeminid:'vehiclertoseize/getMinId',
+
+
+
+       sparepartrepairList:'sparepartrepair/getAll',
+       savesparepartrepair:'sparepartrepair/save',
+       updatesparepartrepair:'sparepartrepair/editList',
+       deletesparepartrepair:'sparepartrepair/deleteList',
+       getsparepartrepairbycode:'sparepartrepair/getByCode',
+       getsparepartrepair:'sparepartrepair/getById',
+ 	     getsparepartrepairmaxid:'sparepartrepair/getMaxId',
+       getsparepartrepairminid:'sparepartrepair/getMinId',
+
+
+ 	    sparepartgroupList:'sparepartgroup/getAll',
+       savesparepartgroup:'sparepartgroup/save',
+       updatesparepartgroup:'sparepartgroup/editList',
+       deletesparepartgroup:'sparepartgroup/deleteList',
+       getsparepartgroupbycode:'sparepartgroup/getByCode',
+       getsparepartgroup:'sparepartgroup/getById',
+ 	     getsparepartgroupmaxid:'sparepartgroup/getMaxId',
+       getsparepartgroupminid:'sparepartgroup/getMinId',
+
+
+
       getType:'GlobalVariable/getByType',
     }
   }

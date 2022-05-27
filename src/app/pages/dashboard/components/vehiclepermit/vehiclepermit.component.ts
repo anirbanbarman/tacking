@@ -1,14 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
-import { Router, NavigationExtras } from '@angular/router';
+import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage } from 'src/app/toaster/toaster';
+import { failMessage, successMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
+import { ExportService } from 'src/app/services/export.service';
+import {  Input, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { SimpleModalComponent, SimpleModalService } from "ngx-simple-modal";
+import { VehicleModalComponent } from '../modal/vehiclemodalcomponent';
+
+
 
 
 @Component({
@@ -16,8 +25,9 @@ import { ViewChild, ElementRef } from '@angular/core';
   templateUrl: './vehiclepermit.component.html',
   styleUrls: ['./vehiclepermit.component.scss']
 })
-export class vehiclepermitComponent implements OnInit {
-
+export class vehiclepermitComponent implements OnInit,AfterViewInit {
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
 
   variables: any = {
     isNew: true,
@@ -30,6 +40,11 @@ export class vehiclepermitComponent implements OnInit {
   dummyDataList: any[] = [];
   page: number = 1;
   dummy = [];
+  maxid:number=0;
+  minid:number=0;
+  displayedColumns:any;
+
+    dataSource:any;
 
 
 
@@ -60,6 +75,18 @@ export class vehiclepermitComponent implements OnInit {
     igst:"",
     discount:"",
   }
+  vehicle: any = {
+    id: "",
+    vehicleno: "",
+    make: "",
+    model: "",
+    engineno: "",
+    chasisno: "",
+    driver: "",    
+    owner_name: "",
+    blacklisted: "",
+    vehicle_type: "",    
+  }
 
   constructor(
     private dashboardService: DashboardService,
@@ -67,41 +94,56 @@ export class vehiclepermitComponent implements OnInit {
     public route: ActivatedRoute,
     private spinner: NgxSpinnerService,
     public api: ApisService,
+    private exportService: ExportService,
+    private simpleModalService:SimpleModalService
+
   ) {
     this.getvehiclepermit();
     this.getZones();
     this.getDataList();
+    this.getvehiclepermitmaxid();
+    this.getvehiclepermitminid();
   }
 
 
   getDataList() {
-    this.dashboardService.getAllvehiclepermit().subscribe((response: any) => {
+    this.dashboardService.getAllvehiclepermit().subscribe((response:any)=>{
       console.log(response.data);
+      //this.displayedColumns=Object.keys(response.data[0])
+      //console.log(this.displayedColumns);
+      this.displayedColumns = ['id', 'vehicleno','branch','voucherno','date','start_date','end_date','authority_name','authorised_date','authorization_no','payment_mode','chequeno','chequedate','chequebank','receiptno','receiptdate','ac_name','permit_fee','penalty','cgst','sgst','igst','discount','actions'];
+      this.dataSource = new MatTableDataSource(response.data);
+      console.log(this.dataSource);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      console.log(this.displayedColumns,response.data)
       this.dummy = [];
       if (response && response.status === 200) {
-        this.dataList = response.data;
-        this.dummyDataList = response.data;
-      }
-    }, error => {
-      console.log(error);
-      failMessage('Something went wrong');
-      this.dummy = [];
-    });
+          this.dataList = response.data;
+          this.dummyDataList = response.data;
+        }
+      }, error => {
+         console.log(error);
+         failMessage('Something went wrong');
+         this.dummy = [];
+      });
   }
 
   save() {
     this.spinner.show();
-    if (this.variables.checkCode == false) {
+    // if (this.variables.checkCode == false) {
       console.log('save');
       let payload = new FormData();
       id: "";
       for (var key in this.overViewForm) {
         payload.append(key, this.overViewForm[key]);
-      }
+      // }
       this.dashboardService.savevehiclepermit(payload).subscribe((response: any) => {
         if (response && response ?.status === 200) {
           this.spinner.hide();
           this.getDataList();
+          this.getvehiclepermitmaxid();
+          this.getvehiclepermitminid();
 
         }
         else {
@@ -127,12 +169,25 @@ export class vehiclepermitComponent implements OnInit {
     this.dashboardService.updatevehiclepermit(payload).subscribe((response: any) => {
       if (response && response ?.status === 200) {
         this.spinner.hide();
+        successMessage(response?.data?.message)
         this.getDataList();
+        this.getvehiclepermitmaxid();
+          this.getvehiclepermitminid();
 
       }
+      else if(response && response?.data?.message == "")
+          {
+            this.spinner.hide();
+            successMessage(response?.data?.message)
+            this.getDataList();
+            this.getvehiclepermitmaxid();
+            this.getvehiclepermitminid();
+
+          }
       else {
         failMessage(response ?.data ?.message)
         this.spinner.hide();
+        this.getDataList();
       }
     },
       error => {
@@ -151,7 +206,9 @@ export class vehiclepermitComponent implements OnInit {
     this.dashboardService.deletevehiclepermit(payload).subscribe((response: any) => {
       if (response && response ?.status === 200) {
         this.spinner.hide();
+        successMessage(response?.data?.message)
         this.getDataList();
+        this.next();
 
       }
       else {
@@ -179,7 +236,7 @@ export class vehiclepermitComponent implements OnInit {
     }
   }
 
-  getStateData(id: any) {
+  getvehiclepermitData(id: any) {
     const param = {
       id: this.overViewForm.id
     };
@@ -253,22 +310,45 @@ export class vehiclepermitComponent implements OnInit {
   }
 
   openItem(item: any) {
-    this.getStateData(item.id);
+    this.getvehiclepermitData(item.id);
   }
 
-  next() {
-    console.log('this.overViewForm.id', this.overViewForm.id);
-    this.overViewForm.id = parseInt(this.overViewForm.id) + 1;
-    console.log('this.overViewForm.id', this.overViewForm.id);
-    this.getStateData(this.overViewForm.id);
+  next()
+  {
+
+
+    console.log("this.maxid->",this.maxid);
+    console.log("this.minid->",this.minid);
+    console.log("this.overViewForm.id->",this.overViewForm.id);
+    if(this.overViewForm.id==this.maxid)
+    {
+      failMessage("This is the last data");
+    }
+    else
+    {
+      console.log('this.overViewForm.id',this.overViewForm.id);
+      this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+      console.log('this.overViewForm.id',this.overViewForm.id);
+      this.getvehiclepermitData(this.overViewForm.id);
+    }
   }
 
-  previous() {
-    console.log('this.overViewForm.id', this.overViewForm.id);
-    this.overViewForm.id = parseInt(this.overViewForm.id) - 1;
-    console.log('this.overViewForm.id', this.overViewForm.id);
-    this.getStateData(this.overViewForm.id);
+  previous()
+  {
+
+   if(this.overViewForm.id==this.minid)
+    {
+      failMessage("This is the first data");
+    }
+    else
+    {
+      console.log('this.overViewForm.id',this.overViewForm.id);
+      this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+      console.log('this.overViewForm.id',this.overViewForm.id);
+      this.getvehiclepermitData(this.overViewForm.id);
+    }
   }
+
 
 
 
@@ -300,16 +380,101 @@ export class vehiclepermitComponent implements OnInit {
       console.log(error);
     });
   }
-
-
-
-
-
-
-
-
-  ngOnInit() {
+  getvehiclepermitmaxid() {
+    this.spinner.show();
+    console.log("getvehiclepermitmaxid");
+    this.dashboardService.getvehiclepermitmaxid().subscribe((response: any) => {
+      this.spinner.hide();
+      console.log("getvehiclepermitmaxid response->",response);
+      if (response && response.status === 200 && response.data) {
+        console.log(response);
+        this.maxid = response.data.id;
+        console.log("this.maxid->",this.maxid);
+      }
+      else {
+        const info = response.data;
+        console.log('states ->', info);
+      }
+    }, error => {
+      this.spinner.hide();
+      failMessage('Something went wrong');
+      console.log(error);
+    });
   }
+
+  getvehiclepermitminid() {
+    this.spinner.show();
+    console.log("getvehiclepermitminid");
+    this.dashboardService.getvehiclepermitminid().subscribe((response: any) => {
+      this.spinner.hide();
+      console.log("getstatesminid response->",response);
+      if (response && response.status === 200 && response.data) {
+        console.log(response);
+        this.minid = response.data.id;
+        console.log("this.minid->",this.minid);
+      }
+      else {
+        const info = response.data;
+        console.log('vehiclepermit ->', info);
+      }
+    }, error => {
+      this.spinner.hide();
+      failMessage('Something went wrong');
+      console.log(error);
+    });
+  }
+  showVehicleModal() {
+    let disposable = this.simpleModalService.addModal(VehicleModalComponent, {
+          title: '',
+          message: 'Confirm message',
+          data: ''
+        })
+        .subscribe((result)=>{
+            //We get modal result
+            //alert(JSON.stringify(result))
+            this.overViewForm.vehicle_no=result.vehicleno;
+            this.vehicle=result;
+  
+        });
+  }
+
+
+
+
+
+
+
+
+
+  ngOnInit()
+      {
+      }
+
+      exportAsXLSX(): void {
+        this.exportService.exportAsExcelFile(
+          this.dataList,
+          `data ${new Date().getMinutes()}`
+        );
+      }
+      exportAsPDF() {
+       this.exportService.exportPDF(this.dataList,"data.pdf")
+      }
+
+
+/**
+ * Set the paginator and sort after the view init since this component will
+ * be able to query its view for the initialized paginator and sort.
+ */
+    ngAfterViewInit() {
+      console.log(this.dataSource)
+     }
+
+     applyFilter(filterValue: any) {
+      filterValue.value = filterValue?.value.trim(); // Remove whitespace
+      filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+      this.dataSource.filter = filterValue.value;
+    }
+
 
 
 

@@ -8,117 +8,118 @@
         <label class="title"> Vehicle Permit</label>
         </div>
          <hr>
-          <div class="row row-sm">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label class="form-label">Vehicle Number</label>
+         <div>
+          <div class="row row-sm justify-content-center">
+            <div class="col-md-2">
+              <div class="form-group" (click)="showVehicleModal()">
+                <label class="form-label" >Vehicle Number</label>
                 <input name="vehicleno" [(ngModel)]="overViewForm.vehicleno" type="text" class="form-control" placeholder="Vehicle Number" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Branch</label>
                 <input name="branch" [(ngModel)]="overViewForm.branch" type="text" class="form-control" placeholder="Branch" required/>
               </div>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Voucher Number</label>
                 <input name="voucherno" [(ngModel)]="overViewForm.voucherno" type="text" class="form-control" placeholder="Voucher Number" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Date</label>
                 <input name="date" [(ngModel)]="overViewForm.date" type="text" class="form-control" placeholder="Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Start Date</label>
                 <input name="start_date" [(ngModel)]="overViewForm.start_date" type="text" class="form-control" placeholder="Start Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">End Date</label>
                 <input name="end_date" [(ngModel)]="overViewForm.end_date" type="text" class="form-control" placeholder="End Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Authority Name</label>
                 <input name="authority_name" [(ngModel)]="overViewForm.authority_name" type="text" class="form-control" placeholder="Authority Name" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Authorised Date</label>
                 <input name="authorised_date" [(ngModel)]="overViewForm.authorised_date" type="text" class="form-control" placeholder="Authorised Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Authorization Number</label>
                 <input name="authorization_no" [(ngModel)]="overViewForm.authorization_no" type="text" class="form-control" placeholder="Authorization Number" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Payment Mode</label>
                 <input name="payment_mode" [(ngModel)]="overViewForm.payment_mode" type="text" class="form-control" placeholder="Payment Mode" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Cheque Number</label>
                 <input name="chequeno" [(ngModel)]="overViewForm.chequeno" type="text" class="form-control" placeholder="Cheque Number" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Cheque Date</label>
                 <input name="chequedate" [(ngModel)]="overViewForm.chequedate" type="text" class="form-control" placeholder="Cheque Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Cheque Bank</label>
                 <input name="chequebank" [(ngModel)]="overViewForm.chequebank" type="text" class="form-control" placeholder="Cheque Bank" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Receipt Number</label>
                 <input name="receiptno" [(ngModel)]="overViewForm.receiptno" type="text" class="form-control" placeholder="Receipt Number" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Receipt Date</label>
                 <input name="receiptdate" [(ngModel)]="overViewForm.receiptdate" type="text" class="form-control" placeholder="Receipt Date" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">AC Name</label>
                 <input name="ac_name" [(ngModel)]="overViewForm.ac_name" type="text" class="form-control" placeholder="AC Name" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Permit Fee</label>
                 <input name="permit_fee" [(ngModel)]="overViewForm.permit_fee" type="text" class="form-control" placeholder="Permit Fee" required/>
               </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Penalty</label>
                 <input name="penalty" [(ngModel)]="overViewForm.penalty" type="text" class="form-control" placeholder="Tripaal" required/>
               </div>
             </div>
-            <div class=" col-md-3    ">
+            <div class=" col-md-2    ">
               <div class="form-group">
                 <div class="form-group">
                   <label class="form-label">Cgst</label>
@@ -126,7 +127,7 @@
                 </div>
               </div>
             </div>
-            <div class=" col-md-3    ">
+            <div class=" col-md-2    ">
               <div class="form-group">
                 <div class="form-group">
                   <label class="form-label">Sgst</label>
@@ -134,7 +135,7 @@
                 </div>
               </div>
             </div>
-            <div class=" col-md-3    ">
+            <div class=" col-md-2    ">
               <div class="form-group">
                 <div class="form-group">
                   <label class="form-label">Igst</label>
@@ -142,7 +143,7 @@
                 </div>
               </div>
             </div>
-            <div class=" col-md-3    ">
+            <div class=" col-md-2    ">
               <div class="form-group">
                 <div class="form-group">
                   <label class="form-label">Discount</label>
@@ -150,7 +151,10 @@
                 </div>
               </div>
             </div>
-          </div>
+
+
+
+            </div>
           <div class="row row-sm">
             <div class="col-md-1">
               <div class="form-group">
@@ -158,7 +162,7 @@
             </div>
             <div class="col-md-2">
               <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
+                <button class="btn btn-primary btn-block" (click)="save()">Save</button>
               </div>
             </div>
             <div class="col-md-2">
@@ -181,15 +185,18 @@
                 <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
               </div>
             </div>
-            <div class="col-md-1">
-              <div class="form-group">
+            <!-- <div class="col-md-1">
+              <div class="form-group d-flex">
+                <i  (click)="exportAsXLSX()" class="ml-4  far fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i  (click)="exportAsPDF()" class="ml-4  far fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+
               </div>
-            </div>
+            </div> -->
           </div>
 
           <hr>
 
-          <div class="table-responsive" #datatable>
+          <!-- <div class="table-responsive" #datatable>
             <table id="datatable1" class="mg-b-0 table" >
               <thead>
                 <tr>
@@ -285,7 +292,163 @@
                    </td>
                 </tr>
             </tbody>
-          </table>
+          </table> -->
+          <div class="p-3">
+            <div class="example-header" style="padding-bottom:3rem;">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+                <mat-icon matPrefix>
+                </mat-icon>
+              </mat-form-field>
+
+                <div class="form-group d-flex side-icon-search">
+                  <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24);display:inline-block;"></i>
+                  <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+                  <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                  <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+
+                </div>
+            </div>
+
+            <div class="example-container mat-elevation-z8">
+
+              <mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="vehicleno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Vehicle Number </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.vehicleno}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="branch">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Branch </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.branch}} </mat-cell>
+                </ng-container>
+
+
+
+                <ng-container matColumnDef="voucherno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Voucher Number </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.voucherno}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="date">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.date}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="start_date">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Start Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.start_date}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="end_date">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> End Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.end_date}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="authority_name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Authority Name </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.authority_name}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="authorised_date">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Authorised Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.authorised_date}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="authorization_no">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Authorization Number </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.authorization_no}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="payment_mode">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Payment Mode </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.payment_mode}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chequeno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Cheque Number </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.chequeno}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chequedate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Cheque Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.chequedate}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="chequebank">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Cheque Bank </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.chequebank}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="receiptno">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Receipt Number </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.receiptno}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="receiptdate">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Receipt Date </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.receiptdate}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="ac_name">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> AC Name </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.ac_name}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="permit_fee">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Permit Fee </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.permit_fee}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="penalty">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Penalty </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.penalty}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="cgst">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> CGST </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.cgst}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="sgst">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> SGST </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.sgst}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="igst">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> IGST </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.igst}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="discount">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Discount </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.discount}} </mat-cell>
+                </ng-container>
+
+
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                  <mat-cell *matCellDef="let row" >
+                    <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                  </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+              </mat-table>
+
+              <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+            </div>
+          </div>
 
 
 

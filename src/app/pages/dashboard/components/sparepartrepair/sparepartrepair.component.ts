@@ -18,11 +18,11 @@ import { MatTableDataSource } from '@angular/material/table';
 
 
 @Component({
-selector: 'app-transittype',
-templateUrl: './transittype.component.html',
-styleUrls: ['./transittype.component.scss']
+selector: 'app-sparepartrepair',
+templateUrl: './sparepartrepair.component.html',
+styleUrls: ['./sparepartrepair.component.scss']
 })
-export class transittypeComponent implements OnInit,AfterViewInit {
+export class sparepartrepairComponent implements OnInit,AfterViewInit {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
   
@@ -31,8 +31,8 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         checkcode: true
       }
 
-    transittypeList: any[] = [];
-    dummytransittypeList: any[] = [];
+    sparepartrepairList: any[] = [];
+    dummysparepartrepairList: any[] = [];
     dataList: any= [];
     dummyDataList: any[] = [];
     page: number = 1;
@@ -49,13 +49,12 @@ export class transittypeComponent implements OnInit,AfterViewInit {
 
     overViewForm: any = {
         id:  "",
-        source:  "",
-        destination:  "",
-        days:  "",
-        distance_km:  "",
-        distance_google_km:  "",
-        distance_air_km:  "",
-		 time:  "",
+        code:  "",
+        part:  "",
+        preventivecode:  "",
+        group:  "",
+        hsn:  "",
+        //remarks:  ""
       }
 
     constructor(
@@ -67,11 +66,11 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         private exportService: ExportService
     ) 
     { 
-      this.gettransittype();
+      this.getsparepartrepair();
       this.getZones();
       this.getDataList();
-      this.gettransittypemaxid();
-      this.gettransittypeminid();
+      this.getsparepartrepairmaxid();
+      this.getsparepartrepairminid();
      
     }
 
@@ -79,11 +78,11 @@ export class transittypeComponent implements OnInit,AfterViewInit {
   getDataList()
   {
 
-    this.dashboardService.getAlltransittype().subscribe((response:any)=>{
+    this.dashboardService.getAllsparepartrepair().subscribe((response:any)=>{
     console.log(response.data);
     //this.displayedColumns=Object.keys(response.data[0])
     //console.log(this.displayedColumns);
-    this.displayedColumns = ['id', 'source','destination','days','distance_km','distance_google_km','distance_air_km','time','actions'];
+    this.displayedColumns = ['id', 'code', 'part', 'preventivecode', 'group', 'hsn','actions'];
     this.dataSource = new MatTableDataSource(response.data);
     console.log(this.dataSource);
     this.dataSource.paginator = this.paginator;
@@ -103,7 +102,8 @@ export class transittypeComponent implements OnInit,AfterViewInit {
 
     save() {
         this.spinner.show();
-   
+        if(this.variables.checkCode==false)
+        {
           console.log('save');
           let payload = new FormData();
           this.overViewForm.id= "";
@@ -111,12 +111,12 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
-          this.dashboardService.savetransittype(payload).subscribe((response: any) => {
+          this.dashboardService.savesparepartrepair(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
               this.spinner.hide(); 
               this.getDataList();   
-              this.gettransittypemaxid();
-              this.gettransittypeminid(); 
+              this.getsparepartrepairmaxid();
+              this.getsparepartrepairminid(); 
               
                    
             }
@@ -128,7 +128,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           error => {
             this.spinner.hide();
           });
-        
+        }
       }
 
       update() {
@@ -139,13 +139,13 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.updatetransittype(payload).subscribe((response: any) => {
+        this.dashboardService.updatesparepartrepair(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();  
             successMessage(response?.data?.message)
             this.getDataList();
-            this.gettransittypemaxid();
-              this.gettransittypeminid(); 
+            this.getsparepartrepairmaxid();
+              this.getsparepartrepairminid(); 
                    
           }
           else if(response && response?.data?.message == "")
@@ -153,8 +153,8 @@ export class transittypeComponent implements OnInit,AfterViewInit {
             this.spinner.hide();  
             successMessage(response?.data?.message)
             this.getDataList();
-            this.gettransittypemaxid();
-              this.gettransittypeminid(); 
+            this.getsparepartrepairmaxid();
+              this.getsparepartrepairminid(); 
           
           }
           else {
@@ -176,7 +176,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         for (var key in this.overViewForm) {
           payload.append(key, this.overViewForm[key]);
         }
-        this.dashboardService.deletetransittype(payload).subscribe((response: any) => {
+        this.dashboardService.deletesparepartrepair(payload).subscribe((response: any) => {
           console.log(response);
           if (response && response?.status === 200) {
             this.spinner.hide(); 
@@ -218,7 +218,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.gettransittype(payload).subscribe((response: any) => {      
+        this.dashboardService.getsparepartrepair(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
@@ -238,20 +238,20 @@ export class transittypeComponent implements OnInit,AfterViewInit {
       }
 
 
-      gettransittype() {
+      getsparepartrepair() {
         this.spinner.show();
         let payload = new FormData();
-        payload.append("type","transittype");
+        payload.append("type","sparepartrepair");
         this.dashboardService.getType(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
-            this.transittypeList = response.data;
-           this.dummytransittypeList = response.data;
+            this.sparepartrepairList = response.data;
+           this.dummysparepartrepairList = response.data;
             
           }
           else {
             const info = response.data;
-            console.log('transittype ->', info);
+            console.log('sparepartrepair ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -274,7 +274,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           }
           else {
             const info = response.data;
-            console.log('transittype ->', info);
+            console.log('sparepartrepair ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -326,7 +326,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
 
 
 
-     /* checkCode() {
+      checkCode() {
         const param = {
           code: this.overViewForm.code
         };
@@ -334,7 +334,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.gettransittypebycode(payload).subscribe((response: any) => {      
+        this.dashboardService.getsparepartrepairbycode(payload).subscribe((response: any) => {      
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
@@ -353,15 +353,15 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           failMessage('Something went wrong');
           console.log(error);
         });
-      }*/
+      }
 
 
-      gettransittypemaxid() {
+      getsparepartrepairmaxid() {
         this.spinner.show();
-        console.log("gettransittypemaxid");
-        this.dashboardService.gettransittypemaxid().subscribe((response: any) => {      
+        console.log("getsparepartrepairmaxid");
+        this.dashboardService.getsparepartrepairmaxid().subscribe((response: any) => {      
           this.spinner.hide();
-          console.log("gettransittypemaxid response->",response);
+          console.log("getsparepartrepairmaxid response->",response);
           if (response && response.status === 200 && response.data) {
             console.log(response);
             this.maxid = response.data.id;
@@ -369,7 +369,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           }
           else {
             const info = response.data;
-            console.log('transittype ->', info);
+            console.log('sparepartrepair ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -378,12 +378,12 @@ export class transittypeComponent implements OnInit,AfterViewInit {
         });
       }
 
-      gettransittypeminid() {
+      getsparepartrepairminid() {
         this.spinner.show();
-        console.log("gettransittypeminid");
-        this.dashboardService.gettransittypeminid().subscribe((response: any) => {      
+        console.log("getsparepartrepairminid");
+        this.dashboardService.getsparepartrepairminid().subscribe((response: any) => {      
           this.spinner.hide();
-          console.log("gettransittypeminid response->",response);
+          console.log("getsparepartrepairminid response->",response);
           if (response && response.status === 200 && response.data) {
             console.log(response);
             this.minid = response.data.id;
@@ -391,7 +391,7 @@ export class transittypeComponent implements OnInit,AfterViewInit {
           }
           else {
             const info = response.data;
-            console.log('transittype ->', info);
+            console.log('sparepartrepair ->', info);
           }
         }, error => {
           this.spinner.hide();

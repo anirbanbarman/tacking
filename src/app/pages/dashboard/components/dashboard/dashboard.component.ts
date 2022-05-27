@@ -47,13 +47,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       { link: "/dashboard/home//vehicle-master/vehiclesale", name: "Vehicle Sale" },
       { link: "/dashboard/home//vehicle-master/vehiclepermit", name: "Vehicle Permit" },
       { link: "/dashboard/home//vehicle-master/vehicletyperate", name: "Vehicle Type Rate" },
-      { link: "/dashboard/home//vehicle-master/policytype", name: "Policy Type Master" },
       { link: "/dashboard/home//vehicle-master/batterytype", name: "Battery Master" },
-      { link: "/dashboard/home//vehicle-master/tyretype", name: "Tyre Master" },   
-      { link: "/dashboard/home//vehicle-master/transittype", name: "Transit Type" },
-      { link: "/dashboard/home//vehicle-master/billcharge", name: "Bill Charge" },
-      { link: "", name: "Spare Parts Repaires Master" },
-      { link: "", name: "Spare Part Group Master" },
+      { link: "/dashboard/home//vehicle-master/billcharge", name: "Bill Charge" },       
+      { link: "/dashboard/home//vehicle-master/policytype", name: "Policy Type Master" },       
+      { link: "/dashboard/home//vehicle-master/transittype", name: "Transit Type" },     
+      { link: "/dashboard/home//vehicle-master/tyretype", name: "Tyre Master" },
+      { link: "/dashboard/home//vehicle-master/sparepartrepair", name: "Spare Parts Repairs Master" },
+      { link: "/dashboard/home//vehicle-master/sparepartgroup", name: "Spare Part Group Master" }, 
+	  { link: "/dashboard/home//vehicle-master/vehiclertoseize", name: "Vehicle RTO Seize" },
+      
+      
       ]
     },
     {
@@ -61,13 +64,16 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       active:false,
       icon:"typcn typcn-calendar-outline",
       subTitle: "All different master data of your system",
-      links: [{ link: "/dashboard/home/master/vehicles-all", name: "Vehicles" },
-      { link: "/dashboard/home//master/customer-all", name: "Customer" },
-      { link: "/dashboard/home//master/supplier-all", name: "Supplier" },
-      { link: "/dashboard/home//master/broker-all", name: "Broker" },
-      { link: "/dashboard/home//master/driver-all", name: "Driver" },
-      { link: "/dashboard/home//master/item-all", name: "Items" },
-      { link: "/dashboard/home//master/employee-all", name: "Employees" },
+      links: [
+        { link: "/dashboard/home//master/branch", name: "Branch" },
+        { link: "/dashboard/home//master/broker-all", name: "Broker" },
+        { link: "/dashboard/home//master/customer-all", name: "Customer" },
+        { link: "/dashboard/home//master/driver-all", name: "Driver" },
+        { link: "/dashboard/home//master/employee-all", name: "Employees" },
+        { link: "/dashboard/home//master/item-all", name: "Items" },
+        { link: "/dashboard/home//master/supplier-all", name: "Supplier" },
+        { link: "/dashboard/home//master/station", name: "Station" },
+        { link: "/dashboard/home/master/vehicles-all", name: "Vehicles" },
       ]
     },
     {

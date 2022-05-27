@@ -3,7 +3,7 @@
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
 
-        <label class="title">State Master</label>
+        <label class="title">Spare part Repair Master</label>
       </div>
       <hr>
       <div class="row row-sm justify-content-center">
@@ -16,39 +16,36 @@
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
-            <label class="form-label">State</label>
-            <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control" placeholder="Select">
-              <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
-            </select>
+            <label class="form-label">Part</label>
+            <input name="part" [(ngModel)]="overViewForm.part" type="text" class="form-control" placeholder="Part"
+              required />
           </div>
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
             <label class="form-label">Abbr. State Name</label>
-            <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control"
-              placeholder="Abbr. State Name">
+            <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control" placeholder="Abbr. State Name">
           </div>
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
-            <label class="form-label">Zone</label>
-            <select class='select-option' [(ngModel)]="overViewForm.zone" class="form-control" placeholder="Select">
-              <option class='option' *ngFor='let item of zonesList' [value]="item.name">{{item.name}}</option>
-            </select>
+            <label class="form-label">Preventive Code</label>
+            <input name="preventivecode" [(ngModel)]="overViewForm.preventivecode" type="text" class="form-control" placeholder="Preventive Code"
+              required />
           </div>
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
-            <label class="form-label">State Code Used for GST</label>
-            <input name="gststatecode" [(ngModel)]="overViewForm.gststatecode" type="text" class="form-control"
-              placeholder="State Code Used for GST">
+            <label class="form-label">group</label>
+            <input name="group" [(ngModel)]="overViewForm.group" type="text" class="form-control"
+              placeholder="group">
           </div>
         </div>
         <div class="col-md-10 mg-t-20 mg-md-t-0">
           <div class="form-group">
-            <label class="form-label">Remarks</label>
-            <input name="remarks" [(ngModel)]="overViewForm.remarks" type="text" class="form-control"
-              placeholder="Remarks">
+            <label class="form-label">HSN</label>
+            <input name="hsn" [(ngModel)]="overViewForm.hsn" type="text" class="form-control"
+              placeholder="HSN">
           </div>
         </div>
       </div>
@@ -186,30 +183,25 @@
                 <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
               </ng-container>
 
-              <ng-container matColumnDef="state">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> STATE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.state}} </mat-cell>
+              <ng-container matColumnDef="part">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Part </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.part}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="abbr">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ABBR </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.abbr}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="zone">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ZONE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.zone}} </mat-cell>
+              <ng-container matColumnDef="preventivecode">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Preventive Code </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.preventivecode}} </mat-cell>
               </ng-container>
 
-              <ng-container matColumnDef="gststatecode">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> GST STATE CODE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.gststatecode}} </mat-cell>
+              <ng-container matColumnDef="group">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Group </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.group}} </mat-cell>
               </ng-container>
 
-              <ng-container matColumnDef="remarks">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> REMARKS </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.remarks}} </mat-cell>
+              <ng-container matColumnDef="hsn">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> HSN </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.hsn}} </mat-cell>
               </ng-container>
-
+			  
               <ng-container matColumnDef="actions">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
                 <mat-cell *matCellDef="let row" >

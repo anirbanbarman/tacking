@@ -577,6 +577,200 @@ export class DashboardService {
 
 
 
+
+  //vehicle make
+
+    getvehiclemakemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclemakemaxid);
+    }
+    getvehiclemakeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclemakeminid);
+    }
+
+
+    //Vehicle Type
+
+    getvehicletypemaxid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicletypemaxid);
+    }
+    getvehicletypeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicletypeminid);
+    }
+
+    //Policy type
+
+  	getpolicytypemaxid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getpolicytypemaxid);
+    }
+    getpolicytypeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getpolicytypeminid);
+    }
+
+      //Battery Type
+
+    getbatterytypemaxid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getbatterytypemaxid);
+    }
+    getbatterytypeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getbatterytypeminid);
+    }
+
+    //Tyre Type
+
+    gettyretypemaxid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.gettyretypemaxid);
+    }
+    gettyretypeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.gettyretypeminid);
+    }
+
+  //Vehicle expense Type
+
+    getvehicleexpensetypemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicleexpensetypemaxid);
+    }
+    getvehicleexpensetypeminid() {
+      return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicleexpensetypeminid);
+    }
+
+    //Vehicle Model Type
+
+  getvehiclemodelmaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclemodelmaxid);
+  }
+  getvehiclemodelminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclemodelminid);
+  }
+
+
+  getvehicletyperatemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicletyperatemaxid);
+  }
+  getvehicletyperateminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicletyperateminid);
+  }
+
+  //transit Type
+
+    //gettransittypebycode(code: any) {
+    //  return this.http.post((environment.baseUrl + environment.apiUrls.apis.gettransittypebycode), code);
+   // }
+	gettransittypemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.gettransittypemaxid);
+  }
+  gettransittypeminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.gettransittypeminid);
+  }
+
+    //Bill Charge
+
+	getbillchargemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getbillchargemaxid);
+  }
+  getbillchargeminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getbillchargeminid);
+  }
+
+
+  getvehicleinitialexpensesmaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicleinitialexpensesmaxid);
+  }
+  getvehicleinitialexpensesminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehicleinitialexpensesminid);
+  }
+  // getvehicleinitialexpensesbycode(code: any) {
+  // return this.http.post((environment.baseUrl + environment.apiUrls.apis.getvehicleinitialexpensesbycode), code);
+  // }
+
+  //Vehicle sale
+
+
+  getvehiclesalemaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getstatesmaxid);
+  }
+  getvehiclesaleminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getstatesminid);
+  }
+
+  //Vehicle Permit
+
+
+  getvehiclepermitmaxid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclepermitmaxid);
+  }
+  getvehiclepermitminid() {
+    return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclepermitminid);
+  }
+
+
+    getvehiclertoseizemaxid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclertoseizemaxid);
+   }
+   getvehiclertoseizeminid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getvehiclertoseizeminid);
+   }
+
+   getAllsparepartrepair() {
+     const param = {
+       id: localStorage.getItem('uid'),
+       limit: 5000,
+     };
+     return this.http.get((environment.baseUrl + environment.apiUrls.apis.sparepartrepairList));
+   }
+   updatesparepartrepair(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatesparepartrepair), payload);
+   }
+   deletesparepartrepair(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletesparepartrepair), payload);
+   }
+   savesparepartrepair(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.savesparepartrepair), payload);
+   }
+   getsparepartrepair(id: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getsparepartrepair), id);
+   }
+   getsparepartrepairbycode(code: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getsparepartrepairbycode), code);
+   }
+   getsparepartrepairmaxid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getsparepartrepairmaxid);
+   }
+   getsparepartrepairminid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getsparepartrepairminid);
+   }
+
+   getAllsparepartgroup() {
+     const param = {
+       id: localStorage.getItem('uid'),
+       limit: 5000,
+     };
+     return this.http.get((environment.baseUrl + environment.apiUrls.apis.sparepartgroupList));
+   }
+   updatesparepartgroup(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.updatesparepartgroup), payload);
+   }
+   deletesparepartgroup(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.deletesparepartgroup), payload);
+   }
+   savesparepartgroup(payload: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.savesparepartgroup), payload);
+   }
+   getsparepartgroup(id: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getsparepartgroup), id);
+   }
+   getsparepartgroupbycode(code: any) {
+     return this.http.post((environment.baseUrl + environment.apiUrls.apis.getsparepartgroupbycode), code);
+   }
+   getsparepartgroupmaxid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getsparepartgroupmaxid);
+   }
+   getsparepartgroupminid() {
+     return this.http.get(environment.baseUrl + environment.apiUrls.apis.getsparepartgroupminid);
+   }
+   
+
+
+
   
   
   getType(type:any) {

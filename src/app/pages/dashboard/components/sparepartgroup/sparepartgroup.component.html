@@ -3,47 +3,25 @@
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
 
-        <label class="title">State Master</label>
+        <label class="title">Spare Part Group Master</label>
       </div>
       <hr>
       <div class="row row-sm justify-content-center">
-        <div class="col-md-2">
+        <div class="col-md-5">
           <div class="form-group">
             <label class="form-label">Code</label>
             <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code"
               required />
           </div>
         </div>
-        <div class="col-md-2 mg-t-20 mg-md-t-0">
+        <div class="col-md-5 mg-t-20 mg-md-t-0">
           <div class="form-group">
-            <label class="form-label">State</label>
-            <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control" placeholder="Select">
-              <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
-            </select>
+            <label class="form-label">Name</label>
+            <input name="name" [(ngModel)]="overViewForm.name" type="text" class="form-control" placeholder="Name"
+              required />
           </div>
         </div>
-        <div class="col-md-2 mg-t-20 mg-md-t-0">
-          <div class="form-group">
-            <label class="form-label">Abbr. State Name</label>
-            <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control"
-              placeholder="Abbr. State Name">
-          </div>
-        </div>
-        <div class="col-md-2 mg-t-20 mg-md-t-0">
-          <div class="form-group">
-            <label class="form-label">Zone</label>
-            <select class='select-option' [(ngModel)]="overViewForm.zone" class="form-control" placeholder="Select">
-              <option class='option' *ngFor='let item of zonesList' [value]="item.name">{{item.name}}</option>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-2 mg-t-20 mg-md-t-0">
-          <div class="form-group">
-            <label class="form-label">State Code Used for GST</label>
-            <input name="gststatecode" [(ngModel)]="overViewForm.gststatecode" type="text" class="form-control"
-              placeholder="State Code Used for GST">
-          </div>
-        </div>
+        
         <div class="col-md-10 mg-t-20 mg-md-t-0">
           <div class="form-group">
             <label class="form-label">Remarks</label>
@@ -186,23 +164,9 @@
                 <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
               </ng-container>
 
-              <ng-container matColumnDef="state">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> STATE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.state}} </mat-cell>
-              </ng-container>
-              <ng-container matColumnDef="abbr">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ABBR </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.abbr}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="zone">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> ZONE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.zone}} </mat-cell>
-              </ng-container>
-
-              <ng-container matColumnDef="gststatecode">
-                <mat-header-cell *matHeaderCellDef mat-sort-header> GST STATE CODE </mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.gststatecode}} </mat-cell>
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> NAME </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
               </ng-container>
 
               <ng-container matColumnDef="remarks">
@@ -222,6 +186,7 @@
               <mat-row *matRowDef="let row; columns: displayedColumns;">
               </mat-row>
             </mat-table>
+           
 
             <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
           </div>
