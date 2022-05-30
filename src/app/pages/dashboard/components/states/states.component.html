@@ -28,7 +28,7 @@
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
             <label class="form-label">Abbr. State Name</label>
-            
+
               <select class='select-option' name="abbr" [(ngModel)]="overViewForm.abbr" class="form-control">
                 <option class='option'>--Choose a State--</option>
                 <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
