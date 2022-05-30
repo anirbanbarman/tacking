@@ -1,0 +1,185 @@
+
+
+<div class="az-content az-content-profile">
+  <div class="mn-ht-100p">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+        <!--<div class="row mg-b-20">
+          <div class="col-md-12 col-xl-12">
+            <div class="row row-sm justify-content-center">
+              <div class="col-md-2 m-1">
+                <div class="form-group">
+                  <label class="title">All vehicletype</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>-->
+         <label class="title">All Vehicle Type</label>
+         <hr>
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Code</label>
+                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Model</label>
+                <input name="model" [(ngModel)]="overViewForm.model" type="text" class="form-control" placeholder="Model"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Detention Charge Per Day</label>
+                <input name="detentionchargeperday" [(ngModel)]="overViewForm.detentionchargeperday" type="text" class="form-control" placeholder="Detention Charge Per Day"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Number of Typres</label>
+                <input name="num_of_tyres" [(ngModel)]="overViewForm.num_of_tyres" type="text" class="form-control" placeholder="Number of Tyres"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Tyre Cost Per Kilometer</label>
+                <input name="tyre_cost_per_km" [(ngModel)]="overViewForm.tyre_cost_per_km" type="text" class="form-control" placeholder="Tyre Cost Per Kilometer"  >
+              </div>
+            </div>
+
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Repairing Cost Per Kilometer</label>
+                <input name="repairing_cost_per_km" [(ngModel)]="overViewForm.repairing_cost_per_km" type="text" class="form-control" placeholder="Repairing Cost Per Kilometer"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Earning Per Day</label>
+                <input name="earning_per_day" [(ngModel)]="overViewForm.earning_per_day" type="text" class="form-control" placeholder="Earning Per Day"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Loading Capacity</label>
+                <input name="loading_capacity" [(ngModel)]="overViewForm.loading_capacity" type="text" class="form-control" placeholder="Loading Capacity"  >
+              </div>
+            </div>
+          </div>
+          <div class="row row-sm">
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="table-responsive">
+            <table id="datatable1" class="mg-b-0 table">
+              <thead>
+                <tr>
+                  <th class="wd-10p">Id</th>
+                  <th class="wd-10p">Code</th>
+                  <th class="wd-10p">Model</th>
+                  <th class="wd-15p">Detention Charge Per Day</th>
+                  <th class="wd-15p">Num of Tyres</th>
+                  <th class="wd-15p">Tyre Cost Per Kilometer</th>
+                  <th class="wd-20p">Repairing Cost Per Kilometer</th>
+                  <th class="wd-15p">Earning Per Day</th>
+                  <th class="wd-15p">Loading Capacity</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.code}}</td>
+                    <td> {{item.model}}</td>
+                    <td> {{item.detentionchargeperday}}</td>
+                    <td> {{item.num_of_tyres}}</td>
+                    <td> {{item.tyre_cost_per_km}}</td>
+                    <td> {{item.repairing_cost_per_km}}</td>
+                    <td> {{item.earning_per_day}}</td>
+                    <td> {{item.loading_capacity}}</td>
+                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->

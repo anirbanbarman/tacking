@@ -2,7 +2,7 @@
   <div class="mn-ht-100vx">
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
-        <label class="title">All Parameters</label> 
+        <label class="title">All Parameters</label>
           <div class="row row-sm">
             <div class="col-md-4">
               <div class="form-group">
@@ -37,7 +37,10 @@
             <div class="col-md-4 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">NP State</label>
-                <input name="npstate" [(ngModel)]="overViewForm.npstate" type="text" class="form-control" placeholder="NP State"  >
+                <select class='select-option' name="npstate" [(ngModel)]="overViewForm.npstate" class="form-control">
+                  <option class='option'>--Choose a State--</option>
+                  <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
+                </select>
               </div>
             </div>
             <div class="col-md-4 mg-t-20 mg-md-t-0">
@@ -63,7 +66,7 @@
           <div class="row row-sm">
             <div class="col-md-4">
               <div class="form-group">
-                
+
               </div>
             </div>
             <div class="col-md-4">
@@ -73,10 +76,10 @@
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                
+
               </div>
             </div>
-          </div>      
+          </div>
 
 
 
@@ -86,5 +89,3 @@
     </div><!-- az-content-body -->
   </div><!-- container -->
 </div><!-- az-content -->
-
-

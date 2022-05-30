@@ -3,22 +3,27 @@ import { AuthService } from 'src/app/services/auth.service';
 import { Router,NavigationExtras } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { DashboardService } from '../../services/dashboard.service';
-import { failMessage } from 'src/app/toaster/toaster';
+import { failMessage, successMessage } from 'src/app/toaster/toaster';
 import Swal from 'sweetalert2';
 import { ApisService } from 'src/app/services/apis.service';
 import { ActivatedRoute } from '@angular/router';
 import * as xlsx from 'xlsx';
 import { ViewChild, ElementRef } from '@angular/core';
-
+import { ExportService } from 'src/app/services/export.service';
+import {  Input, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
 selector: 'app-vehicletyperate',
 templateUrl: './vehicletyperate.component.html',
 styleUrls: ['./vehicletyperate.component.scss']
 })
-export class vehicletyperateComponent implements OnInit {
+export class vehicletyperateComponent implements OnInit,AfterViewInit {
 
-
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
     variables: any = {
         isNew: true,
         checkcode: true
@@ -30,6 +35,11 @@ export class vehicletyperateComponent implements OnInit {
     dummyDataList: any[] = [];
     page: number = 1;
     dummy = [];
+	maxid:number=0;
+    minid:number=0;
+    displayedColumns:any;
+
+      dataSource:any;
 
 
 
@@ -51,28 +61,39 @@ export class vehicletyperateComponent implements OnInit {
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
         public api: ApisService,
+		private exportService: ExportService
     )
     {
       this.getvehicletyperate();
       this.getZones();
       this.getDataList();
+	  this.getstatesmaxid();
+      this.getstatesminid();
     }
 
 
   getDataList()
   {
     this.dashboardService.getAllvehicletyperate().subscribe((response:any)=>{
-    console.log(response.data);
-    this.dummy = [];
-    if (response && response.status === 200) {
-        this.dataList = response.data;
-        this.dummyDataList = response.data;
-      }
-    }, error => {
-       console.log(error);
-       failMessage('Something went wrong');
-       this.dummy = [];
-    });
+      console.log(response.data);
+      //this.displayedColumns=Object.keys(response.data[0])
+      //console.log(this.displayedColumns);
+      this.displayedColumns = ['id', 'code','vehicle_type','from_load_limit','to_load_limit','rate_base','actions'];
+      this.dataSource = new MatTableDataSource(response.data);
+      console.log(this.dataSource);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      console.log(this.displayedColumns,response.data)
+      this.dummy = [];
+      if (response && response.status === 200) {
+          this.dataList = response.data;
+          this.dummyDataList = response.data;
+        }
+      }, error => {
+         console.log(error);
+         failMessage('Something went wrong');
+         this.dummy = [];
+      });
   }
 
     save() {
@@ -81,7 +102,8 @@ export class vehicletyperateComponent implements OnInit {
         {
           console.log('save');
           let payload = new FormData();
-          id: "";
+          this.overViewForm.id= "";
+
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
@@ -89,13 +111,16 @@ export class vehicletyperateComponent implements OnInit {
             if (response && response?.status === 200) {
               this.spinner.hide();
               this.getDataList();
+              this.getstatesmaxid();
+              this.getstatesminid();
+
 
             }
             else {
               failMessage(response?.data?.message)
               this.spinner.hide();
             }
-          12},
+          },
           error => {
             this.spinner.hide();
           });
@@ -113,12 +138,25 @@ export class vehicletyperateComponent implements OnInit {
         this.dashboardService.updatevehicletyperate(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
             this.spinner.hide();
+            successMessage(response?.data?.message)
             this.getDataList();
+            this.getstatesmaxid();
+              this.getstatesminid();
+
+          }
+          else if(response && response?.data?.message == "")
+          {
+            this.spinner.hide();
+            successMessage(response?.data?.message)
+            this.getDataList();
+            this.getstatesmaxid();
+              this.getstatesminid();
 
           }
           else {
             failMessage(response?.data?.message)
             this.spinner.hide();
+            this.getDataList();
           }
         },
           error => {
@@ -243,20 +281,40 @@ export class vehicletyperateComponent implements OnInit {
         this.getvehicletyperateData(item.id);
       }
 
-      next()
+     next()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)+1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getvehicletyperateData(this.overViewForm.id);
+
+
+        console.log("this.maxid->",this.maxid);
+        console.log("this.minid->",this.minid);
+        console.log("this.overViewForm.id->",this.overViewForm.id);
+        if(this.overViewForm.id==this.maxid)
+        {
+          failMessage("This is the last data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)+1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getvehicletyperateData(this.overViewForm.id);
+        }
       }
 
       previous()
       {
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.overViewForm.id=parseInt(this.overViewForm.id)-1;
-        console.log('this.overViewForm.id',this.overViewForm.id);
-        this.getvehicletyperateData(this.overViewForm.id);
+
+       if(this.overViewForm.id==this.minid)
+        {
+          failMessage("This is the first data");
+        }
+        else
+        {
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.overViewForm.id=parseInt(this.overViewForm.id)-1;
+          console.log('this.overViewForm.id',this.overViewForm.id);
+          this.getvehicletyperateData(this.overViewForm.id);
+        }
       }
 
 
@@ -291,6 +349,49 @@ export class vehicletyperateComponent implements OnInit {
       }
 
 
+getstatesmaxid() {
+        this.spinner.show();
+        console.log("getstatesmaxid");
+        this.dashboardService.getstatesmaxid().subscribe((response: any) => {
+          this.spinner.hide();
+          console.log("getstatesmaxid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.maxid = response.data.id;
+            console.log("this.maxid->",this.maxid);
+          }
+          else {
+            const info = response.data;
+            console.log('states ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
+
+      getstatesminid() {
+        this.spinner.show();
+        console.log("getstatesminid");
+        this.dashboardService.getstatesminid().subscribe((response: any) => {
+          this.spinner.hide();
+          console.log("getstatesminid response->",response);
+          if (response && response.status === 200 && response.data) {
+            console.log(response);
+            this.minid = response.data.id;
+            console.log("this.minid->",this.minid);
+          }
+          else {
+            const info = response.data;
+            console.log('states ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
 
 
 
@@ -301,8 +402,30 @@ export class vehicletyperateComponent implements OnInit {
       {
       }
 
+      exportAsXLSX(): void {
+        this.exportService.exportAsExcelFile(
+          this.dataList,
+          `data ${new Date().getMinutes()}`
+        );
+      }
+      exportAsPDF() {
+       this.exportService.exportPDF(this.dataList,"data.pdf")
+      }
 
 
+/**
+ * Set the paginator and sort after the view init since this component will
+ * be able to query its view for the initialized paginator and sort.
+ */
+    ngAfterViewInit() {
+      console.log(this.dataSource)
+     }
+
+     applyFilter(filterValue: any) {
+      filterValue.value = filterValue?.value.trim(); // Remove whitespace
+      filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+      this.dataSource.filter = filterValue.value;
+    }
 
 
 }

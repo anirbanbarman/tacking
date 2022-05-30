@@ -1,216 +1,214 @@
-
-
 <div class="az-content az-content-profile">
-  <div class="mn-ht-100p">
+  <div class="mn-ht-100vx">
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
-        
-		<label class="title">All Spare Part Group Types</label> 
-         <hr>
-          <div class="row row-sm">
-            <div class="col-md-4">
+
+        <label class="title">Vehicle RTO Seize Master</label>
+      </div>
+      <hr>
+      <div class="row row-sm justify-content-center">
+        <div class="row row-sm">
+            <div class="col-md-2">
               <div class="form-group">
+			  <div class="form-group" (click)="showVehicleModal()">
                 <label class="form-label">Vehicle No.</label>
                 <input name="vehicleno" [(ngModel)]="overViewForm.vehicleno" type="text" class="form-control" placeholder="Vehicle No." required/>
               </div>
+			  </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Challan No.</label>
                 <input name="challanno" [(ngModel)]="overViewForm.challanno" type="text" class="form-control" placeholder="Challan No."  >
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Driver</label>
                 <input name="driver" [(ngModel)]="overViewForm.driver" type="text" class="form-control" placeholder="Driver" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Seize Date</label>
                 <input name="seize_date" [(ngModel)]="overViewForm.seize_date" type="text" class="form-control" placeholder="Seize Date" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Authority</label>
                 <input name="authority" [(ngModel)]="overViewForm.authority" type="text" class="form-control" placeholder="Authority" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Hearing Date</label>
-                <input name="hearing_date" [(ngModel)]="overViewForm.hearing_date" type="text" class="form-control" placeholder="Remarks" required/>
-              </div>
-            </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			 
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Place From</label>
                 <input name="place_from" [(ngModel)]="overViewForm.place_from" type="text" class="form-control" placeholder="Place From" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Place To</label>
                 <input name="place_to" [(ngModel)]="overViewForm.place_to" type="text" class="form-control" placeholder="Place To" required/>
               </div>
-            </div> <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Reason</label>
-                <input name="reason" [(ngModel)]="overViewForm.reason" type="text" class="form-control" placeholder="Reason" required/>
-              </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Hearing Place</label>
                 <input name="hearing_place" [(ngModel)]="overViewForm.hearing_place" type="text" class="form-control" placeholder="Hearing Place" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Address</label>
-                <input name="address" [(ngModel)]="overViewForm.address" type="text" class="form-control" placeholder="Address" required/>
-              </div>
-            </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			 
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">AC Name</label>
                 <input name="ac_name" [(ngModel)]="overViewForm.ac_name" type="text" class="form-control" placeholder="AC Name" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Receipt Date</label>
-                <input name="receipt_date" [(ngModel)]="overViewForm.receipt_date" type="date" class="form-control" placeholder="Receipt Date" required/>
-              </div>
-            </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Extended Date</label>
-                <input name="extendeddate" [(ngModel)]="overViewForm.extendeddate" type="date" class="form-control" placeholder="Extended Date" required/>
-              </div>
-            </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Clearance Date</label>
-                <input name="clearancedate" [(ngModel)]="overViewForm.clearancedate" type="date" class="form-control" placeholder="Clearance Date" required/>
-              </div>
-            </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			 
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Fine</label>
                 <input name="fine" [(ngModel)]="overViewForm.fine" type="text" class="form-control" placeholder="Fine" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Clearance By</label>
                 <input name="clearanceby" [(ngModel)]="overViewForm.clearanceby" type="text" class="form-control" placeholder="Remarks" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Guarantor</label>
                 <input name="guarantor" [(ngModel)]="overViewForm.guarantor" type="text" class="form-control" placeholder="Guarantor" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Advocate Fee</label>
                 <input name="advocatefee" [(ngModel)]="overViewForm.advocatefee" type="text" class="form-control" placeholder="Advocate Fee" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Other Charges</label>
                 <input name="othercharges" [(ngModel)]="overViewForm.othercharges" type="text" class="form-control" placeholder="Other Charges" required/>
               </div>
-            </div> <div class="col-md-4 mg-t-20 mg-md-t-0">
+            </div> 
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Gurantee Fee</label>
                 <input name="guranteefee" [(ngModel)]="overViewForm.guranteefee" type="text" class="form-control" placeholder="Gurantee Fee" required/>
               </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Court Fee</label>
                 <input name="courtfee" [(ngModel)]="overViewForm.courtfee" type="text" class="form-control" placeholder="Court Fee" required/>
               </div>
+            </div>
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Receipt Date</label>
+                <input name="receipt_date" [(ngModel)]="overViewForm.receipt_date" type="date" class="form-control" placeholder="Receipt Date" required/>
+              </div>
+            </div>
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Hearing Date</label>
+                <input name="hearing_date" [(ngModel)]="overViewForm.hearing_date" type="date" class="form-control" placeholder="Remarks" required/>
+              </div>
+            </div>
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Extended Date</label>
+                <input name="extendeddate" [(ngModel)]="overViewForm.extendeddate" type="date" class="form-control" placeholder="Extended Date" required/>
+              </div>
             </div> 
-			<div class="col-md-4 mg-t-20 mg-md-t-0">
+			<div class="col-md-2 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Clearance Date</label>
+                <input name="clearancedate" [(ngModel)]="overViewForm.clearancedate" type="date" class="form-control" placeholder="Clearance Date" required/>
+              </div>
+            </div>
+			<div class="col-md-6 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+     
+              </div>
+            </div>
+			<div class="col-md-6 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+				<label class="form-label">Address</label>
+                <input name="address" [(ngModel)]="overViewForm.address" type="text" class="form-control" placeholder="Address" required/>
+              </div>
+            </div>
+			
+			<div style="float :right;" class="col-md-6 mg-t-20 mg-md-t-0">
+			
+              <div class="form-group">
+			 
+                <label class="form-label">Reason</label>
+                <input name="reason" [(ngModel)]="overViewForm.reason" type="text" class="form-control" placeholder="Reason" required/>
+              </div>
+            </div> 
+			<div class="col-md-12 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Remarks</label>
                 <input name="remarks" [(ngModel)]="overViewForm.remarks" type="text" class="form-control" placeholder="Remarks" required/>
               </div>
-            </div> 
+            </div>
+      </div>
+      <div class="row row-sm">
+        <div class="col-md-1">
+          <div class="form-group">
           </div>
-          <div class="row row-sm">
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="save()">Save</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group"> 
-                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>               
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group"> 
-                <button class="btn btn-primary btn-block" (click)="next()">Next</button>               
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group"> 
-                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>               
-              </div>
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
-          </div>  
-          
-          <hr>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="save()">Save</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+          </div>
+        </div>
+        <div class="col-md-1">
+         
+        </div>
+      </div>
 
-          <div class="table-responsive">
-            <table id="datatable1" class="mg-b-0 table">
+      <hr>
+
+      <div class="table-responsive" #datatable>
+        <!-- <table id="datatable1" class="mg-b-0 table" >
               <thead>
                 <tr>
                   <th class="wd-15p">Id</th>
-                  <th class="wd-15p">Vehicle No.</th>
-                  <th class="wd-20p">Challan No.</th>
-                  <th class="wd-15p">Driver</th>
-                  <th class="wd-25p">Seize Date</th>
-				  <th class="wd-25p">Authority</th>
-				  <th class="wd-25p">Hearing Date</th>
-				  <th class="wd-25p">Place From</th>
-				  <th class="wd-25p">Place To</th>
-				  <th class="wd-25p">Reason</th>
-				  <th class="wd-25p">Hearing Place</th>
-				  <th class="wd-25p">Address</th>
-				  <th class="wd-25p">AC Name</th>
-				  <th class="wd-25p">Receipt Date</th>
-				  <th class="wd-25p">Extended Date</th>
-				  <th class="wd-25p">Fine</th>
-				  <th class="wd-25p">Clearance By</th>
-				  <th class="wd-25p">Clearance Date</th>
-				  <th class="wd-25p">Guarantor</th>
-				  <th class="wd-25p">Advocate Fee</th>
-				  <th class="wd-25p">Other Charges</th>
-				  <th class="wd-25p">Gurantee Fee</th>
-				  <th class="wd-25p">Court Fee</th>
-				  <th class="wd-25p">Remarks</th>
+                  <th class="wd-15p">Code</th>
+                  <th class="wd-20p">State</th>
+                  <th class="wd-15p">Abbr. State Name</th>
+                  <th class="wd-15p">Zone</th>
+                  <th class="wd-10p">State Code Used for GST</th>
+                  <th class="wd-25p">Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -254,35 +252,175 @@
                 <tr
                     *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
                     <td> {{item.id}}</td>
-                    <td> {{item.vehicleno}}</td>
-                    <td> {{item.challanno}}</td>
-                    <td> {{item.driver}}</td>
-					<td> {{item.seize_date}}</td>
-					<td> {{item.authority}}</td>
-					<td> {{item.hearing_date}}</td>
-					<td> {{item.place_from}}</td>
-					<td> {{item.place_to}}</td>
-					<td> {{item.reason}}</td>
-					<td> {{item.hearing_place}}</td>
-					<td> {{item.address}}</td>
-					<td> {{item.ac_name}}</td>
-					<td> {{item.receipt_date}}</td>
-					<td> {{item.extendeddate}}</td>
-					<td> {{item.fine}}</td>
-					<td> {{item.clearanceby}}</td>
-					<td> {{item.clearancedate}}</td>
-					<td> {{item.guarantor}}</td>
-					<td> {{item.advocatefee}}</td>
-					<td> {{item.othercharges}}</td>
-					<td> {{item.guranteefee}}</td>
-					<td> {{item.courtfee}}</td>
-					<td> {{item.remarks}}</td>
-					
+                    <td> {{item.code}}</td>
+                    <td> {{item.state}}</td>
+                    <td> {{item.abbr}}</td>
+                    <td> {{item.zone}}</td>
+                    <td> {{item.gststatecode}}</td>
                     <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
                     </td>
                 </tr>
             </tbody>
-          </table>
+          </table> -->
+
+        <div class="p-3">
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+              <mat-icon matPrefix>
+              </mat-icon>
+            </mat-form-field>
+        
+              <div class="form-group d-flex">
+                <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i> 
+                <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+    
+              </div>
+          </div>
+
+          <div class="example-container mat-elevation-z8">
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="vehicleno">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> VEHICLE NO. </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.vehicleno}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="challanno">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> CHALLAN NO. </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.challanno}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="driver">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DRIVER </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.driver}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="seize_date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> SEIZE DATE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.seize_date}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="authority">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> AUTHORITY </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.authority}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="place_from">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> PLACE FROM </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.place_from}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="place_to">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> PLACE TO </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.place_to}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="hearing_place">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> HEARING PLACE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.hearing_place}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="ac_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> AC NAME </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.ac_name}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="fine">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> FINE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.fine}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="clearanceby">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> CLEARANCE BY </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.clearanceby}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="guarantor">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> GUARANTOR </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.guarantor}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="advocatefee">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ADVOCATE FEE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.advocatefee}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="othercharges">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> OTHER CHARGES </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.othercharges}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="guranteefee">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> GURANTEE FEE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.guranteefee}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="courtfee">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> COURT FEE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.courtfee}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="receipt_date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> RECEIPT DATE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.receipt_date}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="hearing_date">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> HEARING DATE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.hearing_date}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="extendeddate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> EXTENDED DATE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.extendeddate}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="clearancedate">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> CLEARANCE DATE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.clearancedate}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="address">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ADDRESS </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.address}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="reason">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> REASON </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.reason}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="remarks">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> REMARKS </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.remarks}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                <mat-cell *matCellDef="let row" >
+                  <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                </mat-cell>
+              </ng-container>
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+          </div>
+        </div>
 
 
 
@@ -292,4 +430,3 @@
     </div><!-- az-content-body -->
   </div><!-- container -->
 </div><!-- az-content -->
-

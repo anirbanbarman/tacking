@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TyretypeComponent } from './tyretype.component';
+import { tyretypeComponent } from '../tyretype/tyretype.component';
 
 const routes: Routes = [
   {
@@ -15,4 +15,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TyretypeAllRoutingModule { }
+export class tyretypeAllRoutingModule { }

@@ -1,0 +1,124 @@
+<!--<div class="az-profile-view-chart">
+  <canvas id="chartArea"></canvas>
+  <div class="az-profile-view-info">
+    <div class="d-flex align-items-baseline">
+      <h6>508</h6>
+      <span>-1.2% since last week</span>
+    </div>
+    <p>Profile viewers past 10 days</p>
+  </div>
+</div>-->
+
+<div class="col-md-12">
+  <div class="row row-sm">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label class="form-label">Name</label>
+        <input name="name" [(ngModel)]="overViewForm.name" type="text" class="form-control" placeholder="Name" required/>
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Contact Number</label>
+        <input name="contactnumber" [(ngModel)]="overViewForm.contactnumber" type="text" class="form-control" placeholder="Contact Number"  >
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">License Number</label>
+        <input name="licenseno" [(ngModel)]="overViewForm.licenseno"  type="text" class="form-control" placeholder="License Number"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">RTO</label>
+        <input name="rto" [(ngModel)]="overViewForm.rto"  type="text" class="form-control" placeholder="RTO"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">License Expiry Date</label>
+        <input name="licsenseexpirydate" [(ngModel)]="overViewForm.licsenseexpirydate"  type="date" class="form-control" placeholder="License Expiry Date"  />
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-md-12 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">Address</label>
+        <input name="address" [(ngModel)]="overViewForm.address"  type="text" class="form-control" placeholder="Address"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Aadhar</label>
+        <input name="aadhar" [(ngModel)]="overViewForm.aadhar"  type="text" class="form-control" placeholder="Aadhar"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Pan</label>
+        <input name="pan" [(ngModel)]="overViewForm.pan"  type="text" class="form-control" placeholder="Pan"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Father Name </label>
+        <input name="fathername" [(ngModel)]="overViewForm.fathername"  type="text" class="form-control" placeholder="Father Name"  />
+      </div>
+    </div> 
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Bank Account No</label>
+        <input name="bankaccountno" [(ngModel)]="overViewForm.bankaccountno"  type="text" class="form-control" placeholder="Bank Account No"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">IFSC</label>
+        <input name="ifsc" [(ngModel)]="overViewForm.ifsc"  type="text" class="form-control" placeholder="IFSC"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Bank Name</label>
+        <input name="bankname" [(ngModel)]="overViewForm.bankname"  type="text" class="form-control" placeholder="Bank Name"  />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Vehicle No</label>
+        <!--<input name="vehicle" [(ngModel)]="overViewForm.vehicle"  type="text" class="form-control" placeholder="Vehicle No"  />-->
+        <select class='select-option' [(ngModel)]="overViewForm.vehicle" class="form-control" placeholder="Select" >
+          <option class='option'  *ngFor='let item of vehiclelist' [value]="item.id">{{item.vehicleno}}</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <hr>
+
+ 
+  
+  
+   
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="submit()">Save</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <!--<button class="btn btn-primary btn-block" (click)="delete()">Delete</button>-->
+        <p><button type="button" (click)="changeStatus()" [className]="getClass(overViewForm.status)">{{overViewForm.status === '1' ? 'Active' :'Inactive'}}</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+

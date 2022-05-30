@@ -35,6 +35,8 @@ import { vehiclepermitComponent } from "./components/vehiclepermit/vehiclepermit
 import { branchComponent } from './components/branch/branch.component';
 import { vehiclebodyComponent } from './components/vehiclebody/vehiclebody.component';
 import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclertoseize.component';
+import { sparepartgroupComponent } from './components/sparepartgroup/sparepartgroup.component';
+import { sparepartrepairComponent } from './components/sparepartrepair/sparepartrepair.component';
 
 const routes: Routes = [
 
@@ -205,6 +207,27 @@ const routes: Routes = [
         path: 'vehicle-master/vehiclertoseize',
         component: vehiclertoseizeComponent
       }
+      ,
+	    {
+        path: 'vehicle-master/sparepartgroup',
+        component: sparepartgroupComponent
+      }
+      ,
+	    {
+        path: 'vehicle-master/sparepartrepair',
+        component: sparepartrepairComponent
+      }
+      ,
+	    {
+        path: 'master/station',
+        component: stationComponent
+      }
+      ,
+	    {
+        path: 'master/branch',
+        component: branchComponent
+      }
+
 
     ]
 

@@ -1,108 +1,115 @@
-
-
 <div class="az-content az-content-profile">
   <div class="mn-ht-100vx">
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
 
-        <label class="title">All Transit Type</label>
+        <label class="title">Transit Type Master</label>
+      </div>
+      <hr>
+      <div class="row row-sm justify-content-center">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="form-label">Code</label>
+            <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code"
+              required />
+          </div>
         </div>
-         <hr>
-          <div class="row row-sm">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label class="form-label">Source</label>
-                <input name="source" [(ngModel)]="overViewForm.source" type="text" class="form-control" placeholder="Source" required/>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label class="form-label">Destination</label>
-                <input name="destination" [(ngModel)]="overViewForm.destination" type="text" class="form-control" placeholder="Destination" required/>
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Days</label>
-                <input name="days" [(ngModel)]="overViewForm.days" type="text" class="form-control" placeholder="Days"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Distance in Kilometer</label>
-                <input name="distance_km" [(ngModel)]="overViewForm.distance_km" type="text" class="form-control" placeholder="Distance in Kilometer"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Distance Google in Kilometer</label>
-                <input name="distance_google_km" [(ngModel)]="overViewForm.distance_google_km" type="text" class="form-control" placeholder="Distance Google in Kilometer"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Distance Air in Kilometer</label>
-                <input name="distance_air_km" [(ngModel)]="overViewForm.distance_air_km" type="text" class="form-control" placeholder="Distance Air in Kilometer"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Time</label>
-                <input name="time" [(ngModel)]="overViewForm.time" type="text" class="form-control" placeholder="Time"  >
-              </div>
-            </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Source</label>
+            <input name="source" [(ngModel)]="overViewForm.source" type="text" class="form-control" placeholder="Source"
+              required />
           </div>
-          <div class="row row-sm">
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="save()">Save</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="next()">Next</button>
-              </div>
-            </div>
-            <div class="col-md-2">
-              <div class="form-group">
-                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
-              </div>
-            </div>
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Destination</label>
+            <input name="destination" [(ngModel)]="overViewForm.abdestinationbr" type="text" class="form-control"
+              placeholder="Destination">
           </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Days</label>
+            <input name="days" [(ngModel)]="overViewForm.days" type="text" class="form-control" placeholder="Days">
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Distance in KM</label>
+            <input name="distance_km" [(ngModel)]="overViewForm.distance_km" type="text" class="form-control"
+              placeholder="Distance in KM">
+          </div>
+        </div>
+		<div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Distance in Google(in KM)</label>
+            <input name="distance_google_km" [(ngModel)]="overViewForm.distance_google_km" type="text" class="form-control" placeholder="Distance in Google(in KM)">
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Distance Air in KM</label>
+            <input name="distance_air_km" [(ngModel)]="overViewForm.distance_air_km" type="text" class="form-control"
+              placeholder="Distance Air in KM">
+          </div>
+        </div>
+		<div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Time</label>
+            <input name="time" [(ngModel)]="overViewForm.time" type="time" class="form-control"
+              placeholder="Time">
+          </div>
+        </div>
+      </div>
+      <div class="row row-sm">
+        <div class="col-md-1">
+          <div class="form-group">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="save()">Save</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+          </div>
+        </div>
+        <div class="col-md-1">
+         
+        </div>
+      </div>
 
-          <hr>
+      <hr>
 
-          <div class="table-responsive" #datatable>
-            <table id="datatable1" class="mg-b-0 table" >
+      <div class="table-responsive" #datatable>
+        <!-- <table id="datatable1" class="mg-b-0 table" >
               <thead>
                 <tr>
                   <th class="wd-15p">Id</th>
-                  <th class="wd-15p">Source</th>
-                  <th class="wd-20p">Destination</th>
-                  <th class="wd-15p">Days</th>
-                  <th class="wd-15p">Distance in Kilometer</th>
-                  <th class="wd-15p">Distance Google in Kilometer</th>
-                  <th class="wd-15p">Distance Air in Kilometer</th>
-                  <th class="wd-10p">Time</th>
-
+                  <th class="wd-15p">Code</th>
+                  <th class="wd-20p">State</th>
+                  <th class="wd-15p">Abbr. State Name</th>
+                  <th class="wd-15p">Zone</th>
+                  <th class="wd-10p">State Code Used for GST</th>
+                  <th class="wd-25p">Details</th>
                 </tr>
               </thead>
               <tbody>
@@ -146,18 +153,94 @@
                 <tr
                     *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
                     <td> {{item.id}}</td>
-                    <td> {{item.source}}</td>
-                    <td> {{item.destination}}</td>
-                    <td> {{item.days}}</td>
-                    <td> {{item.distance_km}}</td>
-                    <td> {{item.distance_google_km}}</td>
-                    <td> {{item.distance_air_km}}</td>
-                    <td> {{item.time}}</td>
+                    <td> {{item.code}}</td>
+                    <td> {{item.state}}</td>
+                    <td> {{item.abbr}}</td>
+                    <td> {{item.zone}}</td>
+                    <td> {{item.gststatecode}}</td>
                     <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
                     </td>
                 </tr>
             </tbody>
-          </table>
+          </table> -->
+
+        <div class="p-3">
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+              <mat-icon matPrefix>
+              </mat-icon>
+            </mat-form-field>
+        
+              <div class="form-group d-flex">
+                <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i> 
+                <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+    
+              </div>
+          </div>
+
+          <div class="example-container mat-elevation-z8">
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="source">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> SOURCE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.source}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="destination">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DESTINATION </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.destination}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="days">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DAYS </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.days}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="distance_km">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DISTANCE IN KM </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.distance_km}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="distance_google_km">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DISTANCE IN GOOGLE(IN KM) </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.distance_google_km}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="distance_air_km">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> DISTANCE AIR_KM </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.distance_air_km}} </mat-cell>
+              </ng-container>
+			  
+			  <ng-container matColumnDef="time">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> TIME </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.time}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                <mat-cell *matCellDef="let row" >
+                  <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                </mat-cell>
+              </ng-container>
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+          </div>
+        </div>
 
 
 

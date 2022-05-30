@@ -1,0 +1,169 @@
+
+
+<div class="az-content az-content-profile">
+  <div class="mn-ht-100vx">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+
+        <label class="title">All Transit Type</label>
+        </div>
+         <hr>
+          <div class="row row-sm">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Source</label>
+                <input name="source" [(ngModel)]="overViewForm.source" type="text" class="form-control" placeholder="Source" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="form-label">Destination</label>
+                <input name="destination" [(ngModel)]="overViewForm.destination" type="text" class="form-control" placeholder="Destination" required/>
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Days</label>
+                <input name="days" [(ngModel)]="overViewForm.days" type="text" class="form-control" placeholder="Days"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Distance in Kilometer</label>
+                <input name="distance_km" [(ngModel)]="overViewForm.distance_km" type="text" class="form-control" placeholder="Distance in Kilometer"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Distance Google in Kilometer</label>
+                <input name="distance_google_km" [(ngModel)]="overViewForm.distance_google_km" type="text" class="form-control" placeholder="Distance Google in Kilometer"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Distance Air in Kilometer</label>
+                <input name="distance_air_km" [(ngModel)]="overViewForm.distance_air_km" type="text" class="form-control" placeholder="Distance Air in Kilometer"  >
+              </div>
+            </div>
+            <div class="col-md-4 mg-t-20 mg-md-t-0">
+              <div class="form-group">
+                <label class="form-label">Time</label>
+                <input name="time" [(ngModel)]="overViewForm.time" type="text" class="form-control" placeholder="Time"  >
+              </div>
+            </div>
+          </div>
+          <div class="row row-sm">
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="save()">Save</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+              </div>
+            </div>
+          </div>
+
+          <hr>
+
+          <div class="table-responsive" #datatable>
+            <table id="datatable1" class="mg-b-0 table" >
+              <thead>
+                <tr>
+                  <th class="wd-15p">Id</th>
+                  <th class="wd-15p">Source</th>
+                  <th class="wd-20p">Destination</th>
+                  <th class="wd-15p">Days</th>
+                  <th class="wd-15p">Distance in Kilometer</th>
+                  <th class="wd-15p">Distance Google in Kilometer</th>
+                  <th class="wd-15p">Distance Air in Kilometer</th>
+                  <th class="wd-10p">Time</th>
+
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.source}}</td>
+                    <td> {{item.destination}}</td>
+                    <td> {{item.days}}</td>
+                    <td> {{item.distance_km}}</td>
+                    <td> {{item.distance_google_km}}</td>
+                    <td> {{item.distance_air_km}}</td>
+                    <td> {{item.time}}</td>
+                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->

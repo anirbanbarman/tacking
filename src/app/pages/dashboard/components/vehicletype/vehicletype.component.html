@@ -1,5 +1,3 @@
-
-
 <div class="az-content az-content-profile">
   <div class="mn-ht-100p">
     <div class="az-content-body az-content-body-profile">
@@ -15,64 +13,71 @@
             </div>
           </div>
         </div>-->
-         <label class="title">All Vehicle Type</label>
-         <hr>
-          <div class="row row-sm">
-            <div class="col-md-4">
+        <label class="title">Vehicle Type Master</label>
+        <hr>
+        <div>
+          <div class="row row-sm justify-content-center">
+            <div class="col-md-2">
               <div class="form-group">
                 <label class="form-label">Code</label>
-                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
+                <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required />
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Model</label>
-                <input name="model" [(ngModel)]="overViewForm.model" type="text" class="form-control" placeholder="Model"  >
+                <!--<input name="model" [(ngModel)]="overViewForm.model" type="text" class="form-control" placeholder="Model">-->
+                <select class='select-option' [(ngModel)]="overViewForm.model" class="form-control" placeholder="Select" >
+                  <option class='option'  *ngFor='let item of modellist' [value]="item.model">{{item.model}}</option>
+                </select>
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
+            <div class="col-md-2 mg-t-20 mg-md-t-0">
               <div class="form-group">
                 <label class="form-label">Detention Charge Per Day</label>
-                <input name="detentionchargeperday" [(ngModel)]="overViewForm.detentionchargeperday" type="text" class="form-control" placeholder="Detention Charge Per Day"  >
+                <input name="detentionchargeperday" [(ngModel)]="overViewForm.detentionchargeperday" type="text" class="form-control" placeholder="Detention Charge Per Day">
               </div>
             </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Number of Typres</label>
-                <input name="num_of_tyres" [(ngModel)]="overViewForm.num_of_tyres" type="text" class="form-control" placeholder="Number of Tyres"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Tyre Cost Per Kilometer</label>
-                <input name="tyre_cost_per_km" [(ngModel)]="overViewForm.tyre_cost_per_km" type="text" class="form-control" placeholder="Tyre Cost Per Kilometer"  >
-              </div>
-            </div>
+            <div class="col-md-3 mg-t-20 mg-md-t-0">
+                  <div class="form-group">
+                    <label class="form-label">Number of Types</label>
+                    <input name="num_of_types" [(ngModel)]="overViewForm.num_of_types" type="text" class="form-control" placeholder="Number of Types"  >
+                  </div>
+                </div>
+                <br>
+                <div class="col-md-3 mg-t-20 mg-md-t-0">
+                      <div class="form-group">
+                        <label class="form-label">Bharat Stage</label>
+                        <input name="bharat_stage" [(ngModel)]="overViewForm.bharat_stage" type="text" class="form-control" placeholder="Bharat stage"  >
+                      </div>
+                    </div>
+                <div class="col-md-3 mg-t-20 mg-md-t-0">
+                  <div class="form-group">
+                    <label class="form-label">Tyre Cost Per Kilometer</label>
+                    <input name="tyre_cost_per_km" [(ngModel)]="overViewForm.tyre_cost_per_km" type="text" class="form-control" placeholder="Tyre Cost Per Kilometer"  >
+                  </div>
+                </div>
 
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Repairing Cost Per Kilometer</label>
-                <input name="repairing_cost_per_km" [(ngModel)]="overViewForm.repairing_cost_per_km" type="text" class="form-control" placeholder="Repairing Cost Per Kilometer"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Earning Per Day</label>
-                <input name="earning_per_day" [(ngModel)]="overViewForm.earning_per_day" type="text" class="form-control" placeholder="Earning Per Day"  >
-              </div>
-            </div>
-            <div class="col-md-4 mg-t-20 mg-md-t-0">
-              <div class="form-group">
-                <label class="form-label">Loading Capacity</label>
-                <input name="loading_capacity" [(ngModel)]="overViewForm.loading_capacity" type="text" class="form-control" placeholder="Loading Capacity"  >
-              </div>
-            </div>
+                <div class="col-md-3 mg-t-20 mg-md-t-0">
+                  <div class="form-group">
+                    <label class="form-label">Repairing Cost Per Kilometer</label>
+                    <input name="repairing_cost_per_km" [(ngModel)]="overViewForm.repairing_cost_per_km" type="text" class="form-control" placeholder="Repairing Cost Per Kilometer"  >
+                  </div>
+                </div>
+                <div class="col-md-3 mg-t-20 mg-md-t-0">
+                  <div class="form-group">
+                    <label class="form-label">Earning Per Day</label>
+                    <input name="earning_per_day" [(ngModel)]="overViewForm.earning_per_day" type="text" class="form-control" placeholder="Earning Per Day"  >
+                  </div>
+                </div>
+                <div class="col-md-3 mg-t-20 mg-md-t-0">
+                  <div class="form-group">
+                    <label class="form-label">Loading Capacity</label>
+                    <input name="loading_capacity" [(ngModel)]="overViewForm.loading_capacity" type="text" class="form-control" placeholder="Loading Capacity"  >
+                  </div>
+                </div>
           </div>
-          <div class="row row-sm">
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
-            </div>
+          <div class="row row-sm col-md-10 justify-content-center">
             <div class="col-md-2">
               <div class="form-group">
                 <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
@@ -98,88 +103,176 @@
                 <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
               </div>
             </div>
-            <div class="col-md-1">
-              <div class="form-group">
-              </div>
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+        <hr>
+
+        <!-- <div class="table-responsive">
+          <table id="datatable1" class="mg-b-0 table">
+            <thead>
+              <tr>
+                <th class="wd-10p">Id</th>
+                <th class="wd-10p">Code</th>
+                <th class="wd-10p">Model</th>
+                <th class="wd-15p">Detention Charge Per Day</th>
+                <th class="wd-15p">Num of Tyres</th>
+                <th class="wd-15p">Tyre Cost Per Kilometer</th>
+                <th class="wd-20p">Repairing Cost Per Kilometer</th>
+                <th class="wd-15p">Earning Per Day</th>
+                <th class="wd-15p">Loading Capacity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of dummy;">
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+                <td>
+                  <ngx-skeleton-loader count="1" [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                  </ngx-skeleton-loader>
+                </td>
+              </tr>
+              <tr *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                <td> {{item.id}}</td>
+                <td> {{item.code}}</td>
+                <td> {{item.model}}</td>
+                <td> {{item.detentionchargeperday}}</td>
+                <td> {{item.num_of_tyres}}</td>
+                <td> {{item.tyre_cost_per_km}}</td>
+                <td> {{item.repairing_cost_per_km}}</td>
+                <td> {{item.earning_per_day}}</td>
+                <td> {{item.loading_capacity}}</td>
+                <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                </td>
+              </tr>
+            </tbody>
+          </table> -->
+          <div class="p-3">
+            <div class="example-header" style="padding-bottom:3rem;">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+                <mat-icon matPrefix>
+                </mat-icon>
+              </mat-form-field>
+
+                <div class="form-group d-flex side-icon-search">
+                  <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24);display:inline-block;"></i>
+                  <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+                  <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                  <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+
+                </div>
+            </div>
+
+            <div class="example-container mat-elevation-z8">
+
+              <mat-table [dataSource]="dataSource" matSort>
+
+                <!-- ID Column -->
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="code">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> CODE </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="model">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Model </mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.model}} </mat-cell>
+                </ng-container>
+
+
+
+                <ng-container matColumnDef="detentionchargeperday">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Detention Charge Per Day</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.detentionchargeperday}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="num_of_types">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Number of Types</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.num_of_types}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="bharat_stage">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Bharat Stage</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.bharat_stage}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="tyre_cost_per_km">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Tyre Cost Per Kilometer</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.tyre_cost_per_km}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="repairing_cost_per_km">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header>Repairing cost Per Kilometer</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.repairing_cost_per_km}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="earning_per_day">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Earning Per Day</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.earning_per_day}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="loading_capacity">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> Loading Capacity</mat-header-cell>
+                  <mat-cell *matCellDef="let row"> {{row.loading_capacity}} </mat-cell>
+                </ng-container>
+
+
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                  <mat-cell *matCellDef="let row" >
+                    <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                  </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;">
+                </mat-row>
+              </mat-table>
+
+              <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
             </div>
           </div>
 
-          <hr>
-
-          <div class="table-responsive">
-            <table id="datatable1" class="mg-b-0 table">
-              <thead>
-                <tr>
-                  <th class="wd-10p">Id</th>
-                  <th class="wd-10p">Code</th>
-                  <th class="wd-10p">Model</th>
-                  <th class="wd-15p">Detention Charge Per Day</th>
-                  <th class="wd-15p">Num of Tyres</th>
-                  <th class="wd-15p">Tyre Cost Per Kilometer</th>
-                  <th class="wd-20p">Repairing Cost Per Kilometer</th>
-                  <th class="wd-15p">Earning Per Day</th>
-                  <th class="wd-15p">Loading Capacity</th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr *ngFor="let item of dummy;">
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                    <td>
-                        <ngx-skeleton-loader count="1"
-                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
-                        </ngx-skeleton-loader>
-                    </td>
-                </tr>
-                <tr
-                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
-                    <td> {{item.id}}</td>
-                    <td> {{item.code}}</td>
-                    <td> {{item.model}}</td>
-                    <td> {{item.detentionchargeperday}}</td>
-                    <td> {{item.num_of_tyres}}</td>
-                    <td> {{item.tyre_cost_per_km}}</td>
-                    <td> {{item.repairing_cost_per_km}}</td>
-                    <td> {{item.earning_per_day}}</td>
-                    <td> {{item.loading_capacity}}</td>
-                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
 
 
 
 
-      </div><!-- az-profile-body -->
-    </div><!-- az-content-body -->
-  </div><!-- container -->
-</div><!-- az-content -->
+        </div><!-- az-profile-body -->
+      </div><!-- az-content-body -->
+    </div><!-- container -->
+  </div><!-- az-content -->

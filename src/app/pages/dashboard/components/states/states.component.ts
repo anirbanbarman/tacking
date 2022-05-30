@@ -24,8 +24,8 @@ styleUrls: ['./states.component.scss']
 })
 export class StatesComponent implements OnInit,AfterViewInit {
   @ViewChild(MatPaginator) paginator !: MatPaginator;
-@ViewChild(MatSort) sort !: MatSort;
-  
+  @ViewChild(MatSort) sort !: MatSort;
+
     variables: any = {
         isNew: true,
         checkcode: true
@@ -40,7 +40,7 @@ export class StatesComponent implements OnInit,AfterViewInit {
     maxid:number=0;
     minid:number=0;
     displayedColumns:any;
-    
+
     dataSource:any;
 
 
@@ -56,22 +56,23 @@ export class StatesComponent implements OnInit,AfterViewInit {
         gststatecode:  "",
         remarks:  ""
       }
+      
 
     constructor(
         private dashboardService: DashboardService,
         private router: Router,
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
-        public api: ApisService, 
+        public api: ApisService,
         private exportService: ExportService
-    ) 
-    { 
+    )
+    {
       this.getStates();
       this.getZones();
       this.getDataList();
       this.getstatesmaxid();
       this.getstatesminid();
-     
+
     }
 
 
@@ -80,8 +81,11 @@ export class StatesComponent implements OnInit,AfterViewInit {
 
     this.dashboardService.getAllstates().subscribe((response:any)=>{
     console.log(response.data);
-    this.displayedColumns=Object.keys(response.data[0])
+    //this.displayedColumns=Object.keys(response.data[0])
+    //console.log(this.displayedColumns);
+    this.displayedColumns = ['id', 'code', 'state', 'abbr', 'zone', 'gststatecode', 'remarks','actions'];
     this.dataSource = new MatTableDataSource(response.data);
+    console.log(this.dataSource);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     console.log(this.displayedColumns,response.data)
@@ -104,18 +108,18 @@ export class StatesComponent implements OnInit,AfterViewInit {
           console.log('save');
           let payload = new FormData();
           this.overViewForm.id= "";
-         
+
           for (var key in this.overViewForm) {
             payload.append(key, this.overViewForm[key]);
           }
           this.dashboardService.savestates(payload).subscribe((response: any) => {
             if (response && response?.status === 200) {
-              this.spinner.hide(); 
-              this.getDataList();   
+              this.spinner.hide();
+              this.getDataList();
               this.getstatesmaxid();
-              this.getstatesminid(); 
-              
-                   
+              this.getstatesminid();
+
+
             }
             else {
               failMessage(response?.data?.message)
@@ -138,21 +142,21 @@ export class StatesComponent implements OnInit,AfterViewInit {
         }
         this.dashboardService.updatestates(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide();  
+            this.spinner.hide();
             successMessage(response?.data?.message)
             this.getDataList();
             this.getstatesmaxid();
-              this.getstatesminid(); 
-                   
+              this.getstatesminid();
+
           }
           else if(response && response?.data?.message == "")
           {
-            this.spinner.hide();  
+            this.spinner.hide();
             successMessage(response?.data?.message)
             this.getDataList();
             this.getstatesmaxid();
-              this.getstatesminid(); 
-          
+              this.getstatesminid();
+
           }
           else {
             failMessage(response?.data?.message)
@@ -176,11 +180,11 @@ export class StatesComponent implements OnInit,AfterViewInit {
         this.dashboardService.deletestates(payload).subscribe((response: any) => {
           console.log(response);
           if (response && response?.status === 200) {
-            this.spinner.hide(); 
-            successMessage(response?.data?.message) 
+            this.spinner.hide();
+            successMessage(response?.data?.message)
             this.getDataList();
             this.next();
-                   
+
           }
           else {
             failMessage(response?.data?.message)
@@ -206,7 +210,7 @@ export class StatesComponent implements OnInit,AfterViewInit {
           return true;
         }
       }
-    
+
     getStateData(id:any) {
         const param = {
           id: this.overViewForm.id
@@ -215,13 +219,13 @@ export class StatesComponent implements OnInit,AfterViewInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getstates(payload).subscribe((response: any) => {      
+        this.dashboardService.getstates(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
             console.log('response->', info);
-            this.overViewForm= info;  
-            this.variables.isNew=false;         
+            this.overViewForm= info;
+            this.variables.isNew=false;
           }
           else {
             const info = response.data;
@@ -239,12 +243,12 @@ export class StatesComponent implements OnInit,AfterViewInit {
         this.spinner.show();
         let payload = new FormData();
         payload.append("type","States");
-        this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.dashboardService.getType(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             this.statesList = response.data;
            this.dummyStatesList = response.data;
-            
+
           }
           else {
             const info = response.data;
@@ -262,12 +266,12 @@ export class StatesComponent implements OnInit,AfterViewInit {
         this.spinner.show();
         let payload = new FormData();
         payload.append("type","zone");
-        this.dashboardService.getType(payload).subscribe((response: any) => {      
+        this.dashboardService.getType(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             this.zonesList = response.data;
            this.dummyZonesList = response.data;
-            
+
           }
           else {
             const info = response.data;
@@ -287,7 +291,7 @@ export class StatesComponent implements OnInit,AfterViewInit {
 
       next()
       {
-        
+
 
         console.log("this.maxid->",this.maxid);
         console.log("this.minid->",this.minid);
@@ -331,19 +335,19 @@ export class StatesComponent implements OnInit,AfterViewInit {
         console.log('code--', this.overViewForm.code);
         let payload = new FormData();
         payload.append("code",this.overViewForm.code);
-        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {      
+        this.dashboardService.getstatesbycode(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
             console.log('data->', info);
-            failMessage('Code Already Exists In The System'); 
+            failMessage('Code Already Exists In The System');
             this.variables.checkCode=true;
-            console.log('this.variables.checkCode->',this.variables.checkCode);     
+            console.log('this.variables.checkCode->',this.variables.checkCode);
           }
           else {
-            this.variables.checkCode=false;  
-            console.log('this.variables.checkCode->',this.variables.checkCode); 
-            this.save();    
+            this.variables.checkCode=false;
+            console.log('this.variables.checkCode->',this.variables.checkCode);
+            this.save();
           }
         }, error => {
           this.spinner.hide();
@@ -356,7 +360,7 @@ export class StatesComponent implements OnInit,AfterViewInit {
       getstatesmaxid() {
         this.spinner.show();
         console.log("getstatesmaxid");
-        this.dashboardService.getstatesmaxid().subscribe((response: any) => {      
+        this.dashboardService.getstatesmaxid().subscribe((response: any) => {
           this.spinner.hide();
           console.log("getstatesmaxid response->",response);
           if (response && response.status === 200 && response.data) {
@@ -378,7 +382,7 @@ export class StatesComponent implements OnInit,AfterViewInit {
       getstatesminid() {
         this.spinner.show();
         console.log("getstatesminid");
-        this.dashboardService.getstatesminid().subscribe((response: any) => {      
+        this.dashboardService.getstatesminid().subscribe((response: any) => {
           this.spinner.hide();
           console.log("getstatesminid response->",response);
           if (response && response.status === 200 && response.data) {
@@ -404,35 +408,35 @@ export class StatesComponent implements OnInit,AfterViewInit {
 
 
 
- 
+
       ngOnInit()
       {
       }
+
       exportAsXLSX(): void {
         this.exportService.exportAsExcelFile(
           this.dataList,
-          `customer-list ${new Date().getMinutes()}`
+          `data ${new Date().getMinutes()}`
         );
       }
       exportAsPDF() {
-       this.exportService.exportPDF(this.dataList,"states.pdf")
+       this.exportService.exportPDF(this.dataList,"data.pdf")
       }
 
-      
+
 /**
  * Set the paginator and sort after the view init since this component will
  * be able to query its view for the initialized paginator and sort.
  */
-ngAfterViewInit() {
-console.log(this.dataSource)
- 
-}
+    ngAfterViewInit() {
+      console.log(this.dataSource)
+     }
 
-applyFilter(filterValue: any) {
-  filterValue.value = filterValue?.value.trim(); // Remove whitespace
-  filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
-  this.dataSource.filter = filterValue.value;
-}
+     applyFilter(filterValue: any) {
+      filterValue.value = filterValue?.value.trim(); // Remove whitespace
+      filterValue.value = filterValue?.value.toLowerCase(); // Datasource defaults to lowercase matches
+      this.dataSource.filter = filterValue.value;
+    }
 
 
 

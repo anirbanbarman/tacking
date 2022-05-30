@@ -1,0 +1,134 @@
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_image($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ image" target="_blank">
+            <img [src]="api.mediaURL+ image" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a> 
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Smart Card Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_smartcard($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ smartcardimage" target="_blank">
+            <img [src]="api.mediaURL+ smartcardimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a> 
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Pollution Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_pollution($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ pollutionimage" target="_blank">
+            <img [src]="api.mediaURL+ pollutionimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Insurance Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_insurance($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ insuranceimage" target="_blank">
+            <img [src]="api.mediaURL+ insuranceimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Tax Token Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_tax($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ taximage" target="_blank">
+            <img [src]="api.mediaURL+ taximage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Permit Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_permit($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ permitimage" target="_blank">
+            <img [src]="api.mediaURL+ permitimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Fitness Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_fitness($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ fitnessimage" target="_blank">
+            <img [src]="api.mediaURL+ fitnessimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Invoice Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_invoice($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ invoiceimage" target="_blank">
+            <img [src]="api.mediaURL+ invoiceimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>
+<hr>
+<div class="form-group row">
+    <label class="col-sm-4 col-form-label">
+        Permit Part(A) Image
+    </label>
+    <div class="col-sm-4">
+        <input (change)="preview_permitA($event.target)" type="file" class="form-control">
+    </div>
+    <div class="col-sm-4">
+        <a [href]="api.mediaURL+ permitpartAimage" target="_blank">
+            <img [src]="api.mediaURL+ permitpartAimage" alt="" style="height: 100px;width: 100px;float: right;"
+             onError="this.src='assets/images/upload.png'">
+        </a>  
+    </div>
+</div>

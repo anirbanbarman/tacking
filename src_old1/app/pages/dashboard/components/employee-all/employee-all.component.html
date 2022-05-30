@@ -1,0 +1,171 @@
+<!-- <app-header></app-header>
+<app-navbar></app-navbar> -->
+
+<div class="az-content az-content-profile">
+  <div class="mn-ht-100vh">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+
+        <div class="row mg-b-20">
+          <div class="col-md-12 col-xl-12">
+            <div class="row row-sm justify-content-center">
+              <div class="col-md-2 m-1">
+
+
+
+                <div class="form-group">
+                  <label class="title">All Employees</label>
+
+                </div>
+              </div>
+              <div class="col-md-6 m-1">
+
+                <div class="input-group" style="border-radius: 10px;">
+                  <input type="text" class="form-control _input" placeholder="Search employee...">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col-md-2 m-1 ml-md-5">
+                <div class="form-group">
+                  <a (click)="createNew()" class="nav-sub-link">
+                    <button class="btn btn-primary btn-block">Create New</button>
+                  </a>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+            <p *ngIf="!dummy?.length && !employeelist?.length" class="ion-text-center"> 'No employee Found' </p>
+            <div class="card_div _card" *ngFor="let item of employeelist" (click)="Openemployee(item)">
+              <div class="form-group row">
+                <div class="col-sm-2 col-form-label">
+                  <img [src]="api.mediaURL+ item.image" style="height: 100px;border-radius: 10%;"
+                    onError="this.src='assets/images/upload.png'">
+                </div>
+                <div class="col-sm-8">
+                  <div class="form-group row">
+                    <label style="font-weight: bold;color: gray;font-size: 16px;"> Name:
+                      {{item.name}}</label>
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-sm-4">
+                      <div><span><label class="item-title">Department:</label> {{item.department}}</span></div>
+                      <div><span><label class="item-title">Designation:</label>{{item.designation}}</span></div>
+                      <div><span><label class="item-title">Phone Number:</label>{{item.phonenumber}}</span></div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div><span><label class="item-title">Pan:</label>{{item.pan}}</span></div>
+                      <div><span><label class="item-title">Aadhar:</label>{{item.aadhar}}</span></div>
+                      <div><span><label class="item-title">Blood Group:</label>{{item.bloodgroup}}</span></div>
+                    </div>
+                    <div class="col-sm-4">
+                      <div><span><label class="item-title">Deputed Location:</label>{{item.deputedlocation}}</span></div>
+                      <!--<div><span><label class="item-title">Maritial Status:</label>{{item.maritialstatus}}</span></div>-->
+                      <div><span><label class="item-title">City:</label>{{item.city}}</span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-sm-1 col-form-label">
+                  <div class="form-group row">
+                      <p><button type="button" (click)="Openemployee(item)" class="btn btn-primary btn-round ">Details-></button></p>
+                      <p><button type="button" [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Deactive'}}</button></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <!--<div class="table-responsive">
+            <table id="datatable1" class="mg-b-0 table">
+              <thead>
+                <tr>
+                  <th class="wd-15p">Id</th>
+                  <th class="wd-15p">Vehicle No.</th>
+                  <th class="wd-20p">Make</th>
+                  <th class="wd-15p">Model</th>
+                  <th class="wd-10p">Driver</th>
+                  <th class="wd-10p">Status</th>
+                  <th class="wd-25p">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of vehiclelist | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.vehicleno}}</td>
+                    <td> {{item.make}}</td>
+                    <td> {{item.model}}</td>
+                    <td> {{item.driver}}</td>
+                    <td>
+                        <button type="button" (click)="update(item,'status')"
+                            [className]="getClass(item.status)">{{item.status === '1' ? 'Active' :'Deactive'}}</button>
+                    </td>
+                    <td><button type="button" (click)="OpenVehicle(item)"
+                            class="btn btn-success btn-round btn-outline-success">View
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+          </div>-->
+
+
+
+          </div>
+        </div>
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->
+
+<!-- <app-footer></app-footer> -->

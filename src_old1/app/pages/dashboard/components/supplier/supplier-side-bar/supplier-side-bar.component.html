@@ -1,0 +1,75 @@
+<div class="az-content-left az-content-left-profile">
+
+  <div class="az-profile-overview">
+    <div class="az-img-user">      
+        <img [src]="api.mediaURL+ image" alt="" style="height: 100px;width: 100px;float: right;"
+         onError="this.src='assets/images/upload.png' " (change)="preview_image($event.target)" >      
+    </div>
+    <!-- <div class="col-sm-12">
+      <input (change)="preview_image($event.target)" type="file" class="form-control">
+    </div> -->
+    <div class="d-flex justify-content-between mg-b-20">
+      <div>
+        <h5 class="az-profile-name">{{name}}</h5>
+        <p class="az-profile-name-text">{{contactnumber}}-{{email}}</p>
+      </div>
+      <div class="btn-icon-list">
+      </div>
+    </div>
+
+    <div class="az-profile-bio">
+      {{gst}}
+    </div><!-- az-profile-bio -->
+
+    <hr class="mg-y-30">
+    
+      <div class="row row-sm">
+        <div class="col-sm-16">
+          <div class="card card-dashboard-finance">
+            <h6 class="card-title">Total Purchase Amount</h6>
+            <span class="peity-bar" data-peity='{ "fill": ["#560bd0"], "height": 27, "width": 70 }'>7,5,9,10,1,4,4,7,5,10,4,4</span>
+            <h2><span>Rs.</span>5,83,320<small>.50</small></h2>
+            <span class="tx-12"><span class="tx-success tx-bold">18.2%</span> higher vs previous month</span>
+          </div>
+        </div>       
+      </div>
+
+      <div class="row row-sm">
+        <div class="col-sm-16">
+          <div class="card card-dashboard-finance">
+            <h6 class="card-title">Total Purchases</h6>
+            <span class="peity-bar" data-peity='{ "fill": ["#007bff"], "height": 27, "width": 70 }'>10,4,4,7,5,9,10,3,4,4,7,5</span>
+            <h2><span></span>346<small></small></h2>
+            <span class="tx-12"><span class="tx-danger tx-bold">0.7%</span> higher vs previous month</span>
+          </div>
+        </div>       
+      </div>
+
+      <div class="row row-sm">
+        <div class="col-sm-18">
+          <div class="card card-dashboard-finance">
+            <h6 class="card-title">Accounts Payable</h6>
+            <span class="peity-bar" data-peity='{ "fill": ["#00cccc"], "height": 27, "width": 70 }'>7,5,9,10,5,4,4,7,5,10,4,4</span>
+            <h2><span>Rs.</span>99,112<small>.00</small></h2>
+            <span class="tx-12"><span class="tx-success tx-bold">0.7%</span> higher vs previous month</span>
+          </div>
+        </div>       
+      </div>
+
+      <div class="row row-sm">
+        <div class="col-sm-16">
+          <div class="card card-dashboard-finance">
+            <h6 class="card-title">Last Payment</h6>
+            <span class="peity-bar" data-peity='{ "fill": ["#f10075"], "height": 27, "width": 70 }'>1,4,4,7,5,10,4,7,5,9,10,4</span>
+            <h2><span>Rs.</span>8,216<small>.00</small></h2>
+            <span class="tx-12"><span class="tx-success tx-bold">0.7%</span> higher vs previous month</span>
+          </div>
+        </div>       
+      </div>
+    
+
+    
+
+  </div><!-- az-profile-overview -->
+
+</div>

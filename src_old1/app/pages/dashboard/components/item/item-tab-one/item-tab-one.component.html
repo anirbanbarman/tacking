@@ -1,0 +1,89 @@
+<!--<div class="az-profile-view-chart">
+  <canvas id="chartArea"></canvas>
+  <div class="az-profile-view-info">
+    <div class="d-flex align-items-baseline">
+      <h6>508</h6>
+      <span>-1.2% since last week</span>
+    </div>
+    <p>Profile viewers past 10 days</p>
+  </div>
+</div>-->
+
+<div class="col-md-12">
+  <div class="row row-sm">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="form-label">Code</label>
+        <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code" required/>
+      </div>
+    </div>
+  </div>
+  <div class="row row-sm">
+    <div class="col-md-12">
+      <div class="form-group">
+        <label class="form-label">Description</label>
+        <input name="description" [(ngModel)]="overViewForm.description"  type="text" class="form-control" placeholder="Description"  />
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">HSN Code</label>
+        <input name="hsn" [(ngModel)]="overViewForm.hsn"  type="text" class="form-control" placeholder="HSN Code"  />
+      </div>
+    </div>
+    <div class="col-md-4 mg-t-20 mg-md-t-0">
+      <div class="form-group">
+        <label class="form-label">GST(%)</label>
+        <input name="gst" [(ngModel)]="overViewForm.gst"  type="text" class="form-control" placeholder="GST(%)"  />
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Product Type</label>
+        <select class='select-option' [(ngModel)]="overViewForm.type" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of producttypelist' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Unit Of Measurement</label>
+        <select class='select-option' [(ngModel)]="overViewForm.unit" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of itemmodelist' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label class="form-label">Costing Grade</label>
+        <select class='select-option' [(ngModel)]="overViewForm.costing_grade" class="form-control" placeholder="Select" >
+         <option class='option'  *ngFor='let item of costing_gradelist' [value]="item.name">{{item.name}}</option>
+        </select>
+      </div>
+    </div>
+   
+  </div>
+
+  
+   
+  <hr>
+  <div class="row row-sm">
+    <div class="col-md-4">
+      <div class="form-group">
+        <button class="btn btn-primary btn-block" (click)="submit()">Save</button>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <p><button type="button" (click)="changeStatus()" [className]="getClass(overViewForm.status)">{{overViewForm.status === '1' ? 'Active' :'Inactive'}}</button></p>
+      </div>
+    </div>
+  </div>
+</div>
+

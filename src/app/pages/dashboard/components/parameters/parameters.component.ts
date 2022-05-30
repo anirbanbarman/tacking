@@ -19,6 +19,12 @@ export class ParametersComponent implements OnInit {
     variables: any = {
         isNew: true,
       }
+      statesList: any[] = [];
+      dummyStatesList: any[] = [];
+      dataList: any= [];
+      dummyDataList: any[] = [];
+      page: number = 1;
+      dummy = [];
 
     overViewForm: any = {
         id:  1,
@@ -39,8 +45,10 @@ export class ParametersComponent implements OnInit {
         private router: Router,
         public route: ActivatedRoute,
         private spinner: NgxSpinnerService,
-        public api: ApisService, 
-    ) { }
+        public api: ApisService,
+    ) {
+      this.getStates();
+    }
 
     save() {
         this.spinner.show();
@@ -51,8 +59,8 @@ export class ParametersComponent implements OnInit {
         }
         this.dashboardService.updateparameters(payload).subscribe((response: any) => {
           if (response && response?.status === 200) {
-            this.spinner.hide();     
-                   
+            this.spinner.hide();
+
           }
           else {
             failMessage(response?.data?.message)
@@ -63,7 +71,7 @@ export class ParametersComponent implements OnInit {
             this.spinner.hide();
           });
       }
-    
+
     getParameter(id:any) {
         const param = {
           id: this.overViewForm.id
@@ -72,17 +80,38 @@ export class ParametersComponent implements OnInit {
         console.log('id--', this.overViewForm.id);
         let payload = new FormData();
         payload.append("id",id);
-        this.dashboardService.getparameters(payload).subscribe((response: any) => {      
+        this.dashboardService.getparameters(payload).subscribe((response: any) => {
           this.spinner.hide();
           if (response && response.status === 200 && response.data) {
             const info = response.data;
             console.log('employee->', info);
             this.overViewForm= info;
-            
+
           }
           else {
             const info = response.data;
             console.log('employee ->', info);
+          }
+        }, error => {
+          this.spinner.hide();
+          failMessage('Something went wrong');
+          console.log(error);
+        });
+      }
+      getStates() {
+        this.spinner.show();
+        let payload = new FormData();
+        payload.append("type","States");
+        this.dashboardService.getType(payload).subscribe((response: any) => {
+          this.spinner.hide();
+          if (response && response.status === 200 && response.data) {
+            this.statesList = response.data;
+           this.dummyStatesList = response.data;
+
+          }
+          else {
+            const info = response.data;
+            console.log('states ->', info);
           }
         }, error => {
           this.spinner.hide();
@@ -97,7 +126,7 @@ export class ParametersComponent implements OnInit {
 
 
 
- 
+
       ngOnInit()
       {
         this.getParameter(this.overViewForm.id);

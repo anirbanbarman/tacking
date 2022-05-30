@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Routes, RouterModule } from '@angular/router';
 
-import { TyretypeComponent } from './tyretype.component';
+import { tyretypeComponent } from './tyretype.component';
 
 describe('tyretypeComponent', () => {
-  let component: TyretypeComponent;
-  let fixture: ComponentFixture<TyretypeComponent>;
+  let component: tyretypeComponent;
+  let fixture: ComponentFixture<tyretypeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TyretypeComponent ]
+      declarations: [ tyretypeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TyretypeComponent);
+    fixture = TestBed.createComponent(tyretypeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

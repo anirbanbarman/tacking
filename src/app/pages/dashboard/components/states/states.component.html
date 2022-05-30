@@ -3,7 +3,7 @@
     <div class="az-content-body az-content-body-profile">
       <div class="az-profile-body">
 
-        <label class="title">All States</label>
+        <label class="title">State Master</label>
       </div>
       <hr>
       <div class="row row-sm justify-content-center">
@@ -17,16 +17,22 @@
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
             <label class="form-label">State</label>
-            <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control" placeholder="Select">
+
+            <select class='select-option' [(ngModel)]="overViewForm.state" class="form-control">
+              <option class='option'>--Choose a State--</option>
               <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
             </select>
+
           </div>
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
           <div class="form-group">
             <label class="form-label">Abbr. State Name</label>
-            <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control"
-              placeholder="Abbr. State Name">
+            
+              <select class='select-option' name="abbr" [(ngModel)]="overViewForm.abbr" class="form-control">
+                <option class='option'>--Choose a State--</option>
+                <option class='option' *ngFor='let item of statesList' [value]="item.name">{{item.name}}</option>
+              </select>
           </div>
         </div>
         <div class="col-md-2 mg-t-20 mg-md-t-0">
@@ -83,7 +89,7 @@
           </div>
         </div>
         <div class="col-md-1">
-         
+
         </div>
       </div>
 
@@ -157,19 +163,18 @@
         <div class="p-3">
           <div class="example-header">
             <mat-form-field>
-              <input matInput (keyup)="applyFilter($event.target)" placeholder="Filter">
-              <mat-icon matPrefix>filter_alt</mat-icon>
+              <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+              <mat-icon matPrefix>
+              </mat-icon>
             </mat-form-field>
-        
+
               <div class="form-group d-flex">
-                <i (click)="exportAsXLSX()" class="ml-4  far fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
-                <i (click)="exportAsPDF()" class="ml-4  far fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
-    
+                <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i>
+                <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+
               </div>
-
-          
-           
-
           </div>
 
           <div class="example-container mat-elevation-z8">
@@ -205,9 +210,17 @@
                 <mat-header-cell *matHeaderCellDef mat-sort-header> GST STATE CODE </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.gststatecode}} </mat-cell>
               </ng-container>
+
               <ng-container matColumnDef="remarks">
                 <mat-header-cell *matHeaderCellDef mat-sort-header> REMARKS </mat-header-cell>
                 <mat-cell *matCellDef="let row"> {{row.remarks}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                <mat-cell *matCellDef="let row" >
+                  <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                </mat-cell>
               </ng-container>
 
 
@@ -216,7 +229,7 @@
               </mat-row>
             </mat-table>
 
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+            <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
           </div>
         </div>
 

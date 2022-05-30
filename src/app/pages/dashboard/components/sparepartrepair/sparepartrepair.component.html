@@ -1,0 +1,229 @@
+<div class="az-content az-content-profile">
+  <div class="mn-ht-100vx">
+    <div class="az-content-body az-content-body-profile">
+      <div class="az-profile-body">
+
+        <label class="title">Spare part Repair Master</label>
+      </div>
+      <hr>
+      <div class="row row-sm justify-content-center">
+        <div class="col-md-2">
+          <div class="form-group">
+            <label class="form-label">Code</label>
+            <input name="code" [(ngModel)]="overViewForm.code" type="text" class="form-control" placeholder="Code"
+              required />
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Part</label>
+            <input name="part" [(ngModel)]="overViewForm.part" type="text" class="form-control" placeholder="Part"
+              required />
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Abbr. State Name</label>
+            <input name="abbr" [(ngModel)]="overViewForm.abbr" type="text" class="form-control" placeholder="Abbr. State Name">
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">Preventive Code</label>
+            <input name="preventivecode" [(ngModel)]="overViewForm.preventivecode" type="text" class="form-control" placeholder="Preventive Code"
+              required />
+          </div>
+        </div>
+        <div class="col-md-2 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">group</label>
+            <input name="group" [(ngModel)]="overViewForm.group" type="text" class="form-control"
+              placeholder="group">
+          </div>
+        </div>
+        <div class="col-md-10 mg-t-20 mg-md-t-0">
+          <div class="form-group">
+            <label class="form-label">HSN</label>
+            <input name="hsn" [(ngModel)]="overViewForm.hsn" type="text" class="form-control"
+              placeholder="HSN">
+          </div>
+        </div>
+      </div>
+      <div class="row row-sm">
+        <div class="col-md-1">
+          <div class="form-group">
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="checkCode()">Save</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="update()">Update</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="delete()">Delete</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="next()">Next</button>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" (click)="previous()">Previous</button>
+          </div>
+        </div>
+        <div class="col-md-1">
+         
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="table-responsive" #datatable>
+        <!-- <table id="datatable1" class="mg-b-0 table" >
+              <thead>
+                <tr>
+                  <th class="wd-15p">Id</th>
+                  <th class="wd-15p">Code</th>
+                  <th class="wd-20p">State</th>
+                  <th class="wd-15p">Abbr. State Name</th>
+                  <th class="wd-15p">Zone</th>
+                  <th class="wd-10p">State Code Used for GST</th>
+                  <th class="wd-25p">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of dummy;">
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                    <td>
+                        <ngx-skeleton-loader count="1"
+                            [theme]="{ 'border-radius': '5px', height: '10px', border: '1px solid white' }">
+                        </ngx-skeleton-loader>
+                    </td>
+                </tr>
+                <tr
+                    *ngFor="let item of dataList | paginate: {id:'pagin1', itemsPerPage: 10, currentPage: page };let i = index;">
+                    <td> {{item.id}}</td>
+                    <td> {{item.code}}</td>
+                    <td> {{item.state}}</td>
+                    <td> {{item.abbr}}</td>
+                    <td> {{item.zone}}</td>
+                    <td> {{item.gststatecode}}</td>
+                    <td><button type="button" (click)="openItem(item)" class="btn btn-primary btn-block">Details</button>
+                    </td>
+                </tr>
+            </tbody>
+          </table> -->
+
+        <div class="p-3">
+          <div class="example-header">
+            <mat-form-field>
+              <input matInput (keyup)="applyFilter($event.target)" placeholder="Search Here">
+              <mat-icon matPrefix>
+              </mat-icon>
+            </mat-form-field>
+        
+              <div class="form-group d-flex">
+                <i (click)="exportAsXLSX()" class="ml-4  fa-solid fa-file-excel" style="font-size:28px;color:rgb(3, 66, 24)"></i>
+                <i (click)="exportAsPDF()" class="ml-4  fa-solid fa-file-pdf" style="font-size:28px;color:rgb(145, 34, 17)"></i> 
+                <!--<button class="btn btn-primary btn-block" (click)="exportAsXLSX()">Excel</button>
+                <button class="btn btn-primary btn-block" (click)="exportAsPDF()">PDF</button>-->
+    
+              </div>
+          </div>
+
+          <div class="example-container mat-elevation-z8">
+
+            <mat-table [dataSource]="dataSource" matSort>
+
+              <!-- ID Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="code">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> CODE </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.code}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="part">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Part </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.part}} </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="preventivecode">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Preventive Code </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.preventivecode}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="group">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Group </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.group}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="hsn">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> HSN </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.hsn}} </mat-cell>
+              </ng-container>
+			  
+              <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ACTION </mat-header-cell>
+                <mat-cell *matCellDef="let row" >
+                  <button type="button" (click)="openItem(row)" class="btn btn-primary btn-block">Details</button>
+                </mat-cell>
+              </ng-container>
+
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;">
+              </mat-row>
+            </mat-table>
+
+            <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+          </div>
+        </div>
+
+
+
+
+
+      </div><!-- az-profile-body -->
+    </div><!-- az-content-body -->
+  </div><!-- container -->
+</div><!-- az-content -->

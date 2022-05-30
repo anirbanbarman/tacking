@@ -98,14 +98,21 @@ import { vehiclesaleComponent } from './components/vehiclesale/vehiclesale.compo
 import { vehicleinitialexpensesComponent } from "./components/vehicleinitialexpenses/vehicleinitialexpenses.component";
 import { vehiclepermitComponent } from "./components/vehiclepermit/vehiclepermit.component";
 
+
 import { branchComponent } from './components/branch/branch.component';
 import { vehiclebodyComponent } from './components/vehiclebody/vehiclebody.component';
 import { vehiclertoseizeComponent } from './components/vehiclertoseize/vehiclertoseize.component';
+import { sparepartgroupComponent } from './components/sparepartgroup/sparepartgroup.component';
+import { sparepartrepairComponent } from './components/sparepartrepair/sparepartrepair.component';
+
+
+
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { MatTableComponent } from './components/mat-table/mat-table.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { VehicleModalComponent } from './components/modal/vehiclemodalcomponent';
 
 
 @NgModule({
@@ -198,8 +205,12 @@ import {MatIconModule} from '@angular/material/icon';
     branchComponent,
     vehiclebodyComponent,
     vehiclertoseizeComponent,
-
+    sparepartgroupComponent,
+    sparepartrepairComponent,
     MatTableComponent,
+    stationComponent,
+    branchComponent,
+    VehicleModalComponent
     
 
 
